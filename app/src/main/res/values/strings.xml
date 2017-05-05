@@ -10,4 +10,7 @@
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
     <string name="tab_me">我</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

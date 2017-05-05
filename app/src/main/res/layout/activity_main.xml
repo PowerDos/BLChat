@@ -2,11 +2,44 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tabitem="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="BLChat"
+            android:textSize="50px"
+            android:layout_weight="3"
+            android:layout_gravity="center_vertical"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/actionbar_search_icon"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/actionbar_add_icon"
+            />
+
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
@@ -21,33 +54,49 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
+        android:background="@drawable/tag_bg"
         >
 
-        <Button
+        <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="5dp"
             android:layout_weight="1"
-            android:text="btnOne"
+            tabitem:color="#FF45C01A"
+            tabitem:text="@string/tab_chat"
+            tabitem:text_size="12sp"
+            tabitem:icon="@drawable/ic_menu_start_conversation"
             />
-        <Button
+        <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="5dp"
             android:layout_weight="1"
-            android:text="btnTwo"
+            tabitem:color="#FF45C01A"
+            tabitem:text="@string/tab_chat"
+            tabitem:text_size="12sp"
+            tabitem:icon="@drawable/ic_menu_friendslist"
             />
-        <Button
+        <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="5dp"
             android:layout_weight="1"
-            android:text="btnThree"
+            tabitem:color="#FF45C01A"
+            tabitem:text="@string/tab_chat"
+            tabitem:text_size="12sp"
+            tabitem:icon="@drawable/ic_menu_emoticons"
             />
-        <Button
+        <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:padding="5dp"
             android:layout_weight="1"
-            android:text="btnFour"
+            tabitem:color="#FF45C01A"
+            tabitem:text="@string/tab_chat"
+            tabitem:text_size="12sp"
+            tabitem:icon="@drawable/ic_menu_allfriends"
             />
-
 
     </LinearLayout>
 
