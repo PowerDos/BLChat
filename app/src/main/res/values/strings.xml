@@ -2,10 +2,10 @@
     <string name="app_name">BLChat</string>
     <string name="action_search">查找</string>
     <string name="action_add">添加</string>
-    <string name="action_group_chat">发起群聊</string>
-    <string name="action_add_friend">添加朋友</string>
-    <string name="action_scan">扫一扫</string>
-    <string name="action_feedback">帮助与反馈</string>
+    <string name="menu_group_chat">发起群聊</string>
+    <string name="menu_add_friend">添加朋友</string>
+    <string name="menu_scan">扫一扫</string>
+    <string name="menu_feedback">帮助与反馈</string>
     <string name="tab_chat">微信</string>
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
