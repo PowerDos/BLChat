@@ -6,4 +6,4 @@
 Android 4.1.2
 
 ## 测试环境
-小米2S
+小米2S、vivo x5pro
