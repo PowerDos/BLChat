@@ -66,6 +66,7 @@
             tabitem:text="@string/tab_chat"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_start_conversation"
+            android:id="@+id/indicator_chat"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
@@ -73,9 +74,10 @@
             android:padding="5dp"
             android:layout_weight="1"
             tabitem:color="#FF45C01A"
-            tabitem:text="@string/tab_chat"
+            tabitem:text="@string/tab_contact"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_friendslist"
+            android:id="@+id/indicator_contact"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
@@ -83,9 +85,10 @@
             android:padding="5dp"
             android:layout_weight="1"
             tabitem:color="#FF45C01A"
-            tabitem:text="@string/tab_chat"
+            tabitem:text="@string/tab_found"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_emoticons"
+            android:id="@+id/indicator_found"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
             android:layout_width="0dp"
@@ -93,9 +96,10 @@
             android:padding="5dp"
             android:layout_weight="1"
             tabitem:color="#FF45C01A"
-            tabitem:text="@string/tab_chat"
+            tabitem:text="@string/tab_me"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_allfriends"
+            android:id="@+id/indicator_me"
             />
 
     </LinearLayout>

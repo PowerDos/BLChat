@@ -164,12 +164,12 @@
         "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/drawable/actionbar_add_icon.png"
     },
     {
-        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/drawable/menu_feedback_icon.png",
-        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/drawable/menu_feedback_icon.png"
-    },
-    {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
         "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/drawable/menu_feedback_icon.png",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/drawable/menu_feedback_icon.png"
     },
     {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/drawable/ic_menu_allfriends.png",
