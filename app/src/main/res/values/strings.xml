@@ -6,7 +6,7 @@
     <string name="menu_add_friend">添加朋友</string>
     <string name="menu_scan">扫一扫</string>
     <string name="menu_feedback">帮助与反馈</string>
-    <string name="tab_chat">微信</string>
+    <string name="tab_chat">消息</string>
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
     <string name="tab_me">我</string>

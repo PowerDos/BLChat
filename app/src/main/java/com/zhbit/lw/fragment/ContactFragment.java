@@ -1,4 +1,4 @@
-package com.zhbit.lw.blchat;
+package com.zhbit.lw.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,16 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.zhbit.lw.blchat.R;
+
 /**
  * Created by wjh on 17-5-6.
  */
 
-public class MeFragment extends Fragment{
+public class ContactFragment extends Fragment{
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.me_layout, container, false);
+        View view = inflater.inflate(R.layout.contact_layout, container, false);
         return view;
     }
 

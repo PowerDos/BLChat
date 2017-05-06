@@ -364,7 +364,7 @@
     <string name="menu_scan">扫一扫</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <string name="tab_chat">微信</string>
+    <string name="tab_chat">消息</string>
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
     <string name="tab_me">我</string>
