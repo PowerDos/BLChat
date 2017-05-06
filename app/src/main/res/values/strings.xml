@@ -6,10 +6,25 @@
     <string name="menu_add_friend">添加朋友</string>
     <string name="menu_scan">扫一扫</string>
     <string name="menu_feedback">帮助与反馈</string>
+
+
+    <!--导航栏开始-->
     <string name="tab_chat">消息</string>
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
     <string name="tab_me">我</string>
+    <!--导航栏结束-->
+
+
+
+    <!--个人主页开始-->
+    <string name="user_name">Gavin 林智杰</string>
+    <string name="user_id">账号:10086</string>
+    <string name="txt_info">个人信息</string>
+    <string name="txt_set">设置</string>
+    <string name="img_info_edit"> 修改个人信息 </string>
+    <string name="img_info_set">设置系统信息</string>
+    <!--个人主页结束-->
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
