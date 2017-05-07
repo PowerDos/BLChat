@@ -359,6 +359,8 @@
     <string name="app_name">BLChat</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="img_info_edit"> 修改个人信息 </string>
+    <string name="img_info_loading"> loading</string>
+    <string name="img_info_logo"> logo </string>
     <string name="img_info_set">设置系统信息</string>
     <string name="menu_add_friend">添加朋友</string>
     <string name="menu_feedback">帮助与反馈</string>
@@ -374,6 +376,7 @@
     <string name="txt_set">设置</string>
     <string name="user_id">账号:10086</string>
     <string name="user_name">Gavin 林智杰</string>
+    <string name="wel_appName">BLChat</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

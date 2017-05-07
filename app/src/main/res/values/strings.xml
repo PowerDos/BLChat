@@ -15,7 +15,11 @@
     <string name="tab_me">我</string>
     <!--导航栏结束-->
 
-
+    <!--欢迎页面开始-->
+    <string name="wel_appName">BLChat</string>
+    <string name="img_info_logo"> logo </string>
+    <string name="img_info_loading"> loading</string>
+    <!--欢迎页面结束-->
 
     <!--个人主页开始-->
     <string name="user_name">Gavin 林智杰</string>

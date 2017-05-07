@@ -116,6 +116,10 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\welcome_icon.png",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\welcome_icon.png"
+    },
+    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tag_bg.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\tag_bg.xml"
     },
@@ -198,6 +202,10 @@
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading.png",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\loading.png"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_menu_allfriends.png",
