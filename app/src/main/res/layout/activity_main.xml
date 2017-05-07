@@ -11,8 +11,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="#373B3E"
+        android:layout_height="48dp"
+        android:background="#2095F2"
         android:orientation="horizontal"
         >
 
@@ -69,7 +69,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#FF45C01A"
+            tabitem:color="#2095F2"
             tabitem:text="@string/tab_chat"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_start_conversation"
@@ -80,7 +80,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#FF45C01A"
+            tabitem:color="#2095F2"
             tabitem:text="@string/tab_contact"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_friendslist"
@@ -91,7 +91,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#FF45C01A"
+            tabitem:color="#2095F2"
             tabitem:text="@string/tab_found"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_emoticons"
@@ -102,7 +102,7 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#FF45C01A"
+            tabitem:color="#2095F2"
             tabitem:text="@string/tab_me"
             tabitem:text_size="12sp"
             tabitem:icon="@drawable/ic_menu_allfriends"
