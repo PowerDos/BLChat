@@ -1,6 +1,6 @@
 # BLChat
 ## 简介  
-聊天APP
+BLChat即时通讯APP
 
 ## SDK版本
 Android 4.0.3

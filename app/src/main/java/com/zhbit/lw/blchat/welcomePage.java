@@ -29,7 +29,7 @@ public class welcomePage extends Activity {
         wel_page = (RelativeLayout) findViewById(R.id.activity_welcome_page);
         //显示动画
         showAnimation();
-
+        
         //使用handler的postDelayed实现延时跳转
         handler.postDelayed(new Runnable() {
             public void run() {
