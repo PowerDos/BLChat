@@ -3,4 +3,14 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!--公共颜色开始-->
+    <color name="backgroundPrimary">#EBEBEB</color>
+    <color name="textBlack">#2c2c2c</color>
+    <!--公共颜色结束-->
+
+    <!--个人页面开始-->
+    <color name="itemBackground">#fff</color>
+    <color name="textItemColor">#bfbfbf</color>
+    <!--个人页面结束-->
 </resources>

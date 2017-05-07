@@ -160,6 +160,10 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\head.jpg",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable-hdpi\\head.jpg"
+    },
+    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },

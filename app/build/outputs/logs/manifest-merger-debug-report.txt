@@ -31,7 +31,7 @@ MERGED from [com.android.support:support-compat:25.3.0] D:\Android\workspace\Fun
 	android:allowBackup
 		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:6:9-35
 	android:icon
-		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:7:9-43
+		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:7:9-42
 	android:theme
 		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:10:9-40
 activity#com.zhbit.lw.blchat.MainActivity

@@ -30,6 +30,9 @@
     <string name="img_info_set">设置系统信息</string>
     <!--个人主页结束-->
 
+    <!--发现页面开始-->
+    <string name="txt_moment">Moment</string>
+    <!--发现页面结束-->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
