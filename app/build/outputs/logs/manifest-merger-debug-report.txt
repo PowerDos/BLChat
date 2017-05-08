@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:2:1-24:12
 	package
 		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:
 		INJECTED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:5:5-26:19
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:5:5-22:19
 MERGED from [com.android.support:appcompat-v7:25.3.0] D:\Android\workspace\FunChat\BLChat\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.0\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] D:\Android\workspace\FunChat\BLChat\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.0\AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.0] D:\Android\workspace\FunChat\BLChat\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.0\AndroidManifest.xml:26:5-20
@@ -35,25 +35,25 @@ MERGED from [com.android.support:support-compat:25.3.0] D:\Android\workspace\Fun
 	android:theme
 		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:10:9-40
 activity#com.zhbit.lw.blchat.MainActivity
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:11:9-17:20
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:11:9-13:20
 	android:name
 		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:11:19-47
 activity#com.zhbit.lw.blchat.welcomePage
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:18:9-25:20
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:14:9-21:20
 	android:theme
-		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:19:13-71
+		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:15:13-71
 	android:name
-		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:18:19-46
+		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:14:19-46
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:20:13-24:29
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:21:17-69
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:21:25-66
+		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:23:17-77
+ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:23:27-74
+		ADDED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml:19:27-74
 uses-sdk
 INJECTED from D:\Android\workspace\FunChat\BLChat\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.3.0] D:\Android\workspace\FunChat\BLChat\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.0\AndroidManifest.xml:21:5-23:78
