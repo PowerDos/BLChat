@@ -1,52 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:tabitem="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#2095F2"
-        android:orientation="horizontal"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="?attr/colorPrimary"
         >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Chat"
-            android:textSize="50px"
-            android:textColor="#fff"
-            android:layout_weight="3"
-            android:layout_gravity="center_vertical"
-            />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/actionbar_search_icon"
-            />
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/actionbar_add_icon"
-            />
-
-    </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
@@ -69,10 +37,10 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#2095F2"
-            tabitem:text="@string/tab_chat"
-            tabitem:text_size="12sp"
-            tabitem:icon="@drawable/ic_menu_start_conversation"
+            app:color="#2095F2"
+            app:text="@string/tab_chat"
+            app:text_size="12sp"
+            app:icon="@drawable/ic_menu_start_conversation"
             android:id="@+id/indicator_chat"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
@@ -80,10 +48,10 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#2095F2"
-            tabitem:text="@string/tab_contact"
-            tabitem:text_size="12sp"
-            tabitem:icon="@drawable/ic_menu_friendslist"
+            app:color="#2095F2"
+            app:text="@string/tab_contact"
+            app:text_size="12sp"
+            app:icon="@drawable/ic_menu_friendslist"
             android:id="@+id/indicator_contact"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
@@ -91,10 +59,10 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#2095F2"
-            tabitem:text="@string/tab_found"
-            tabitem:text_size="12sp"
-            tabitem:icon="@drawable/ic_menu_emoticons"
+            app:color="#2095F2"
+            app:text="@string/tab_found"
+            app:text_size="12sp"
+            app:icon="@drawable/ic_menu_emoticons"
             android:id="@+id/indicator_found"
             />
         <com.zhbit.lw.blchat.ChangeColorIconWithText
@@ -102,10 +70,10 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             android:layout_weight="1"
-            tabitem:color="#2095F2"
-            tabitem:text="@string/tab_me"
-            tabitem:text_size="12sp"
-            tabitem:icon="@drawable/ic_menu_allfriends"
+            app:color="#2095F2"
+            app:text="@string/tab_me"
+            app:text_size="12sp"
+            app:icon="@drawable/ic_menu_allfriends"
             android:id="@+id/indicator_me"
             />
 

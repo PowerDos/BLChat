@@ -1,6 +1,10 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi\\ic_launcher.png",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/mipmap-mdpi/ic_launcher.png",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/mipmap-mdpi/ic_launcher.png"
     }
 ]
