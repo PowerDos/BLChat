@@ -1,12 +1,18 @@
 package com.zhbit.lw.blchat;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.ActionMenuItemView;
+import android.support.v7.widget.PopupMenu;
+import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.zhbit.lw.fragment.ChatFragment;
 import com.zhbit.lw.fragment.ContactFragment;
@@ -16,7 +22,7 @@ import com.zhbit.lw.fragment.MeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener, View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener{
 
     // 定义组件
     private ViewPager viewPager;
@@ -26,6 +32,9 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private MeFragment meFragment;
     private List<Fragment> fragmentList;    //　用于存放fragment的列表
     private FragmentPagerAdapter fragmentPagerAdapter;  //fragment页面的适配器
+
+    // 顶部Toolbar
+    private Toolbar toolbar;
 
     // 界面底部四个Tab
     private ChangeColorIconWithText chatTabIndicator, contactTabIndicator, foundTabIndicator, meTabIndicator;
@@ -44,13 +53,6 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
 
     }
 
-    // actionbar的菜单按钮
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
     // 初始化组件试图
     private void initView() {
         // 实例化组件视图
@@ -59,6 +61,13 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         contactFragment = new ContactFragment();
         foundFragment = new FoundFragment();
         meFragment = new MeFragment();
+
+        // 实例化顶部ToolBar
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("BLChat");     //　设置Toolbar的标题
+        toolbar.setTitleTextColor(Color.WHITE);     // 设置Toolbar的标题字体颜色
+        toolbar.inflateMenu(R.menu.toolbar_menu);
+
         // 实例化底部四个Tab
         chatTabIndicator = (ChangeColorIconWithText) findViewById(R.id.indicator_chat);
         contactTabIndicator = (ChangeColorIconWithText) findViewById(R.id.indicator_contact);
@@ -102,6 +111,50 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private void initEvent() {
         // viewpager的页面变化监听事件
         viewPager.addOnPageChangeListener(this);
+
+        // 顶部Toolbar的菜单监听事件
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.toolbar_search:       //　Toolbar查找按钮点击事件
+                        Toast.makeText(MainActivity.this, "Search", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.toolbar_add:      //Toolbar的Overflow按钮的点击时间
+                        // 先获取Overflow的View对象
+                        ActionMenuItemView overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);
+
+                        // 将PopupMenu绑定在Overflow对象上
+                        PopupMenu popupMenu = new PopupMenu(MainActivity.this, overflowBtn);
+                        // 设置PopupMenu的弹出菜单视图
+                        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_item, popupMenu.getMenu());
+                        //　绑定Menu的点击事件
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.menu_add_friend:
+                                        Toast.makeText(MainActivity.this, "Add friend", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_group_chat:
+                                        Toast.makeText(MainActivity.this, "Group chat", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_scan:
+                                        Toast.makeText(MainActivity.this, "Scan", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_feedback:
+                                        Toast.makeText(MainActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return true;
+                            }
+                        });
+                        popupMenu.show();
+                        break;
+                }
+                return true;
+            }
+        });
 
         // 底部Tab的监听事件
         chatTabIndicator.setOnClickListener(this);

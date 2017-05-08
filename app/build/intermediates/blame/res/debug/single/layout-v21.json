@@ -1,18 +1,34 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_template_custom_big.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/res/layout-v21/notification_action.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_action.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/res/layout-v21/notification_template_custom_big.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_action_tombstone.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_template_icon_group.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/res/layout-v21/notification_action_tombstone.xml"
     }
 ]
