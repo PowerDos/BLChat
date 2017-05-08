@@ -1,16 +1,15 @@
 package com.zhbit.lw.blchat;
 
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.menu.ActionMenuItemView;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -53,13 +52,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         initEvent();   // 初始化事件
 
     }
-
-    // actionbar的菜单按钮
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
 
     // 初始化组件试图
     private void initView() {
@@ -121,26 +113,48 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         viewPager.addOnPageChangeListener(this);
 
         // 顶部Toolbar的菜单监听事件
-//        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                switch (item.getItemId()){
-//                    case  R.id.menu_group_chat:
-//                        Toast.makeText(MainActivity.this, "Group Chat", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case  R.id.menu_add_friend:
-//                        Toast.makeText(MainActivity.this, "Add Friend", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case  R.id.menu_scan:
-//                        Toast.makeText(MainActivity.this, "Scan", Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case  R.id.menu_feedback:
-//                        Toast.makeText(MainActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.toolbar_search:       //　Toolbar查找按钮点击事件
+                        Toast.makeText(MainActivity.this, "Search", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.toolbar_add:      //Toolbar的Overflow按钮的点击时间
+                        // 先获取Overflow的View对象
+                        ActionMenuItemView overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);
+
+                        // 将PopupMenu绑定在Overflow对象上
+                        PopupMenu popupMenu = new PopupMenu(MainActivity.this, overflowBtn);
+                        // 设置PopupMenu的弹出菜单视图
+                        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_item, popupMenu.getMenu());
+                        //　绑定Menu的点击事件
+                        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem item) {
+                                switch (item.getItemId()){
+                                    case R.id.menu_add_friend:
+                                        Toast.makeText(MainActivity.this, "Add friend", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_group_chat:
+                                        Toast.makeText(MainActivity.this, "Group chat", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_scan:
+                                        Toast.makeText(MainActivity.this, "Scan", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case R.id.menu_feedback:
+                                        Toast.makeText(MainActivity.this, "Feedback", Toast.LENGTH_SHORT).show();
+                                        break;
+                                }
+                                return true;
+                            }
+                        });
+                        popupMenu.show();
+                        break;
+                }
+                return true;
+            }
+        });
 
         // 底部Tab的监听事件
         chatTabIndicator.setOnClickListener(this);

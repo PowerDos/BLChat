@@ -1856,36 +1856,36 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020050;
         public static final int abc_textfield_search_material=0x7f020051;
         public static final int abc_vector_test=0x7f020052;
-        public static final int actionbar_add_icon=0x7f020053;
-        public static final int actionbar_search_icon=0x7f020054;
-        public static final int app_icon=0x7f020055;
-        public static final int edit_person_info=0x7f020056;
-        public static final int head=0x7f020057;
-        public static final int ic_menu_allfriends=0x7f020058;
-        public static final int ic_menu_emoticons=0x7f020059;
-        public static final int ic_menu_friendslist=0x7f02005a;
-        public static final int ic_menu_start_conversation=0x7f02005b;
-        public static final int loading=0x7f02005c;
-        public static final int menu_add_icon=0x7f02005d;
-        public static final int menu_feedback_icon=0x7f02005e;
-        public static final int menu_group_chat_icon=0x7f02005f;
-        public static final int menu_scan_icon=0x7f020060;
-        public static final int moment_icon=0x7f020061;
-        public static final int next=0x7f020062;
-        public static final int notification_action_background=0x7f020063;
-        public static final int notification_bg=0x7f020064;
-        public static final int notification_bg_low=0x7f020065;
-        public static final int notification_bg_low_normal=0x7f020066;
-        public static final int notification_bg_low_pressed=0x7f020067;
-        public static final int notification_bg_normal=0x7f020068;
-        public static final int notification_bg_normal_pressed=0x7f020069;
-        public static final int notification_icon_background=0x7f02006a;
+        public static final int app_icon=0x7f020053;
+        public static final int edit_person_info=0x7f020054;
+        public static final int head=0x7f020055;
+        public static final int ic_menu_allfriends=0x7f020056;
+        public static final int ic_menu_emoticons=0x7f020057;
+        public static final int ic_menu_friendslist=0x7f020058;
+        public static final int ic_menu_start_conversation=0x7f020059;
+        public static final int loading=0x7f02005a;
+        public static final int menu_add_icon=0x7f02005b;
+        public static final int menu_feedback_icon=0x7f02005c;
+        public static final int menu_group_chat_icon=0x7f02005d;
+        public static final int menu_scan_icon=0x7f02005e;
+        public static final int moment_icon=0x7f02005f;
+        public static final int next=0x7f020060;
+        public static final int notification_action_background=0x7f020061;
+        public static final int notification_bg=0x7f020062;
+        public static final int notification_bg_low=0x7f020063;
+        public static final int notification_bg_low_normal=0x7f020064;
+        public static final int notification_bg_low_pressed=0x7f020065;
+        public static final int notification_bg_normal=0x7f020066;
+        public static final int notification_bg_normal_pressed=0x7f020067;
+        public static final int notification_icon_background=0x7f020068;
         public static final int notification_template_icon_bg=0x7f020070;
         public static final int notification_template_icon_low_bg=0x7f020071;
-        public static final int notification_tile_bg=0x7f02006b;
-        public static final int notify_panel_notification_icon_bg=0x7f02006c;
-        public static final int set_system_info=0x7f02006d;
-        public static final int tag_bg=0x7f02006e;
+        public static final int notification_tile_bg=0x7f020069;
+        public static final int notify_panel_notification_icon_bg=0x7f02006a;
+        public static final int set_system_info=0x7f02006b;
+        public static final int tag_bg=0x7f02006c;
+        public static final int toolbar_add_icon=0x7f02006d;
+        public static final int toolbar_search_icon=0x7f02006e;
         public static final int welcome_icon=0x7f02006f;
     }
     public static final class id {
@@ -1952,6 +1952,10 @@ containing a value of this type.
         public static final int list_item=0x7f0c002b;
         public static final int logo=0x7f0c005e;
         public static final int media_actions=0x7f0c006a;
+        public static final int menu_add_friend=0x7f0c007c;
+        public static final int menu_feedback=0x7f0c007e;
+        public static final int menu_group_chat=0x7f0c007b;
+        public static final int menu_scan=0x7f0c007d;
         public static final int middle=0x7f0c001c;
         public static final int multiply=0x7f0c0014;
         public static final int never=0x7f0c0020;
@@ -2003,8 +2007,8 @@ containing a value of this type.
         public static final int titleDividerNoCustom=0x7f0c003c;
         public static final int title_template=0x7f0c003a;
         public static final int toolbar=0x7f0c0057;
-        public static final int toolbar_add=0x7f0c007c;
-        public static final int toolbar_search=0x7f0c007b;
+        public static final int toolbar_add=0x7f0c0080;
+        public static final int toolbar_search=0x7f0c007f;
         public static final int top=0x7f0c0023;
         public static final int topPanel=0x7f0c0039;
         public static final int txtUserId=0x7f0c0062;
@@ -2076,7 +2080,8 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f040033;
     }
     public static final class menu {
-        public static final int toolbar_menu=0x7f0e0000;
+        public static final int popup_menu_item=0x7f0e0000;
+        public static final int toolbar_menu=0x7f0e0001;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

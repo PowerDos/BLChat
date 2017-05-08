@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/toolbar_search"
-        android:icon="@drawable/actionbar_search_icon"
+        android:icon="@drawable/toolbar_search_icon"
         app:showAsAction="ifRoom"
         android:title="@string/action_search"
         />
     <item
         android:id="@+id/toolbar_add"
-        android:icon="@drawable/actionbar_add_icon"
+        android:icon="@drawable/toolbar_add_icon"
         app:showAsAction="ifRoom"
         android:title="@string/action_add"
         />
@@ -18,25 +18,25 @@
     <!--<item-->
         <!--android:id="@+id/menu_group_chat"-->
         <!--android:title="@string/menu_group_chat"-->
-        <!--android:icon="@drawable/actionbar_search_icon"-->
+        <!--android:icon="@drawable/toolbar_search_icon"-->
         <!--app:showAsAction="never"-->
         <!--/>-->
     <!--<item-->
         <!--android:id="@+id/menu_add_friend"-->
         <!--android:title="@string/menu_add_friend"-->
-        <!--android:icon="@drawable/actionbar_search_icon"-->
+        <!--android:icon="@drawable/toolbar_search_icon"-->
         <!--app:showAsAction="never"-->
         <!--/>-->
     <!--<item-->
         <!--android:id="@+id/menu_scan"-->
         <!--android:title="@string/menu_scan"-->
-        <!--android:icon="@drawable/actionbar_search_icon"-->
+        <!--android:icon="@drawable/toolbar_search_icon"-->
         <!--app:showAsAction="never"-->
         <!--/>-->
     <!--<item-->
         <!--android:id="@+id/menu_feedback"-->
         <!--android:title="@string/menu_feedback"-->
-        <!--android:icon="@drawable/actionbar_search_icon"-->
+        <!--android:icon="@drawable/toolbar_search_icon"-->
         <!--app:showAsAction="never"-->
         <!--/>-->
 
