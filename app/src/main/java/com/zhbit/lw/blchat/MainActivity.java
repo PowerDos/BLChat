@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.zhbit.lw.fragment.ChatFragment;
 import com.zhbit.lw.fragment.ContactFragment;
@@ -26,6 +27,7 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
     private MeFragment meFragment;
     private List<Fragment> fragmentList;    //　用于存放fragment的列表
     private FragmentPagerAdapter fragmentPagerAdapter;  //fragment页面的适配器
+//    protected LinearLayout enterMoment; //朋友圈入口
 
     // 界面底部四个Tab
     private ChangeColorIconWithText chatTabIndicator, contactTabIndicator, foundTabIndicator, meTabIndicator;
@@ -70,6 +72,10 @@ public class MainActivity extends FragmentActivity implements ViewPager.OnPageCh
         mTabIndicators.add(meTabIndicator);
 
         chatTabIndicator.setIconAlpha(1.0f);     // 默认第一个有颜色
+
+
+        //朋友圈入口
+//        enterMoment = (LinearLayout) findViewById(R.id.enterMoment);
 
     }
 

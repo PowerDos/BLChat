@@ -33,6 +33,13 @@
     <!--发现页面开始-->
     <string name="txt_moment">Moment</string>
     <!--发现页面结束-->
+
+    <!--朋友圈开始-->
+    <string name="txt_friend_moment">天下只有两种人。比如一串葡萄到手，一种人挑最好的先吃，另一种人把最好的留到最后吃。照例第一种人应该乐观，因为他每吃一颗都是吃剩的葡萄里最好的；第二种人应该悲观，
+        因为他每吃一颗都是吃剩的葡萄里最坏的。不过事实却适得其反，缘故是第二种人还有希望，第一种人只有回忆。</string>
+    <string name="moment_time">6分钟前</string>
+    <!--朋友圈结束-->
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

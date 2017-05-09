@@ -13,11 +13,12 @@ import com.zhbit.lw.blchat.R;
  * Created by wjh on 17-5-6.
  */
 
-public class ContactFragment extends Fragment{
+public class ContactFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Nullable
@@ -27,4 +28,8 @@ public class ContactFragment extends Fragment{
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
