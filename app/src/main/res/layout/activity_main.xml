@@ -73,7 +73,7 @@
             app:color="#2095F2"
             app:text="@string/tab_me"
             app:text_size="12sp"
-            app:icon="@drawable/ic_menu_allfriends"
+            app:icon="@drawable/ic_menu_me"
             android:id="@+id/indicator_me"
             />
 

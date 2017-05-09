@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:textSize="32sp"
-        android:text="Chat"
-        />
+        android:id="@+id/chatListView"
+        >
+
+    </ListView>
 
 </LinearLayout>
