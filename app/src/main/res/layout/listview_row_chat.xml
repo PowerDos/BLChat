@@ -2,31 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#EEEEEE"
+    android:background="@color/itemBackground"
     >
 
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        android:id="@+id/userHead"
+        android:id="@+id/lvRow_userHead"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_toRightOf="@+id/userHead"
+        android:layout_toRightOf="@+id/lvRow_userHead"
         android:layout_marginLeft="5dp"
         android:paddingTop="4dp"
-        android:id="@+id/userName_lastChatTime"
+        android:id="@+id/lvRow_userName_lastChatTime"
         >
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:id="@+id/userName"
+            android:id="@+id/lvRow_userName"
             android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:textColor="@color/textBlack"
@@ -38,8 +38,8 @@
             android:layout_weight="1"
             android:textAlignment="center"
             android:layout_marginBottom="4dp"
-            android:id="@+id/lastChatTime"
-            android:textColor="#B0B0B0"
+            android:id="@+id/lvRow_lastChatTime"
+            android:textColor="@color/textGray"
             />
 
 
@@ -49,10 +49,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/userName_lastChatTime"
-        android:layout_toRightOf="@+id/userHead"
+        android:layout_below="@+id/lvRow_userName_lastChatTime"
+        android:layout_toRightOf="@+id/lvRow_userHead"
         android:layout_marginLeft="5dp"
-        android:id="@+id/lastChatContent_expand"
+        android:id="@+id/lvRow_lastChatContent_expand"
         >
 
         <TextView
@@ -61,13 +61,14 @@
             android:layout_weight="4"
             android:maxLines="1"
             android:ellipsize="end"
-            android:id="@+id/lastChatContent"
+            android:id="@+id/lvRow_lastChatContent"
             />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:id="@+id/lvRow_expand"
             />
 
     </LinearLayout>

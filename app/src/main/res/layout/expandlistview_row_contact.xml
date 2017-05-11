@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:src="@drawable/head"
+        android:background="@color/itemBackground"
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="3"
+        android:textSize="18sp"
+        android:textColor="@color/textBlack"
+        android:id="@+id/expandLvRow_contact_name"
+        android:gravity="center_vertical"
+        android:background="@color/itemBackground"
+        />
+
+</LinearLayout>

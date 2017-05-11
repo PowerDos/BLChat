@@ -1,7 +1,6 @@
 package com.zhbit.lw.fragment;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -44,6 +43,14 @@ public class ChatFragment extends Fragment{
     public static final String EXPAND_RELATION = "expandRelation";
 
     @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        if (view == null) {
+            view = inflater.inflate(R.layout.fragment_chat, container, false);
+        }
+        return view;
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -53,19 +60,13 @@ public class ChatFragment extends Fragment{
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_chat, container, false);
-        return view;
-    }
-
     // 初始化试图
     private void initView() {
         chatListView = (ListView) view.findViewById(R.id.chatListView);
 
     // 用于适配器将视图和数据一一对应
         titleList = new String[]{HEAD, USER_NAME, LAST_CHAT_TIME, LAST_CHAT_CONTENT};
-        idList = new int[]{R.id.userHead, R.id.userName, R.id.lastChatTime, R.id.lastChatContent};
+        idList = new int[]{R.id.lvRow_userHead, R.id.lvRow_userName, R.id.lvRow_lastChatTime, R.id.lvRow_lastChatContent};
     }
 
     // 初始化试图
