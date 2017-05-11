@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_user_infor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backgroundPrimary"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar"
+        >
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/itemBackground"
+        >
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/head"
+            android:id="@+id/userinfor_userHead"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/userinfor_userHead"
+            android:text="一本正经、"
+            android:textColor="@color/textBlack"
+            android:textSize="20sp"
+            android:id="@+id/userinfor_userName"
+            />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/userinfor_userSex"
+            android:layout_toRightOf="@+id/userinfor_userName"
+            android:layout_alignBottom="@+id/userinfor_userName"
+            android:src="@drawable/ic_menu_me"
+            />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/userinfor_userName"
+            android:layout_marginRight="10dp"
+            android:id="@+id/userinfor_relation"
+            android:src="@drawable/ic_menu_emoticons"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/userinfor_userName"
+            android:layout_alignLeft="@+id/userinfor_userName"
+            android:layout_marginTop="5dp"
+            android:text="微信号: XR_HUI"
+            android:id="@+id/userinfor_userAccount"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:text="设置备注和关系"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:background="@color/itemBackground"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:layout_gravity="center_vertical"
+        android:text="地区"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:background="@color/itemBackground"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="@color/itemBackground"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:paddingLeft="15dp"
+            android:text="个人相册"
+            android:textColor="@color/textBlack"
+            android:textSize="18sp"
+            android:gravity="center_vertical"
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="7dp"
+            android:src="@drawable/head"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="7dp"
+            android:src="@drawable/head"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_margin="7dp"
+            android:src="@drawable/head"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="15dp"
+        android:text="更多"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:background="@color/itemBackground"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="发消息"
+        android:textColor="@color/itemBackground"
+        android:background="@color/colorPrimary"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:text="视频聊天"
+        android:textColor="@color/textBlack"
+        android:background="@color/itemBackground"
+        />
+
+</LinearLayout>

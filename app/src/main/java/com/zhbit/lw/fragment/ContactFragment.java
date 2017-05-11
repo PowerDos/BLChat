@@ -1,5 +1,6 @@
 package com.zhbit.lw.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.UserInforActivity;
 import com.zhbit.lw.blchat.R;
 
 
@@ -115,7 +117,9 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         contactExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(getActivity(), childList[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), UserInforActivity.class);
+                intent.putExtra("userName", childList[groupPosition][childPosition]);
+                startActivity(intent);
                 return true;
             }
         });

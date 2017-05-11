@@ -9,7 +9,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="搜索"
+        android:hint="@string/expandlistview_header_search"
         android:textSize="15sp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="新朋友"
+            android:text="@string/expandlistview_header_new_friend"
             android:textColor="@color/textBlack"
             android:textSize="15sp"
             />
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="群聊"
+            android:text="@string/expandlistview_header_group_chat"
             android:textColor="@color/textBlack"
             android:textSize="15sp"
             />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:text="关系"
+            android:text="@string/expandlistview_header_relation"
             android:textColor="@color/textBlack"
             android:textSize="15sp"
             />

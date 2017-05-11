@@ -33,6 +33,11 @@
     <!--发现页面开始-->
     <string name="txt_moment">Moment</string>
     <!--发现页面结束-->
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="expandlistview_header_new_friend">新朋友</string>
+    <string name="expandlistview_header_group_chat">群聊</string>
+    <string name="expandlistview_header_relation">关系</string>
+    <string name="expandlistview_header_search">搜索</string>
 </resources>
