@@ -7,10 +7,17 @@
     <!--公共颜色开始-->
     <color name="backgroundPrimary">#EBEBEB</color>
     <color name="textBlack">#2c2c2c</color>
+    <color name="textGray">#B0B0B0</color>
+    <color name="textWhite">#ffffff</color>
     <!--公共颜色结束-->
 
     <!--个人页面开始-->
     <color name="itemBackground">#fff</color>
     <color name="textItemColor">#bfbfbf</color>
     <!--个人页面结束-->
+
+    <!--朋友圈开始-->
+    <color name="moment_txtNameColor">#586B99</color>
+    <color name="moment_timeColor">#969696</color>
+    <!--朋友圈结束-->
 </resources>

@@ -1,6 +1,8 @@
 package com.zhbit.lw.blchat;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -10,10 +12,13 @@ import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.LinearLayout;
 
+import com.zhbit.lw.activity.AddFriendActivity;
 import com.zhbit.lw.fragment.ChatFragment;
 import com.zhbit.lw.fragment.ContactFragment;
 import com.zhbit.lw.fragment.FoundFragment;
@@ -32,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private MeFragment meFragment;
     private List<Fragment> fragmentList;    //　用于存放fragment的列表
     private FragmentPagerAdapter fragmentPagerAdapter;  //fragment页面的适配器
+//    protected LinearLayout enterMoment; //朋友圈入口
 
     // 顶部Toolbar
     private Toolbar toolbar;
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     // 界面底部四个Tab
     private ChangeColorIconWithText chatTabIndicator, contactTabIndicator, foundTabIndicator, meTabIndicator;
     private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
+
+    // overflow按钮
+    ActionMenuItemView overflowBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         toolbar.setTitleTextColor(Color.WHITE);     // 设置Toolbar的标题字体颜色
         toolbar.inflateMenu(R.menu.toolbar_menu);
 
+        // 实例化overflow按钮
+        overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);
+
         // 实例化底部四个Tab
         chatTabIndicator = (ChangeColorIconWithText) findViewById(R.id.indicator_chat);
         contactTabIndicator = (ChangeColorIconWithText) findViewById(R.id.indicator_contact);
@@ -79,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTabIndicators.add(meTabIndicator);
 
         chatTabIndicator.setIconAlpha(1.0f);     // 默认第一个有颜色
+
+
+        //朋友圈入口
+//        enterMoment = (LinearLayout) findViewById(R.id.enterMoment);
 
     }
 
@@ -122,19 +138,17 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                         break;
                     case R.id.toolbar_add:      //Toolbar的Overflow按钮的点击时间
                         // 先获取Overflow的View对象
-                        ActionMenuItemView overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);
-
+                        overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);
                         // 将PopupMenu绑定在Overflow对象上
                         PopupMenu popupMenu = new PopupMenu(MainActivity.this, overflowBtn);
-                        // 设置PopupMenu的弹出菜单视图
-                        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_item, popupMenu.getMenu());
-                        //　绑定Menu的点击事件
+
+                        //　绑定菜单监听事件
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()){
                                     case R.id.menu_add_friend:
-                                        Toast.makeText(MainActivity.this, "Add friend", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MainActivity.this, AddFriendActivity.class));
                                         break;
                                     case R.id.menu_group_chat:
                                         Toast.makeText(MainActivity.this, "Group chat", Toast.LENGTH_SHORT).show();
@@ -149,6 +163,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                                 return true;
                             }
                         });
+
+                        // 设置PopupMenu的弹出菜单视图
+                        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_item, popupMenu.getMenu());
                         popupMenu.show();
                         break;
                 }
@@ -209,6 +226,21 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                 break;
         }
 
+    }
+
+    // 修改手机返回键和菜单键的映射
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                moveTaskToBack(false);
+                break;
+            case KeyEvent.KEYCODE_MENU:
+                // 设置PopupMenu的弹出菜单视图
+                overflowBtn.callOnClick();
+                break;
+        }
+        return true;
     }
 
     // 将底部所有tab的图标透明度调成0

@@ -15,30 +15,4 @@
         android:title="@string/action_add"
         />
 
-    <!--<item-->
-        <!--android:id="@+id/menu_group_chat"-->
-        <!--android:title="@string/menu_group_chat"-->
-        <!--android:icon="@drawable/toolbar_search_icon"-->
-        <!--app:showAsAction="never"-->
-        <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/menu_add_friend"-->
-        <!--android:title="@string/menu_add_friend"-->
-        <!--android:icon="@drawable/toolbar_search_icon"-->
-        <!--app:showAsAction="never"-->
-        <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/menu_scan"-->
-        <!--android:title="@string/menu_scan"-->
-        <!--android:icon="@drawable/toolbar_search_icon"-->
-        <!--app:showAsAction="never"-->
-        <!--/>-->
-    <!--<item-->
-        <!--android:id="@+id/menu_feedback"-->
-        <!--android:title="@string/menu_feedback"-->
-        <!--android:icon="@drawable/toolbar_search_icon"-->
-        <!--app:showAsAction="never"-->
-        <!--/>-->
-
-
 </menu>
