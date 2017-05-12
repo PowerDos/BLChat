@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.zhbit.lw.activity.AddFriendActivity;
 import com.zhbit.lw.fragment.ChatFragment;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private MeFragment meFragment;
     private List<Fragment> fragmentList;    //　用于存放fragment的列表
     private FragmentPagerAdapter fragmentPagerAdapter;  //fragment页面的适配器
+//    protected LinearLayout enterMoment; //朋友圈入口
 
     // 顶部Toolbar
     private Toolbar toolbar;
@@ -89,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mTabIndicators.add(meTabIndicator);
 
         chatTabIndicator.setIconAlpha(1.0f);     // 默认第一个有颜色
+
+
+        //朋友圈入口
+//        enterMoment = (LinearLayout) findViewById(R.id.enterMoment);
 
     }
 
