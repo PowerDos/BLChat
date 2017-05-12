@@ -13,13 +13,13 @@ public class MomentTable {
     public static final String PublishText = "publishtext"; //发布内容
     public static final String PublishImg = "PublishImg";
     //评论暂未做，目前只先做发布一张图片
-    public static final String CreateTable = "create table"
-            + TableName + "("
+    public static final String CreateTable = "create table "
+            + TableName + " ("
             + "_id integer autoinc primary key,"
-            + FriendName + "varchar(32),"
-            + FriendId + "varchar(32),"
-            + PublishTime + "varchar(32),"
-            + HeadPhoto + "varchar(108),"
-            + PublishImg + "varchar(108),"
-            + PublishText + "text);";
+            + FriendName + " varchar(32),"
+            + FriendId + " varchar(32),"
+            + PublishTime + " varchar(32),"
+            + HeadPhoto + " varchar(108),"
+            + PublishImg + " varchar(108),"
+            + PublishText + " text);";
 }

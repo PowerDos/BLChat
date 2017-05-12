@@ -24,7 +24,7 @@ public class Model {
     public DBManager getDbManager(Context cot){
         context = cot;
         //待续
-        dbManager = new DBManager(context)
+        dbManager = new DBManager(context,"blchat");
         return dbManager;
     }
 }

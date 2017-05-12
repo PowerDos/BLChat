@@ -6,8 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.entity.MomentInfo;
+
+import java.util.List;
 
 /**
  * Created by fl5900 on 2017/5/9.
@@ -15,20 +21,21 @@ import com.zhbit.lw.blchat.R;
 
 public class MomentInfoAdapter extends BaseAdapter{
     protected Context context;
-    protected Cursor cursor
-    @Override
-    public int getCount() {
-        return 0;
+    protected List<MomentInfo> momentInfos;
+
+    public MomentInfoAdapter(Context c, List<MomentInfo> m){
+        context = c;
+        momentInfos = m;
     }
 
-    public MomentInfoAdapter(Context ctxt, Cursor csr){
-        context = ctxt;
-        cursor = csr;
+    @Override
+    public int getCount() {
+        return momentInfos.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return momentInfos.get(position);
     }
 
     @Override
@@ -38,9 +45,27 @@ public class MomentInfoAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Logs.d("Adapter","渲染朋友圈");
         if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.layout_moment_content, parent, false);
+            Logs.d("Adapter", "getView() position="+position+" convertView="+convertView);
+            convertView = View.inflate(context,R.layout.layout_moment_content, null);
         }
+        Logs.d("Adapter",parent.getChildCount()+" ");
+        //设置显示数据
+        MomentInfo info = momentInfos.get(position);
+        Logs.d("Adapter", info.getFriendId()+" "+info.getFriendName());
+        //获得View对象
+        ImageView headImg = (ImageView) convertView.findViewById(R.id.friend_moment_head);
+        TextView friendName = (TextView) convertView.findViewById(R.id.moment_friend_name);
+        TextView friendMoment = (TextView) convertView.findViewById(R.id.moment_friend_moment);
+        TextView publishTime = (TextView) convertView.findViewById(R.id.moment_publish_time);
+//        ImageView  publishImg = (ImageView) convertView.findViewById(R.id.moment_publish_img1);
+        //设置数据
+        headImg.setImageResource(R.drawable.head); //暂时先用固定的
+        friendMoment.setText(info.getPublishText());
+        friendName.setText(info.getFriendName());
+        publishTime.setText(info.getPublishTime());
+
         return convertView;
     }
 }
