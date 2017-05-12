@@ -32,7 +32,7 @@
         android:background="@drawable/tag_bg"
         >
 
-        <com.zhbit.lw.blchat.ChangeColorIconWithText
+        <com.zhbit.lw.ui.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="5dp"
@@ -43,7 +43,7 @@
             app:icon="@drawable/ic_menu_start_conversation"
             android:id="@+id/indicator_chat"
             />
-        <com.zhbit.lw.blchat.ChangeColorIconWithText
+        <com.zhbit.lw.ui.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="5dp"
@@ -54,7 +54,7 @@
             app:icon="@drawable/ic_menu_friendslist"
             android:id="@+id/indicator_contact"
             />
-        <com.zhbit.lw.blchat.ChangeColorIconWithText
+        <com.zhbit.lw.ui.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="5dp"
@@ -65,7 +65,7 @@
             app:icon="@drawable/ic_menu_emoticons"
             android:id="@+id/indicator_found"
             />
-        <com.zhbit.lw.blchat.ChangeColorIconWithText
+        <com.zhbit.lw.ui.ChangeColorIconWithText
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:padding="5dp"

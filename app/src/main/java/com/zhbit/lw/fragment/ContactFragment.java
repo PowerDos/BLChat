@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.NewFriendActivity;
 import com.zhbit.lw.activity.UserInforActivity;
 import com.zhbit.lw.blchat.R;
 
@@ -138,7 +139,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.expandLvHeader_new_frined:
-                Toast.makeText(getActivity(), "New Friend", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), NewFriendActivity.class));
                 break;
             case R.id.expandLvHeader_group_chat:
                 Toast.makeText(getActivity(), "Group Chat", Toast.LENGTH_SHORT).show();

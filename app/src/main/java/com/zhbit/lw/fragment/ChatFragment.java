@@ -1,6 +1,7 @@
 package com.zhbit.lw.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.ChatActivity;
 import com.zhbit.lw.blchat.R;
 
 import java.util.ArrayList;
@@ -81,7 +83,9 @@ public class ChatFragment extends Fragment{
         chatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "I am " + chatListData.get(position).get(USER_NAME), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ChatActivity.class);
+                intent.putExtra("userName", chatListData.get(position).get(USER_NAME).toString());
+                startActivity(intent);
             }
         });
 

@@ -1,4 +1,4 @@
-package com.zhbit.lw.blchat;
+package com.zhbit.lw.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -15,6 +15,8 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.zhbit.lw.blchat.R;
 
 /**
  * 自定义底部Tab的View, 以实现颜色渐变

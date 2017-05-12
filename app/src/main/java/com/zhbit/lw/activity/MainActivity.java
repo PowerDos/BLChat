@@ -1,8 +1,7 @@
-package com.zhbit.lw.blchat;
+package com.zhbit.lw.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -11,14 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.menu.ActionMenuItemView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import android.widget.LinearLayout;
 
-import com.zhbit.lw.activity.AddFriendActivity;
+import com.zhbit.lw.ui.ChangeColorIconWithText;
+import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.fragment.ChatFragment;
 import com.zhbit.lw.fragment.ContactFragment;
 import com.zhbit.lw.fragment.FoundFragment;
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("BLChat");     //　设置Toolbar的标题
         toolbar.setTitleTextColor(Color.WHITE);     // 设置Toolbar的标题字体颜色
-        toolbar.inflateMenu(R.menu.toolbar_menu);
+        toolbar.inflateMenu(R.menu.toolbar_main_activity_menu);
 
         // 实例化overflow按钮
         overflowBtn = (ActionMenuItemView) findViewById(R.id.toolbar_add);

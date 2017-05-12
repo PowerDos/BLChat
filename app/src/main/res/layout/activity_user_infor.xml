@@ -76,7 +76,7 @@
         android:paddingLeft="15dp"
         android:text="设置备注和关系"
         android:textColor="@color/textBlack"
-        android:textSize="18sp"
+        android:textSize="17sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
         />
@@ -89,7 +89,7 @@
         android:layout_gravity="center_vertical"
         android:text="地区"
         android:textColor="@color/textBlack"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
         />
@@ -108,35 +108,36 @@
         >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="3"
             android:paddingLeft="15dp"
             android:text="个人相册"
             android:textColor="@color/textBlack"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:gravity="center_vertical"
             />
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20dp"
+            android:padding="4dp"
             android:src="@drawable/head"
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:padding="4dp"
             android:src="@drawable/head"
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:layout_margin="7dp"
+            android:layout_weight="1"
+            android:padding="4dp"
+            android:layout_marginRight="40dp"
             android:src="@drawable/head"
             />
 
@@ -154,7 +155,7 @@
         android:paddingLeft="15dp"
         android:text="更多"
         android:textColor="@color/textBlack"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
         />
