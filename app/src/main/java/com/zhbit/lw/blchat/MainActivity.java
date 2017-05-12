@@ -1,5 +1,6 @@
 package com.zhbit.lw.blchat;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.AddFriendActivity;
 import com.zhbit.lw.fragment.ChatFragment;
 import com.zhbit.lw.fragment.ContactFragment;
 import com.zhbit.lw.fragment.FoundFragment;
@@ -140,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()){
                                     case R.id.menu_add_friend:
-                                        Toast.makeText(MainActivity.this, "Add friend", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MainActivity.this, AddFriendActivity.class));
                                         break;
                                     case R.id.menu_group_chat:
                                         Toast.makeText(MainActivity.this, "Group chat", Toast.LENGTH_SHORT).show();

@@ -94,6 +94,12 @@
         android:background="@color/itemBackground"
         />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/textGray"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -135,6 +141,12 @@
             />
 
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/textGray"
+        />
 
     <TextView
         android:layout_width="match_parent"

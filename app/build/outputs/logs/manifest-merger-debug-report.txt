@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:2:1-32:12
+ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:2:1-33:12
 	package
 		ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:3:5-34
 		INJECTED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml
@@ -14,7 +14,7 @@ ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.x
 		INJECTED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml
 		INJECTED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:5:5-30:19
+ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:5:5-31:19
 MERGED from [com.android.support:appcompat-v7:25.3.0] /home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.0] /home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.0/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.0] /home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.0/AndroidManifest.xml:26:5-20
@@ -55,9 +55,13 @@ ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.x
 	android:name
 		ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:26:27-74
 activity#com.zhbit.lw.activity.UserInforActivity
-ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:29:9-85
+ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:29:9-76
 	android:name
 		ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:29:19-73
+activity#com.zhbit.lw.activity.AddFriendActivity
+ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:30:9-85
+	android:name
+		ADDED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml:30:19-73
 uses-sdk
 INJECTED from /home/wjh/AndroidStudioProjects/BLChat/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.3.0] /home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/AndroidManifest.xml:21:5-23:78

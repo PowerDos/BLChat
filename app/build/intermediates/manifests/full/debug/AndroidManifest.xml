@@ -37,6 +37,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.zhbit.lw.activity.UserInforActivity" />
+        <activity android:name="com.zhbit.lw.activity.AddFriendActivity" />
     </application>
 
 </manifest>
