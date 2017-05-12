@@ -1,7 +1,6 @@
 package com.zhbit.lw.activity;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +11,14 @@ import android.widget.TextView;
 import com.zhbit.lw.blchat.R;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
 
 public class ChatActivity extends ListActivity {
 
-    private ListView chatMsgListView;
-    private List<Map<String, Object>> chatMsgData;
+    private ListView chatMsgListView;       // 聊天界面聊天记录列表试图
+    private List<Map<String, Object>> chatMsgData;      // 聊天界面聊天记录列表适配器
 
     public static final String CONTENT = "content";
     public static final String TYPE = "type";
@@ -32,25 +29,29 @@ public class ChatActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        initView();
-        initData();
-        initEvent();
+        initView();      // 初始化视图
+        initData();      // 初始化数据
+        initEvent();     // 初始化点击事件
 
     }
 
+    // 初始化视图
     private void initView() {
         chatMsgListView = getListView();
         chatMsgListView.setDivider(null);
     }
 
+    // 初始化数据
     private void initData() {
         chatMsgData = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put(TYPE, "send");
+        map.put(TIME, "12:40");
         map.put(CONTENT, "You have a message. And how do you think of this color. And please reply me soon.");
         chatMsgData.add(map);
 
         map.put(TYPE, "send");
+        map.put(TIME, "12:30");
         map.put(CONTENT, "You have a message. And how do you think of this color. And please reply me soon.");
         chatMsgData.add(map);
 
@@ -72,12 +73,11 @@ public class ChatActivity extends ListActivity {
 
     }
 
+    // 初始化点击事件
     private void initEvent() {
     }
 
     class ChatMsgListAdapter extends BaseAdapter{
-
-        private TextView tvLastMsgTime;
 
         @Override
         public int getCount() {
@@ -96,20 +96,30 @@ public class ChatActivity extends ListActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            tvLastMsgTime = new TextView(ChatActivity.this);
-
+            // 判断消息是发送还是接受
             String flag = chatMsgData.get(position).get(TYPE).toString();
             if (flag.equals("send")) {
+                // 发送的则实例化右侧气泡布局
                 convertView = getLayoutInflater().inflate(R.layout.listview_row_chat_msg_right, null);
+
+                // 获取消息并设置气泡内容
                 TextView tvContent = (TextView) convertView.findViewById(R.id.rightMsg_content);
                 tvContent.setText(chatMsgData.get(position).get(CONTENT).toString());
 
+                // 判断消息时间根据间隔设置时间
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
             }else if(flag.equals("receive")) {
+                // 接受的则实例化左侧气泡布局
                 convertView = getLayoutInflater().inflate(R.layout.listview_row_chat_msg_left, null);
 
-                // 获取消息并设置气泡
+                // 获取消息并设置气泡内容
                 TextView tvContent = (TextView) convertView.findViewById(R.id.leftMsg_content);
                 tvContent.setText(chatMsgData.get(position).get(CONTENT).toString());
+
+                // 判断消息时间根据间隔设置时间
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
             }
             return convertView;
         }

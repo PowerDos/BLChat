@@ -20,24 +20,26 @@ import java.util.Map;
 
 public class NewFriendActivity extends ListActivity {
 
-    private ListView newFriendListView;
-    private List<Map<String, Object>> newFriendListData;
+    private ListView newFriendListView;     // 新好友列表视图
+    private List<Map<String, Object>> newFriendListData;    // 新好友列表适配器
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_friend);
 
-        initView();
-        initData();
-        initEvent();
+        initView();     // 初始化试图
+        initData();     // 初始化数据
+        initEvent();    // 初始化点击事件
 
     }
 
+    // 初始化视图
     private void initView() {
         newFriendListView = getListView();
     }
 
+    // 初始化数据
     private void initData() {
         newFriendListData = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
@@ -55,6 +57,7 @@ public class NewFriendActivity extends ListActivity {
         newFriendListView.setAdapter(new NewFriendListAdapter());
     }
 
+    // 初始化点击事件
     private void initEvent() {
         newFriendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -85,13 +88,13 @@ public class NewFriendActivity extends ListActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = getLayoutInflater().inflate(R.layout.listview_row_newfriend, null);
-            TextView tvUserName = (TextView) view.findViewById(R.id.lvRow_newfriend_userName);
-            TextView tvRequestMsg = (TextView) view.findViewById(R.id.lvRow_newfriend_requestMsg);
+            convertView = getLayoutInflater().inflate(R.layout.listview_row_newfriend, null);
+            TextView tvUserName = (TextView) convertView.findViewById(R.id.lvRow_newfriend_userName);
+            TextView tvRequestMsg = (TextView) convertView.findViewById(R.id.lvRow_newfriend_requestMsg);
             tvUserName.setText(newFriendListData.get(position).get("userName").toString());
             tvRequestMsg.setText(newFriendListData.get(position).get("requestMsg").toString());
 
-            return view;
+            return convertView;
         }
     }
 

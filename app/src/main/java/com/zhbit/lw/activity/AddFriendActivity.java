@@ -15,20 +15,23 @@ public class AddFriendActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
 
-        initView();
-        initData();
-        initEvent();
+        initView();     // 初始化视图
+        initData();     // 初始化数据
+        initEvent();    // 初始化点击事件
 
     }
 
+    // 初始化视图
     private void initView() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
     }
 
+    // 初始化数据
     private void initData() {
     }
 
+    // 初始化点击事件
     private void initEvent() {
     }
 

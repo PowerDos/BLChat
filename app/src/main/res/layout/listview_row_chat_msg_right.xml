@@ -5,11 +5,24 @@
     android:orientation="horizontal"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20:23"
+        android:id="@+id/rightMsg_lastTime"
+        android:padding="5dp"
+        android:background="@color/textGray"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        />
+
     <ImageView
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
         android:layout_alignParentRight="true"
+        android:layout_below="@+id/rightMsg_lastTime"
         android:src="@drawable/head"
         android:id="@+id/rightMsg_userHead"
         />
