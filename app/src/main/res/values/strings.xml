@@ -46,4 +46,8 @@
     <string name="expandlistview_header_group_chat">群聊</string>
     <string name="expandlistview_header_relation">关系</string>
     <string name="expandlistview_header_search">搜索</string>
+    <string name="userInfor_btnSetNickName">设置备注和关系</string>
+    <string name="userInfor_location">地区</string>
+    <string name="userInfor_photo">个人相册</string>
+    <string name="userInfor_sendMsg">发消息</string>
 </resources>

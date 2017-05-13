@@ -34,7 +34,7 @@
         <activity android:name="com.zhbit.lw.activity.AddFriendActivity" />
         <activity android:name=".Moment" />
         <activity android:name="com.zhbit.lw.activity.NewFriendActivity" />
-        <activity android:name="com.zhbit.lw.activity.ChatActivity"></activity>
+        <activity android:name="com.zhbit.lw.activity.ChatMsgActivity"></activity>
     </application>
 
 </manifest>

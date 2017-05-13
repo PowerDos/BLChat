@@ -64,10 +64,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void initView() {
         // 实例化组件视图
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        chatFragment = new ChatFragment();
-        contactFragment = new ContactFragment();
-        foundFragment = new FoundFragment();
-        meFragment = new MeFragment();
 
         // 实例化顶部ToolBar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -98,10 +94,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     // 初始化数据
     private void initDatas() {
-        // 测试数据
+        // 实例化fragmentList
         fragmentList = new ArrayList<Fragment>();
 
         // 添加四个Fragment到列表当中
+        chatFragment = new ChatFragment();
+        contactFragment = new ContactFragment();
+        foundFragment = new FoundFragment();
+        meFragment = new MeFragment();
         fragmentList.add(chatFragment);
         fragmentList.add(contactFragment);
         fragmentList.add(foundFragment);
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                         });
 
                         // 设置PopupMenu的弹出菜单视图
-                        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_item, popupMenu.getMenu());
+                        popupMenu.getMenuInflater().inflate(R.menu.main_popup_menu_item, popupMenu.getMenu());
                         popupMenu.show();
                         break;
                 }

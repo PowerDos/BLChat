@@ -18,6 +18,8 @@ import com.zhbit.lw.activity.NewFriendActivity;
 import com.zhbit.lw.activity.UserInforActivity;
 import com.zhbit.lw.blchat.R;
 
+import static com.zhbit.lw.entity.UserEntity.USER_NAME;
+
 
 /**
  * ContactFragment: 好友列表界面
@@ -118,8 +120,9 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         contactExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                // 跳转到用户信息的界面
                 Intent intent = new Intent(getActivity(), UserInforActivity.class);
-                intent.putExtra("userName", childList[groupPosition][childPosition]);
+                intent.putExtra(USER_NAME, childList[groupPosition][childPosition]);
                 startActivity(intent);
                 return true;
             }

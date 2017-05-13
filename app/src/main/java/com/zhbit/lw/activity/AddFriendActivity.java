@@ -1,14 +1,12 @@
 package com.zhbit.lw.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
 
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.ui.CustomToolbar;
 
 public class AddFriendActivity extends AppCompatActivity {
-
-    private Toolbar toolbar;    // 顶部toolbar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +21,6 @@ public class AddFriendActivity extends AppCompatActivity {
 
     // 初始化视图
     private void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-
     }
 
     // 初始化数据
@@ -34,6 +30,5 @@ public class AddFriendActivity extends AppCompatActivity {
     // 初始化点击事件
     private void initEvent() {
     }
-
 
 }

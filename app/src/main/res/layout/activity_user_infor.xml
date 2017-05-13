@@ -7,35 +7,35 @@
     android:background="@color/backgroundPrimary"
     >
 
-    <android.support.v7.widget.Toolbar
+    <com.zhbit.lw.ui.CustomToolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:id="@+id/toolbar"
+        android:id="@+id/userInfor_toolbar"
         >
-
-    </android.support.v7.widget.Toolbar>
+    </com.zhbit.lw.ui.CustomToolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:layout_marginTop="20dp"
         android:background="@color/itemBackground"
         >
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_margin="15dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginLeft="10dp"
+            android:padding="12dp"
             android:src="@drawable/head"
             android:id="@+id/userinfor_userHead"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:layout_toRightOf="@id/userinfor_userHead"
-            android:text="一本正经、"
             android:textColor="@color/textBlack"
             android:textSize="20sp"
             android:id="@+id/userinfor_userName"
@@ -43,10 +43,10 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:id="@+id/userinfor_userSex"
             android:layout_toRightOf="@+id/userinfor_userName"
             android:layout_alignBottom="@+id/userinfor_userName"
             android:src="@drawable/ic_menu_me"
+            android:id="@+id/userinfor_userSex"
             />
         <ImageView
             android:layout_width="25dp"
@@ -54,8 +54,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignBottom="@+id/userinfor_userName"
             android:layout_marginRight="10dp"
-            android:id="@+id/userinfor_relation"
             android:src="@drawable/ic_menu_emoticons"
+            android:id="@+id/userinfor_relation"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -69,29 +69,31 @@
 
     </RelativeLayout>
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:paddingLeft="15dp"
-        android:text="设置备注和关系"
+        android:text="@string/userInfor_btnSetNickName"
         android:textColor="@color/textBlack"
         android:textSize="17sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
+        android:id="@+id/userInfor_setNickName"
         />
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:paddingLeft="15dp"
         android:layout_gravity="center_vertical"
-        android:text="地区"
+        android:text="@string/userInfor_location"
         android:textColor="@color/textBlack"
         android:textSize="16sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
+        android:id="@+id/userInfor_location"
         />
 
     <View
@@ -105,13 +107,14 @@
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:background="@color/itemBackground"
+        android:id="@+id/userInfor_photo"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="15dp"
-            android:text="个人相册"
+            android:text="@string/userInfor_photo"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:gravity="center_vertical"
@@ -149,7 +152,7 @@
         android:background="@color/textGray"
         />
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:paddingLeft="15dp"
@@ -166,9 +169,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:text="发消息"
+        android:text="@string/userInfor_sendMsg"
         android:textColor="@color/itemBackground"
         android:background="@color/colorPrimary"
+        android:id="@+id/userInfor_btnSendMsg"
         />
 
     <Button

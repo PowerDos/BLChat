@@ -7,27 +7,16 @@
     android:background="@color/backgroundPrimary"
     >
 
-    <android.support.v7.widget.Toolbar
+    <com.zhbit.lw.ui.CustomToolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:id="@+id/toolbar"
+        android:id="@+id/newFriend_toolbar"
         >
-    </android.support.v7.widget.Toolbar>
+    </com.zhbit.lw.ui.CustomToolbar>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:hint="微信号/QQ号/手机号"
-        android:textAlignment="center"
-        android:textSize="15dp"
-        android:maxLines="1"
-        android:inputType="text"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:background="@color/itemBackground"
-        />
+    <include
+        layout="@layout/base_search"/>
 
     <TextView
         android:layout_width="wrap_content"

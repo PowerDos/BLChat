@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_chat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backgroundPrimary"
-    >
+    android:background="@color/backgroundPrimary">
 
-    <android.support.v7.widget.Toolbar
+    <com.zhbit.lw.ui.CustomToolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        android:id="@+id/chatMsgToolbar"
+        app:overflowPart="@drawable/next"
         >
-    </android.support.v7.widget.Toolbar>
+    </com.zhbit.lw.ui.CustomToolbar>
 
     <ListView
         android:layout_width="match_parent"
@@ -26,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#444444"
+        android:background="@color/colorPrimary"
         >
         <ImageButton
             android:layout_width="50dp"
