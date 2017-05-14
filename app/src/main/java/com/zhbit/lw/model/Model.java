@@ -13,6 +13,7 @@ import java.util.concurrent.Executors;
  */
 
 public class Model {
+
     private Context context;
     private static Model model = new Model();
     private DBManager dbManager;

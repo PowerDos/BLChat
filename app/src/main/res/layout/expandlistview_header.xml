@@ -29,21 +29,21 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_menu_emoticons"
+            android:src="@drawable/new_friend"
             android:id="@+id/expandLvHeader_new_frined"
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_menu_emoticons"
+            android:src="@drawable/group_chat"
             android:id="@+id/expandLvHeader_group_chat"
             />
         <ImageView
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:src="@drawable/ic_menu_emoticons"
+            android:src="@drawable/relation"
             android:id="@+id/expandLvHeader_relation"
             />
 

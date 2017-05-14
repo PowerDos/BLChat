@@ -1,6 +1,7 @@
 package com.zhbit.lw.fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,15 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.ChatMsgActivity;
+import com.zhbit.lw.adapter.ChatListAdapter;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.entity.ChatEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_CONTENT;
+import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_TIME;
+import static com.zhbit.lw.entity.ChatEntity.TARGET_HEAD;
+import static com.zhbit.lw.entity.ChatEntity.TARGET_NAME;
+import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
 
 /**
  * ChatFragment: 聊天列表界面
@@ -29,18 +38,11 @@ public class ChatFragment extends Fragment{
 
     private View view;      // 当前Fragment的视图
     private ListView chatListView;      // 聊天列表
-    private SimpleAdapter simpleAdapter;        // 聊天列表适配器
 
     private List<Map<String, Object>> chatListData;     // 聊天列表数据
-    private String[] titleList;         // 用于适配器将视图和数据一一对应
-    private int[] idList;               // 用于适配器将视图和数据一一对应
+    private ChatListAdapter chatListAdapter;        // 聊天列表适配器
 
-    // titleList和idList之间的桥梁
-    public static final String HEAD = "userHead";
-    public static final String USER_NAME = "userName";
-    public static final String LAST_CHAT_TIME = "lastChatTime";
-    public static final String LAST_CHAT_CONTENT = "lastChatContent";
-    public static final String EXPAND_RELATION = "expandRelation";
+    private ChatEntity chatEntity;      // 聊天对象
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,16 +65,18 @@ public class ChatFragment extends Fragment{
     // 初始化试图
     private void initView() {
         chatListView = (ListView) view.findViewById(R.id.chatListView);
-
-    // 用于适配器将视图和数据一一对应
-        titleList = new String[]{HEAD, USER_NAME, LAST_CHAT_TIME, LAST_CHAT_CONTENT};
-        idList = new int[]{R.id.lvRow_userHead, R.id.lvRow_userName, R.id.lvRow_lastChatTime, R.id.lvRow_lastChatContent};
     }
 
     // 初始化试图
     private void initData() {
-        simpleAdapter = new SimpleAdapter(getActivity(), getData(), R.layout.listview_row_chat, titleList, idList);
-        chatListView.setAdapter(simpleAdapter);
+
+        // 实例化聊天对象
+        chatEntity = new ChatEntity();
+        // 设置聊天列表数据
+        chatEntity.setRecentChatData(getData());
+
+        chatListAdapter = new ChatListAdapter(getActivity(), chatEntity);
+        chatListView.setAdapter(chatListAdapter);
     }
 
     // 初始化试图
@@ -81,7 +85,12 @@ public class ChatFragment extends Fragment{
         chatListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "I am " + chatListData.get(position).get(USER_NAME), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), ChatMsgActivity.class);
+                // intent.putExtra(ChatMsgActivity.USER_ID, );
+                intent.putExtra(USER_NAME, "Wjh");
+                // intent.putExtra(ChatMsgActivity.TARGET_ID, );
+                intent.putExtra(TARGET_NAME, chatListData.get(position).get(TARGET_NAME).toString());
+                startActivity(intent);
             }
         });
 
@@ -113,14 +122,14 @@ public class ChatFragment extends Fragment{
                                         chatListData.remove(listItemIndex);
                                         chatListData.add(0, map);
                                         // 更新chatListView的数据
-                                        simpleAdapter.notifyDataSetChanged();
+                                        chatListAdapter.notifyDataSetChanged();
                                         break;
                                     // 删除该聊天
                                     case 2:
                                         // 删除数据
                                         chatListData.remove(listItemIndex);
                                         // 更新chatListView的数据
-                                        simpleAdapter.notifyDataSetChanged();
+                                        chatListAdapter.notifyDataSetChanged();
                                         Toast.makeText(getActivity(), "删除成功", Toast.LENGTH_SHORT).show();
                                         break;
                                 }
@@ -136,16 +145,16 @@ public class ChatFragment extends Fragment{
     private List<Map<String, Object>> getData() {
         chatListData = new ArrayList<Map<String, Object>>();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put(HEAD, R.drawable.app_icon);
-        map.put(USER_NAME, "一本正经、");
+        map.put(TARGET_HEAD, R.drawable.app_icon);
+        map.put(TARGET_NAME, "一本正经、");
         map.put(LAST_CHAT_TIME, "4月21日");
         map.put(LAST_CHAT_CONTENT, "I miss you. ");
         chatListData.add(map);
 
         for (int i = 0;i < 100;i++) {
             map = new HashMap<String, Object>();
-            map.put(HEAD, R.drawable.head);
-            map.put(USER_NAME, "胡说八道、" + i);
+            map.put(TARGET_HEAD, R.drawable.head);
+            map.put(TARGET_NAME, "胡说八道、" + i);
             map.put(LAST_CHAT_TIME, "12:30");
             map.put(LAST_CHAT_CONTENT, "I miss you. And how about you.asd");
             chatListData.add(map);

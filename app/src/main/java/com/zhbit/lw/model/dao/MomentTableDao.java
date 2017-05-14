@@ -14,10 +14,12 @@ import java.util.List;
  */
 
 public class MomentTableDao {
+
     private DBHelper dbHelper;
     public MomentTableDao(DBHelper helper){
         dbHelper = helper;
     }
+
     // 获取全部朋友圈
     // 目前先获取全部朋友圈，后期再改成15条15条获取
     public List<MomentInfo> getAllMomentInfo(){

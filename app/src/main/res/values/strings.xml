@@ -55,6 +55,7 @@
     <string name="expandlistview_header_group_chat">群聊</string>
     <string name="expandlistview_header_relation">关系</string>
     <string name="expandlistview_header_search">搜索</string>
+
     <string name="title_activity_login_activitya">Sign in</string>
 
     <!-- Strings related to login -->
@@ -69,4 +70,20 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <string name="friendInfor_btnSetNickName">设置备注和关系</string>
+    <string name="friendInfor_location">地区</string>
+    <string name="friendInfor_photo">个人相册</string>
+    <string name="friendInfor_sendMsg">发消息</string>
+    <string name="add_friend_radar">雷达加朋友</string>
+    <string name="add_friend_radar_hint">添加身边的朋友</string>
+    <string name="add_friend_face2face">面对面建群</string>
+    <string name="add_friend_face2face_hint">与身边的朋友进入同一个群聊</string>
+    <string name="add_friend_scan">扫一扫</string>
+    <string name="add_friend_scan_hint">扫描二维码名片</string>
+    <string name="add_friend_contact">手机联系人</string>
+    <string name="add_friend_contact_hint">添加或邀请通讯录中的朋友</string>
+    <string name="add_friend_pub_hint">获取更多资讯和服务</string>
+    <string name="add_friend_pub">公众号</string>
+
 </resources>

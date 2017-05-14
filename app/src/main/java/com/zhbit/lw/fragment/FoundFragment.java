@@ -17,7 +17,9 @@ import com.zhbit.lw.blchat.R;
  */
 
 public class FoundFragment extends Fragment implements View.OnClickListener{
+
     protected LinearLayout enterMoment;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
