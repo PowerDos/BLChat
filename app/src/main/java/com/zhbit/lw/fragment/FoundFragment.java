@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.zhbit.lw.blchat.Moment;
+import com.zhbit.lw.activity.MomentActivity;
 import com.zhbit.lw.blchat.R;
 
 /**
@@ -36,7 +36,7 @@ public class FoundFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.enterMoment:
-                Intent moment = new Intent(getActivity(), Moment.class);
+                Intent moment = new Intent(getActivity(), MomentActivity.class);
                 startActivity(moment);
                 break;
         }

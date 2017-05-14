@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#2095F2"
-    tools:context="com.zhbit.lw.blchat.welcomePage">
+    tools:context="com.zhbit.lw.blchat.com.zhbit.lw.activity.WelcomeActivity">
     <ImageView
         android:id="@+id/logo"
         android:layout_width="128dp"

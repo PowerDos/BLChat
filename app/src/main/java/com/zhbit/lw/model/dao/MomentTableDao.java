@@ -2,9 +2,7 @@ package com.zhbit.lw.model.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import com.zhbit.lw.blchat.Moment;
 import com.zhbit.lw.entity.MomentInfo;
 import com.zhbit.lw.model.db.DBHelper;
 
