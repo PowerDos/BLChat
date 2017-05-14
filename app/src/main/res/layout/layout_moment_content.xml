@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp">
         <ImageView
-            android:id="@+id/head"
+            android:id="@+id/friend_moment_head"
             android:contentDescription="@string/app_name"
             android:layout_width="50.0dp"
             android:layout_height="50.0dp"
@@ -22,29 +23,29 @@
             android:textColor="@color/moment_txtNameColor"
             android:text="@string/user_name"
             android:textSize="18sp"
-            android:layout_toRightOf="@+id/head"
-            android:layout_toEndOf="@+id/head"
-            android:id="@+id/txtFriendName" />
+            android:layout_toRightOf="@+id/friend_moment_head"
+            android:layout_toEndOf="@+id/friend_moment_head"
+            android:id="@+id/moment_friend_name" />
         <TextView
-            android:id="@+id/txtFriendMoment"
+            android:id="@+id/moment_friend_moment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textColor="@color/textBlack"
             android:text="@string/txt_friend_moment"
-            android:layout_toRightOf="@id/head"
-            android:layout_below="@id/txtFriendName"
+            android:layout_toRightOf="@id/friend_moment_head"
+            android:layout_below="@id/moment_friend_name"
             android:layout_marginTop="3dp"/>
         <LinearLayout
             android:id="@+id/layImgLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtFriendMoment"
-            android:layout_alignLeft="@+id/txtFriendMoment"
+            android:layout_below="@+id/moment_friend_moment"
+            android:layout_alignLeft="@+id/moment_friend_moment"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
             <ImageView
-                android:id="@+id/imgMomentPhoto"
+                android:id="@+id/moment_publish_img1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/app_icon"
@@ -52,7 +53,7 @@
                 android:layout_marginEnd="3dp"
                 android:layout_marginRight="3dp" />
             <ImageView
-                android:id="@+id/imgMomentPhoto2"
+                android:id="@+id/moment_publish_img2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/app_icon"
@@ -61,7 +62,7 @@
                 android:layout_marginRight="3dp"
                 />
             <ImageView
-                android:id="@+id/imgMomentPhoto3"
+                android:id="@+id/moment_publish_img3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/app_icon"
@@ -71,6 +72,7 @@
                 />
         </LinearLayout>
         <TextView
+            android:id="@+id/moment_publish_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/layImgLine"
