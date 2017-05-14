@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:id="@+id/userInfor_toolbar"
+        android:id="@+id/friendInfor_toolbar"
         >
     </com.zhbit.lw.ui.CustomToolbar>
 
@@ -28,43 +28,42 @@
             android:layout_marginLeft="10dp"
             android:padding="12dp"
             android:src="@drawable/head"
-            android:id="@+id/userinfor_userHead"
+            android:id="@+id/friendInfor_userHead"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/userinfor_userHead"
+            android:layout_toRightOf="@id/friendInfor_userHead"
             android:textColor="@color/textBlack"
             android:textSize="20sp"
-            android:id="@+id/userinfor_userName"
+            android:id="@+id/friendInfor_userName"
             />
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_toRightOf="@+id/userinfor_userName"
-            android:layout_alignBottom="@+id/userinfor_userName"
-            android:src="@drawable/ic_menu_me"
-            android:id="@+id/userinfor_userSex"
+            android:layout_toRightOf="@+id/friendInfor_userName"
+            android:layout_alignBottom="@+id/friendInfor_userName"
+            android:src="@drawable/user_sex_male"
+            android:id="@+id/friendInfor_userSex"
             />
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/userinfor_userName"
+            android:layout_alignBottom="@+id/friendInfor_userName"
             android:layout_marginRight="10dp"
-            android:src="@drawable/ic_menu_emoticons"
-            android:id="@+id/userinfor_relation"
+            android:id="@+id/friendInfor_relation"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userinfor_userName"
-            android:layout_alignLeft="@+id/userinfor_userName"
+            android:layout_below="@id/friendInfor_userName"
+            android:layout_alignLeft="@+id/friendInfor_userName"
             android:layout_marginTop="5dp"
             android:text="微信号: XR_HUI"
-            android:id="@+id/userinfor_userAccount"
+            android:id="@+id/friendInfor_userAccount"
             />
 
     </RelativeLayout>
@@ -74,12 +73,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:paddingLeft="15dp"
-        android:text="@string/userInfor_btnSetNickName"
+        android:text="@string/friendInfor_btnSetNickName"
         android:textColor="@color/textBlack"
         android:textSize="17sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
-        android:id="@+id/userInfor_setNickName"
+        android:id="@+id/friendInfor_setNickName"
         />
 
     <Button
@@ -88,12 +87,12 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="15dp"
         android:layout_gravity="center_vertical"
-        android:text="@string/userInfor_location"
+        android:text="@string/friendInfor_location"
         android:textColor="@color/textBlack"
         android:textSize="16sp"
         android:gravity="center_vertical"
         android:background="@color/itemBackground"
-        android:id="@+id/userInfor_location"
+        android:id="@+id/friendInfor_location"
         />
 
     <View
@@ -107,14 +106,14 @@
         android:layout_height="70dp"
         android:orientation="horizontal"
         android:background="@color/itemBackground"
-        android:id="@+id/userInfor_photo"
+        android:id="@+id/friendInfor_photo"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingLeft="15dp"
-            android:text="@string/userInfor_photo"
+            android:text="@string/friendInfor_photo"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:gravity="center_vertical"
@@ -169,10 +168,10 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/userInfor_sendMsg"
+        android:text="@string/friendInfor_sendMsg"
         android:textColor="@color/itemBackground"
         android:background="@color/colorPrimary"
-        android:id="@+id/userInfor_btnSendMsg"
+        android:id="@+id/friendInfor_btnSendMsg"
         />
 
     <Button

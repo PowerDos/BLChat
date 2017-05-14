@@ -9,13 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhbit.lw.activity.UserInforActivity;
+import com.zhbit.lw.activity.FriendInforActivity;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.entity.ChatEntity;
+import com.zhbit.lw.model.dao.UserTable;
 
 import static com.zhbit.lw.entity.ChatEntity.CONTENT;
 import static com.zhbit.lw.entity.ChatEntity.TYPE;
 import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 /**
  * Created by wjh on 17-5-13.
@@ -96,13 +98,13 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
         Intent intent;
         switch (v.getId()) {
             case R.id.leftMsg_userHead:
-                intent = new Intent(context, UserInforActivity.class);
-                intent.putExtra(USER_NAME, chatEntity.getTargetName());
+                intent = new Intent(context, FriendInforActivity.class);
+                intent.putExtra(FRIEND_NAME, chatEntity.getTargetName());
                 context.startActivity(intent);
                 break;
             case R.id.rightMsg_userHead:
-                intent = new Intent(context, UserInforActivity.class);
-                intent.putExtra(USER_NAME, "Wjh");
+                intent = new Intent(context, FriendInforActivity.class);
+                intent.putExtra(UserTable.USER_NAME, "Wjh");
                 context.startActivity(intent);
                 break;
         }

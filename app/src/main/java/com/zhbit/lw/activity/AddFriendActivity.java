@@ -8,6 +8,8 @@ import com.zhbit.lw.ui.CustomToolbar;
 
 public class AddFriendActivity extends AppCompatActivity {
 
+    private CustomToolbar customToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,8 @@ public class AddFriendActivity extends AppCompatActivity {
 
     // 初始化视图
     private void initView() {
+        customToolbar = (CustomToolbar) findViewById(R.id.addFriend_toolbar);
+        customToolbar.setTitle("添加朋友");
     }
 
     // 初始化数据

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -13,6 +14,8 @@ import android.widget.RelativeLayout;
 
 import com.zhbit.lw.activity.MainActivity;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.dao.MomentTable;
+import com.zhbit.lw.model.dao.UserTable;
 
 /**
  *
@@ -30,6 +33,8 @@ public class welcomePage extends Activity {
         //显示动画
         showAnimation();
         Model.getInstance().getDbManager(this).getMomentTableDao().initMomentTableDao();
+        Model.getInstance().getDbManager(this).getUserTableDao().initUserTableDao();
+        Model.getInstance().getDbManager(this).getFriendTableDao().initFriendTableDao();
         //使用handler的postDelayed实现延时跳转
         handler.postDelayed(new Runnable() {
             public void run() {

@@ -27,14 +27,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:orientation="horizontal"
         android:background="@drawable/tag_bg"
         >
 
         <com.zhbit.lw.ui.ChangeColorIconWithText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="5dp"
             android:layout_weight="1"
             app:color="#2095F2"
@@ -44,8 +44,8 @@
             android:id="@+id/indicator_chat"
             />
         <com.zhbit.lw.ui.ChangeColorIconWithText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="5dp"
             android:layout_weight="1"
             app:color="#2095F2"
@@ -55,8 +55,8 @@
             android:id="@+id/indicator_contact"
             />
         <com.zhbit.lw.ui.ChangeColorIconWithText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="5dp"
             android:layout_weight="1"
             app:color="#2095F2"
@@ -66,8 +66,8 @@
             android:id="@+id/indicator_found"
             />
         <com.zhbit.lw.ui.ChangeColorIconWithText
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:padding="5dp"
             android:layout_weight="1"
             app:color="#2095F2"

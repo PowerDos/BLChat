@@ -9,6 +9,7 @@ import com.zhbit.lw.model.db.DBManager;
  */
 
 public class Model {
+
     private Context context;
     private static Model model = new Model();
     private DBManager dbManager;
@@ -17,8 +18,6 @@ public class Model {
     public static Model getInstance(){
         return model;
     }
-
-
 
     //获取DB管理类
     public DBManager getDbManager(Context cot){

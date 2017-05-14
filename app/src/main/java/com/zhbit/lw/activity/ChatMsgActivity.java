@@ -4,12 +4,11 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.zhbit.lw.adapter.ChatMsgListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.entity.ChatEntity;
-import com.zhbit.lw.entity.UserEntity;
+import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ import static com.zhbit.lw.entity.ChatEntity.TARGET_NAME;
 import static com.zhbit.lw.entity.ChatEntity.TIME;
 import static com.zhbit.lw.entity.ChatEntity.TYPE;
 import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 public class ChatMsgActivity extends ListActivity {
 
@@ -52,7 +52,7 @@ public class ChatMsgActivity extends ListActivity {
         // 设置顶部Toolbar
         chatMsgToolbar = (CustomToolbar) findViewById(R.id.chatMsgToolbar);
         // 设置顶部Overflow的图标
-        chatMsgToolbar.setOverflowImg(R.drawable.ic_menu_me);
+        chatMsgToolbar.setOverflowImg(R.drawable.me);
     }
 
     // 初始化数据
@@ -111,8 +111,8 @@ public class ChatMsgActivity extends ListActivity {
         chatMsgToolbar.setOnOverflowClickListener(new CustomToolbar.OnOverflowClickListener() {
             @Override
             public void onOverflowClick() {
-                Intent intent = new Intent(ChatMsgActivity.this, UserInforActivity.class);
-                intent.putExtra(UserEntity.USER_NAME, chatEntity.getTargetName());
+                Intent intent = new Intent(ChatMsgActivity.this, FriendInforActivity.class);
+                intent.putExtra(FRIEND_NAME, chatEntity.getTargetName());
                 startActivity(intent);
             }
         });

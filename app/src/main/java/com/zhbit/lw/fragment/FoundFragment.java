@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.zhbit.lw.blchat.Moment;
+import com.zhbit.lw.activity.MomentActivity;
 import com.zhbit.lw.blchat.R;
 
 /**
@@ -17,7 +17,9 @@ import com.zhbit.lw.blchat.R;
  */
 
 public class FoundFragment extends Fragment implements View.OnClickListener{
+
     protected LinearLayout enterMoment;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class FoundFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.enterMoment:
-                Intent moment = new Intent(getActivity(), Moment.class);
+                Intent moment = new Intent(getActivity(), MomentActivity.class);
                 startActivity(moment);
                 break;
         }

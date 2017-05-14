@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.entity.UserEntity.USER_NAME;
+import static com.zhbit.lw.model.dao.UserTable.USER_NAME;
 
 public class NewFriendActivity extends ListActivity {
 
@@ -79,7 +79,7 @@ public class NewFriendActivity extends ListActivity {
         newFriendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(NewFriendActivity.this, UserInforActivity.class);
+                Intent intent = new Intent(NewFriendActivity.this, FriendInforActivity.class);
                 intent.putExtra(USER_NAME, newFriendListData.get(position).get("userName").toString());
                 startActivity(intent);
             }

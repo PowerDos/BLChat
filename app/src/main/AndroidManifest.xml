@@ -30,9 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.zhbit.lw.activity.UserInforActivity" />
+        <activity android:name="com.zhbit.lw.activity.FriendInforActivity" />
         <activity android:name="com.zhbit.lw.activity.AddFriendActivity" />
-        <activity android:name=".Moment" />
+        <activity android:name="com.zhbit.lw.activity.MomentActivity" />
         <activity android:name="com.zhbit.lw.activity.NewFriendActivity" />
         <activity android:name="com.zhbit.lw.activity.ChatMsgActivity"></activity>
     </application>

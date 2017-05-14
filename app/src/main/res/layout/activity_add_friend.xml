@@ -40,7 +40,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/add_friend_radar"
             android:id="@+id/addfriend_method_leida_img"
             />
         <TextView
@@ -49,7 +49,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="6dp"
             android:layout_toRightOf="@+id/addfriend_method_leida_img"
-            android:text="雷达加朋友"
+            android:text="@string/add_friend_radar"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:id="@+id/addfriend_method_leida_name"
@@ -60,7 +60,7 @@
             android:layout_marginTop="2dp"
             android:layout_below="@+id/addfriend_method_leida_name"
             android:layout_alignLeft="@+id/addfriend_method_leida_name"
-            android:text="添加身边的朋友"
+            android:text="@string/add_friend_radar_hint"
             android:id="@+id/addfriend_method_leida_desciprt"
             />
 
@@ -83,7 +83,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="25dp"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/add_friend_face2face"
             android:id="@+id/addfriend_method_face_img"
             />
         <TextView
@@ -92,7 +92,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/addfriend_method_face_img"
-            android:text="面对面建群"
+            android:text="@string/add_friend_face2face"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:id="@+id/addfriend_method_face_name"
@@ -103,7 +103,7 @@
             android:layout_marginTop="2dp"
             android:layout_below="@+id/addfriend_method_face_name"
             android:layout_alignLeft="@+id/addfriend_method_face_name"
-            android:text="与身边的朋友进入同一个群聊"
+            android:text="@string/add_friend_face2face_hint"
             android:id="@+id/addfriend_method_face_desciprt"
             />
 
@@ -126,7 +126,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/add_friend_scan"
             android:id="@+id/addfriend_method_scan_img"
             />
         <TextView
@@ -135,7 +135,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="6dp"
             android:layout_toRightOf="@+id/addfriend_method_scan_img"
-            android:text="扫一扫"
+            android:text="@string/add_friend_scan"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:id="@+id/addfriend_method_scan_name"
@@ -146,7 +146,7 @@
             android:layout_marginTop="2dp"
             android:layout_below="@+id/addfriend_method_scan_name"
             android:layout_alignLeft="@+id/addfriend_method_scan_name"
-            android:text="扫描二维码名片"
+            android:text="@string/add_friend_scan_hint"
             android:id="@+id/addfriend_method_scan_desciprt"
             />
 
@@ -169,7 +169,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/add_friend_contact"
             android:id="@+id/addfriend_method_contact_img"
             />
         <TextView
@@ -178,7 +178,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="6dp"
             android:layout_toRightOf="@+id/addfriend_method_contact_img"
-            android:text="手机联系人"
+            android:text="@string/add_friend_contact"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:id="@+id/addfriend_method_contact_name"
@@ -189,7 +189,7 @@
             android:layout_marginTop="2dp"
             android:layout_below="@+id/addfriend_method_contact_name"
             android:layout_alignLeft="@+id/addfriend_method_contact_name"
-            android:text="添加或邀请通讯录中的朋友"
+            android:text="@string/add_friend_contact_hint"
             android:id="@+id/addfriend_method_contact_desciprt"
             />
 
@@ -212,7 +212,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/app_icon"
+            android:src="@drawable/add_friend_pub"
             android:id="@+id/addfriend_method_public_img"
             />
         <TextView
@@ -221,7 +221,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="6dp"
             android:layout_toRightOf="@+id/addfriend_method_public_img"
-            android:text="公众号"
+            android:text="@string/add_friend_pub"
             android:textColor="@color/textBlack"
             android:textSize="16sp"
             android:id="@+id/addfriend_method_public_name"
@@ -232,7 +232,7 @@
             android:layout_marginTop="2dp"
             android:layout_below="@+id/addfriend_method_public_name"
             android:layout_alignLeft="@+id/addfriend_method_public_name"
-            android:text="获取更多资讯和服务"
+            android:text="@string/add_friend_pub_hint"
             android:id="@+id/addfriend_method_public_desciprt"
             />
 
