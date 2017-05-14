@@ -13,12 +13,12 @@ public class FriendTable {
     public static final String HeadPhoto = "headphoto"; //头像
     public static final String Address = "address"; //地址
 
-    public static final String CreateTable = "create table"
-            + TableName + "("
+    public static final String CreateTable = "create table "
+            + TableName + " ("
             + "[_id] integer autoinc primary key,"
-            + RealName + "varchar(32),"
-            + NickName + "varchar(32),"
-            + UserId + "varchar(32),"
-            + HeadPhoto + "varchar(108),"
-            + Address + "varchar(64));";
+            + RealName + " varchar(32),"
+            + NickName + " varchar(32),"
+            + UserId + " varchar(32),"
+            + HeadPhoto + " varchar(108),"
+            + Address + " varchar(64));";
 }
