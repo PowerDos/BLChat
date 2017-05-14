@@ -104,7 +104,7 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
                 break;
             case R.id.rightMsg_userHead:
                 intent = new Intent(context, FriendInforActivity.class);
-                intent.putExtra(UserTable.USER_NAME, "Wjh");
+                intent.putExtra(FRIEND_NAME, "Wjh");
                 context.startActivity(intent);
                 break;
         }

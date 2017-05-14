@@ -6,9 +6,13 @@ package com.zhbit.lw.entity;
 
 public class FriendEntity {
 
+    private int friendId, newFriendFlag;
     private String groupName, friendName, nickName, friendSex, friendAccount, friendHead, friendLocation, friendRecentPhoto;
 
-    public FriendEntity(String groupName, String friendName, String nickName, String friendSex, String friendAccount, String friendHead, String friendLocation, String friendRecentPhoto) {
+    public FriendEntity() {}
+
+    public FriendEntity(int friendId, String groupName, String friendName, String nickName, String friendSex, String friendAccount, String friendHead, String friendLocation, String friendRecentPhoto, int newFriendFlag) {
+        this.friendId = friendId;
         this.groupName = groupName;
         this.friendName = friendName;
         this.nickName = nickName;
@@ -17,10 +21,27 @@ public class FriendEntity {
         this.friendHead = friendHead;
         this.friendLocation = friendLocation;
         this.friendRecentPhoto = friendRecentPhoto;
+        this.newFriendFlag = newFriendFlag;
+    }
+
+    public int getFriendId() {
+        return friendId;
+    }
+
+    public void setFriendId(int friendId) {
+        this.friendId = friendId;
     }
 
     public String getGroupName() {
         return groupName;
+    }
+
+    public int getNewFriendFlag() {
+        return newFriendFlag;
+    }
+
+    public void setNewFriendFlag(int newFriendFlag) {
+        this.newFriendFlag = newFriendFlag;
     }
 
     public void setGroupName(String groupName) {

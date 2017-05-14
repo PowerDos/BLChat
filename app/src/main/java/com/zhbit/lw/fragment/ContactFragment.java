@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,12 +89,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         // 设置父列表和子列表的数据
         parentList = Model.getInstance().getDbManager(getActivity()).getFriendTableDao().getGroupList();
         childList = Model.getInstance().getDbManager(getActivity()).getFriendTableDao().getGrouopChildList();
-        if (parentList == null) {
-            Toast.makeText(getActivity(), "Parent Null", Toast.LENGTH_SHORT).show();
-        }
-        if (childList == null) {
-            Toast.makeText(getActivity(), "Child Null", Toast.LENGTH_SHORT).show();
-        }
 
         // 设置通讯录扩展列表的适配器
         contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));

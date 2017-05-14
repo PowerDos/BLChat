@@ -29,6 +29,8 @@ public class FriendInforActivity extends AppCompatActivity {
 
     private String friendName;        // 用户名称
 
+    private FriendEntity friendEntity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,19 +64,20 @@ public class FriendInforActivity extends AppCompatActivity {
         friendName = getIntent().getStringExtra(FRIEND_NAME);
 
         // 从数据库中获取用户信息
-        FriendEntity friendEntity = Model.getInstance().getDbManager(this).getFriendTableDao().getFriendInforByUserName(friendName);
+        friendEntity = Model.getInstance().getDbManager(this).getFriendTableDao().getFriendInforByUserName(friendName);
 
         if (friendEntity != null) {
             // 设置好友的界面数据
             tvFriendName.setText(friendEntity.getFriendName());
-
             tvFriendAccount.setText(friendEntity.getFriendAccount());
             if (friendEntity.getFriendSex().equals("男")) {
                 ivFriendSex.setImageResource(R.drawable.user_sex_male);
             }else {
                 ivFriendSex.setImageResource(R.drawable.user_sex_female);
             }
+            // 设置地区
         }else{
+            // 从数据库获取失败
             Toast.makeText(this, "请检查你的网络.", Toast.LENGTH_SHORT).show();
             finish();
         }
@@ -82,6 +85,7 @@ public class FriendInforActivity extends AppCompatActivity {
 
     // 初始化点击事件
     private void initEvent() {
+        // 发送信息按钮的点击事件
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
