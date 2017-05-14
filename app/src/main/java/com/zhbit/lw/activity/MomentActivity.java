@@ -18,7 +18,7 @@ public class MomentActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moment);
         ListView lv_moment = (ListView) findViewById(R.id.lv_moment_info);
-        List<MomentInfo> momentInfos = Model.getInstance().getDbManager(this).getMomentTableDao().getAllMomentInfo();
+        List<MomentInfo> momentInfos = Model.getInstance().getDbManager().getMomentTableDao().getAllMomentInfo();
         MomentInfoAdapter momentInfoAdapter = new MomentInfoAdapter(MomentActivity.this,momentInfos);
         lv_moment.addHeaderView(this.getLayoutInflater().inflate(R.layout.layout_moment_heading,null),
                 null,false);

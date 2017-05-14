@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.zhbit.lw.Logs.Logs;
+import com.zhbit.lw.model.Model;
 
 import java.util.Iterator;
 import java.util.List;
@@ -40,6 +41,9 @@ public class BLChatApplication extends Application{
         EMClient.getInstance().init(this, options);
         //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
         EMClient.getInstance().setDebugMode(true);
+
+        //初始化数据模型
+        Model.getInstance().init(this);
     }
 
     private String getAppName(int pID) {

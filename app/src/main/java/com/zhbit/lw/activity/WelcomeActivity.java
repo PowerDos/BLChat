@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.hyphenate.chat.EMClient;
 import com.zhbit.lw.blchat.MainActivity;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.model.Model;
 
 /**
  *
@@ -73,8 +74,10 @@ public class WelcomeActivity extends Activity {
         imgLoading.startAnimation(rotateAnimation);
     }
     private void isMainOrLogin(){
-        new Thread(){
-            public void run(){
+        //加入线程池
+        Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
+            @Override
+            public void run() {
                 //判断当前账号是否登陆过
                 if (EMClient.getInstance().isLoggedInBefore()){
                     //登陆过
@@ -91,7 +94,7 @@ public class WelcomeActivity extends Activity {
                 }
                 finish();
             }
-        }.start();
+        });
     }
 
     protected void onDestroy(){
