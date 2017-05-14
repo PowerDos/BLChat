@@ -62,7 +62,7 @@ public class FriendInforActivity extends AppCompatActivity {
         friendName = getIntent().getStringExtra(FRIEND_NAME);
 
         // 从数据库中获取用户信息
-        FriendEntity friendEntity = Model.getInstance().getDbManager(this).getFriendTableDao().getFriendInforByUserName(friendName);
+        FriendEntity friendEntity = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByUserName(friendName);
 
         if (friendEntity != null) {
             // 设置好友的界面数据

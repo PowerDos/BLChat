@@ -41,11 +41,11 @@ public class WelcomeActivity extends Activity {
         wel_page = (RelativeLayout) findViewById(R.id.activity_welcome_page);
         //显示动画
         showAnimation();
-        // 发送2.6秒延时信息
-        handler.sendMessageDelayed(Message.obtain(), 2000);
         Model.getInstance().getDbManager().getMomentTableDao().initMomentTableDao();
         Model.getInstance().getDbManager().getUserTableDao().initUserTableDao();
         Model.getInstance().getDbManager().getFriendTableDao().initFriendTableDao();
+        // 发送2.6秒延时信息
+        handler.sendMessageDelayed(Message.obtain(), 2000);
     }
 
     private void showAnimation(){

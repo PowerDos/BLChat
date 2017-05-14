@@ -25,23 +25,10 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(MomentTable.CreateTable);
         //创建个人信息表
         db.execSQL(UserTable.CREATE_TABLE);
-    }
-
-    @Override
-    public void onOpen(SQLiteDatabase db) {
-        super.onOpen(db);
-
-//        db.execSQL("DROP TABLE user_infor;");
-//        db.execSQL(UserTable.CREATE_TABLE);
-//        db.execSQL(FriendTable.CREATE_TABLE);
-
-        db.execSQL("DROP TABLE moment;");
-        db.execSQL(MomentTable.CreateTable);
-
-        db.execSQL("DROP TABLE friend_infor;");
+        //创建朋友表
         db.execSQL(FriendTable.CREATE_TABLE);
-
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

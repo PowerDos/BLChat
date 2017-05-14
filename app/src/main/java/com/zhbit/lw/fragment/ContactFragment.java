@@ -86,8 +86,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     private void initData() {
 
         // 设置父列表和子列表的数据
-        parentList = Model.getInstance().getDbManager(getActivity()).getFriendTableDao().getGroupList();
-        childList = Model.getInstance().getDbManager(getActivity()).getFriendTableDao().getGrouopChildList();
+        parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
+        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList();
         if (parentList == null) {
             Toast.makeText(getActivity(), "Parent Null", Toast.LENGTH_SHORT).show();
         }
