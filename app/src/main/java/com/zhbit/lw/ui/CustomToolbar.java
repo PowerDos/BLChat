@@ -28,7 +28,7 @@ public class CustomToolbar extends Toolbar{
         // 设置标题
         this.setTitle(ta.getString(R.styleable.CustomToolbar_titleText));
         // 设置返回键的图标
-        this.setNavigationIcon(android.R.drawable.ic_delete);
+        this.setNavigationIcon(android.R.drawable.ic_media_rew);
         // 设置overflow图标
         this.inflateMenu(R.menu.toolbar_custom_overflow);
         overflowBtn = findViewById(R.id.custom_toolbar_overflow);
