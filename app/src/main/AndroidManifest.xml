@@ -21,6 +21,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".BLChatApplication"
         android:allowBackup="true"
@@ -77,7 +82,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.zhbit.lw.activity.LoginActivity"></activity>
+        <activity android:name="com.zhbit.lw.activity.LoginActivity" />
+        <activity
+            android:name=".LoginActivitya"
+            android:label="@string/title_activity_login_activitya"></activity>
     </application>
 
 </manifest>
