@@ -49,7 +49,7 @@ public class MeFragment extends Fragment{
 
     private void initData() {
         // 从数据库获取数据
-        UserEntity userEntity = Model.getInstance().getDbManager().getUserTableDao().getUserInforById();
+        UserEntity userEntity = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount();
 
         // 判断是否获取成功
         if (userEntity == null) {

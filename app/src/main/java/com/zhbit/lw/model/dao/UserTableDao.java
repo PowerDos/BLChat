@@ -1,13 +1,11 @@
 package com.zhbit.lw.model.dao;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.zhbit.lw.entity.MomentInfo;
 import com.zhbit.lw.entity.UserEntity;
 import com.zhbit.lw.model.db.DBHelper;
-
-import java.util.ArrayList;
 
 /**
  * Created by wjh on 17-5-14.
@@ -22,7 +20,7 @@ public class UserTableDao {
     }
 
     // 获取用户信息
-    public UserEntity getUserInforById(){
+    public UserEntity getUserInforByAccount(){
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
@@ -53,4 +51,21 @@ public class UserTableDao {
         db.execSQL(Sql);
         db.close();
     }
+    
+    //添加用户到数据库
+    public void addUserAccount(UserEntity userEntity){
+        //实例化数据库
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        //执行添加操作，使用replace的好处是有的时候添加，没有的时候覆盖
+        ContentValues values = new ContentValues();
+        values.put(UserTable.USER_NAME, userEntity.getUserName());
+        values.put(UserTable.USER_ACCOUNT, userEntity.getUserAccount());
+        values.put(UserTable.USER_HEAD, userEntity.getUserHead());
+        values.put(UserTable.USER_SEX, userEntity.getUserSex());
+        values.put(UserTable.USER_LOCATION, userEntity.getUserLocation());
+        values.put(UserTable.USER_SIGN, userEntity.getUserSign());
+        db.replace(UserTable.TABLE_NAME,null,values);
+        db.close();
+    }
+
 }

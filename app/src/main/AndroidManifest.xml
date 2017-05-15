@@ -30,7 +30,6 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-
     <application
         android:name=".BLChatApplication"
         android:allowBackup="true"
@@ -48,14 +47,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="com.zhbit.lw.activity.FriendInforActivity" />
         <activity android:name="com.zhbit.lw.activity.AddFriendActivity" />
         <activity android:name="com.zhbit.lw.activity.MomentActivity" />
         <activity android:name="com.zhbit.lw.activity.NewFriendActivity" />
-        <activity android:name="com.zhbit.lw.activity.ChatMsgActivity"/>
+        <activity android:name="com.zhbit.lw.activity.ChatMsgActivity" />
         <activity android:name="com.zhbit.lw.activity.LoginActivity" />
-
 
         <!-- 设置环信应用开始 -->
         <!-- 设置环信应用的AppKey -->
@@ -84,6 +81,7 @@
             </intent-filter>
         </receiver>
         <!-- 设置环信应用结束 -->
+        <activity android:name="com.zhbit.lw.activity.SignUpActivity"></activity>
     </application>
 
 </manifest>

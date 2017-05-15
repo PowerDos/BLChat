@@ -66,7 +66,7 @@ public class FriendTableDao {
 
         List<String> groupList = new ArrayList<String>();
         while(cursor.moveToNext()) {
-            groupList.add(cursor.getString(cursor.getColumnIndex(FRIEND_NAME)));
+            groupList.add(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_NAME)));
         }
         db.close();
         return groupList;
@@ -92,10 +92,10 @@ public class FriendTableDao {
         //初始化，创建两条数据测试，后期可删掉
         String Sql = "insert into friend_infor(group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo)"
                 +"values('friend', '一本正经、', 'nick_name', '男', 'BLCHAT_01', 'R.drawable.head', '英德市', null)";
-
         //创建数据库
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //插入数据
+        db.execSQL(Sql);
         db.execSQL(Sql);
         db.close();
     }

@@ -49,6 +49,17 @@
     <string name="btn_sign_up">注  册</string>
     <!--登陆页面结束-->
 
+    <!--注册页面开始-->
+    <string name="sign_up_title">注册用户</string>
+    <string name="sign_up_name">昵  称:</string>
+    <string name="sign_up_account">账  号:</string>
+    <string name="sign_up_location">城  市:</string>
+    <string name="sign_up_sex">性  别:</string>
+    <string name="sign_up_head">头  像:</string>
+    <string name="sign_up_password">密  码:</string>
+    <!--注册界面结束-->
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="expandlistview_header_new_friend">新朋友</string>

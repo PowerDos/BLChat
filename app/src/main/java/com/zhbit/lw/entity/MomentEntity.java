@@ -4,7 +4,7 @@ package com.zhbit.lw.entity;
  * Created by fl5900 on 2017/5/11.
  */
 
-public class MomentInfo {
+public class MomentEntity {
     private String FriendName; //朋友的名字
     private String FriendId; //朋友的账号
     private String HeadPhoto; //头像

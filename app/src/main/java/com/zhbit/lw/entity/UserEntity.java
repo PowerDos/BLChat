@@ -64,5 +64,6 @@ public class UserEntity {
         this.userLocation = userLocation;
         this.userSign = userSign;
     }
+    public UserEntity(){}
 
 }

@@ -3,7 +3,7 @@ package com.zhbit.lw.model.dao;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.zhbit.lw.entity.MomentInfo;
+import com.zhbit.lw.entity.MomentEntity;
 import com.zhbit.lw.model.db.DBHelper;
 
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ public class MomentTableDao {
 
     // 获取全部朋友圈
     // 目前先获取全部朋友圈，后期再改成15条15条获取
-    public List<MomentInfo> getAllMomentInfo(){
-        List<MomentInfo> momentInfoList = new ArrayList<>();
+    public List<MomentEntity> getAllMomentInfo(){
+        List<MomentEntity> momentEntityList = new ArrayList<>();
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
@@ -31,17 +31,17 @@ public class MomentTableDao {
         Cursor cursor = db.rawQuery(Sql, null);
         //获取数据
         while (cursor.moveToNext()){
-            MomentInfo momentInfo = new MomentInfo();
-            momentInfo.setFriendName(cursor.getString(cursor.getColumnIndex(MomentTable.FriendName)));
-            momentInfo.setFriendId(cursor.getString(cursor.getColumnIndex(MomentTable.FriendId)));
-            momentInfo.setHeadPhoto(cursor.getString(cursor.getColumnIndex(MomentTable.HeadPhoto)));
-            momentInfo.setPublishTime(cursor.getString(cursor.getColumnIndex(MomentTable.PublishTime)));
-            momentInfo.setPublishText(cursor.getString(cursor.getColumnIndex(MomentTable.PublishText)));
-            momentInfo.setPublishImg(cursor.getString(cursor.getColumnIndex(MomentTable.PublishImg)));
-            momentInfoList.add(momentInfo);
+            MomentEntity momentEntity = new MomentEntity();
+            momentEntity.setFriendName(cursor.getString(cursor.getColumnIndex(MomentTable.FriendName)));
+            momentEntity.setFriendId(cursor.getString(cursor.getColumnIndex(MomentTable.FriendId)));
+            momentEntity.setHeadPhoto(cursor.getString(cursor.getColumnIndex(MomentTable.HeadPhoto)));
+            momentEntity.setPublishTime(cursor.getString(cursor.getColumnIndex(MomentTable.PublishTime)));
+            momentEntity.setPublishText(cursor.getString(cursor.getColumnIndex(MomentTable.PublishText)));
+            momentEntity.setPublishImg(cursor.getString(cursor.getColumnIndex(MomentTable.PublishImg)));
+            momentEntityList.add(momentEntity);
         }
         db.close();
-        return momentInfoList;
+        return momentEntityList;
     }
     public void initMomentTableDao(){
         //初始化，创建两条数据测试，后期可删掉
