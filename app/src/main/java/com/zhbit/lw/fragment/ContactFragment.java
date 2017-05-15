@@ -8,14 +8,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhbit.lw.activity.UserInforActivity;
+import com.zhbit.lw.activity.FriendInforActivity;
+import com.zhbit.lw.activity.NewFriendActivity;
+import com.zhbit.lw.adapter.ContactExpandableListAdapter;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.model.Model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
 
 
 /**
@@ -33,8 +42,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     private ImageView imgGroupChat;     // exoandableListView表头当中的群聊
     private ImageView imgRelation;      // exoandableListView表头当中的关系
 
-    private String[] parentList;    // 分组名称
-    private String[][] childList;   // 通讯录列表名称
+    private List<String> parentList;
+    private List<List<String>> childList;
 
     @Nullable
     @Override
@@ -75,13 +84,19 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
     // 初始化数据
     private void initData() {
+
         // 设置父列表和子列表的数据
-        parentList = new String[]{"friend", "family", "class"};
-        childList = new String[][]{{"果冻名", "王博", "小陪"}, {"爸爸", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷", "妈妈", "爷爷"}, {"小龙", "小红", "小花"}};
+        parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
+        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList();
+        if (parentList == null) {
+            Toast.makeText(getActivity(), "Parent Null", Toast.LENGTH_SHORT).show();
+        }
+        if (childList == null) {
+            Toast.makeText(getActivity(), "Child Null", Toast.LENGTH_SHORT).show();
+        }
 
         // 设置通讯录扩展列表的适配器
-        ContactExpandableListAdapter adapter = new ContactExpandableListAdapter();
-        contactExpandableListView.setAdapter(adapter);
+        contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));
 
     }
 
@@ -105,9 +120,9 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
                 int parentPosition = (int) view.getTag(R.id.expandLvRow_group_name);
                 int childPosition = (int) view.getTag(R.id.expandLvRow_contact_name);
                 if (childPosition == -1) {
-                    Toast.makeText(getActivity(), "I am group. " + parentList[parentPosition], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "I am group. " + parentList.get(parentPosition), Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getActivity(), "I am child. " + childList[parentPosition][childPosition], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "I am child. " + childList.get(parentPosition).get(childPosition), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
@@ -117,8 +132,9 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         contactExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Intent intent = new Intent(getActivity(), UserInforActivity.class);
-                intent.putExtra("userName", childList[groupPosition][childPosition]);
+                // 跳转到用户信息的界面
+                Intent intent = new Intent(getActivity(), FriendInforActivity.class);
+                intent.putExtra(FRIEND_NAME, childList.get(groupPosition).get(childPosition));
                 startActivity(intent);
                 return true;
             }
@@ -138,7 +154,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.expandLvHeader_new_frined:
-                Toast.makeText(getActivity(), "New Friend", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), NewFriendActivity.class));
                 break;
             case R.id.expandLvHeader_group_chat:
                 Toast.makeText(getActivity(), "Group Chat", Toast.LENGTH_SHORT).show();
@@ -148,79 +164,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
                 break;
         }
 
-    }
-
-    // 通讯录扩展列表适配器
-    class ContactExpandableListAdapter extends BaseExpandableListAdapter{
-
-        @Override
-        public int getGroupCount() {
-            return parentList.length;
-        }
-
-        @Override
-        public int getChildrenCount(int groupPosition) {
-            return childList[groupPosition].length;
-        }
-
-        @Override
-        public Object getGroup(int groupPosition) {
-            return parentList[groupPosition];
-        }
-
-        @Override
-        public Object getChild(int groupPosition, int childPosition) {
-            return childList[groupPosition][childPosition];
-        }
-
-        @Override
-        public long getGroupId(int groupPosition) {
-            return groupPosition;
-        }
-
-        @Override
-        public long getChildId(int groupPosition, int childPosition) {
-            return childPosition;
-        }
-
-        @Override
-        public boolean hasStableIds() {
-            return true;
-        }
-
-        @Override
-        public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.expandlistview_row_group, null);
-            }
-            // 设置分组的名称和人数
-            TextView groupName = (TextView) convertView.findViewById(R.id.expandLvRow_group_name);
-            TextView groupCount = (TextView) convertView.findViewById(R.id.expandLvRow_group_count);
-            groupName.setText(parentList[groupPosition]);
-            groupCount.setText(childList[groupPosition].length + "人");
-
-            convertView.setTag(R.id.expandLvRow_group_name, groupPosition);
-            convertView.setTag(R.id.expandLvRow_contact_name, -1);
-            return convertView;
-        }
-
-        @Override
-        public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getActivity()).inflate(R.layout.expandlistview_row_contact, null);
-            }
-            TextView contactName = (TextView) convertView.findViewById(R.id.expandLvRow_contact_name);
-            contactName.setText(childList[groupPosition][childPosition]);
-
-            convertView.setTag(R.id.expandLvRow_group_name, groupPosition);
-            convertView.setTag(R.id.expandLvRow_contact_name, childPosition);
-            return convertView;
-        }
-
-        @Override
-        public boolean isChildSelectable(int groupPosition, int childPosition) {
-            return true;
-        }
     }
 
 }

@@ -33,6 +33,7 @@
                 android:paddingLeft="48dp"
                 android:textSize="18sp"
                 android:hint="@string/login_inner_txt_username"
+                android:singleLine="true"
                 android:imeOptions="actionDone"/>
             <ImageView
                 android:layout_width="38dp"
@@ -61,6 +62,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="48dp"
                 android:hint="@string/login_inner_txt_password"
+                android:singleLine="true"
                 android:textSize="18sp" />
             <ImageView
                 android:layout_width="38dp"

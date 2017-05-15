@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_moment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.zhbit.lw.blchat.com.zhbit.lw.activity.MomentActivity">
-    <!--<include layout="@layout/layout_moment_heading"></include>-->
+    android:orientation="vertical">
+
+    <com.zhbit.lw.ui.CustomToolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:id="@+id/moment_toolbar"
+        >
+    </com.zhbit.lw.ui.CustomToolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
         <ListView
             android:id="@+id/lv_moment_info"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
         </ListView>
     </LinearLayout>
+
 </LinearLayout>

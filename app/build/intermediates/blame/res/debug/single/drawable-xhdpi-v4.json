@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\design_ic_visibility.png",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\design_ic_visibility.png",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-xhdpi-v4\\design_ic_visibility.png"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
@@ -104,12 +104,12 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tag_bg.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\tag_bg.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_primary_selector.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\btn_primary_selector.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tag_bg.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\tag_bg.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
@@ -148,12 +148,12 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ratingbar_material.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable\\design_password_eye.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ratingbar_material.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
@@ -204,12 +204,12 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ratingbar_indicator_material.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_warning_normal.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\drawable\\btn_warning_normal.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ratingbar_indicator_material.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_warning_pressed.xml",

@@ -1,20 +1,18 @@
 package com.zhbit.lw.activity;
 
 import android.app.Activity;
-import android.app.Notification;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 import android.os.Message;
+
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.hyphenate.chat.EMClient;
-import com.zhbit.lw.blchat.MainActivity;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 
@@ -43,9 +41,11 @@ public class WelcomeActivity extends Activity {
         wel_page = (RelativeLayout) findViewById(R.id.activity_welcome_page);
         //显示动画
         showAnimation();
+        Model.getInstance().getDbManager().getMomentTableDao().initMomentTableDao();
+        Model.getInstance().getDbManager().getUserTableDao().initUserTableDao();
+        Model.getInstance().getDbManager().getFriendTableDao().initFriendTableDao();
         // 发送2.6秒延时信息
         handler.sendMessageDelayed(Message.obtain(), 2000);
-
     }
 
     private void showAnimation(){

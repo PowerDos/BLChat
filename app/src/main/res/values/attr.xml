@@ -8,4 +8,9 @@
         <attr name="text_size" format="dimension"></attr>
     </declare-styleable>
 
+    <declare-styleable name="CustomToolbar">
+        <attr name="titleText" format="string"></attr>
+        <attr name="overflowPart" format="reference|string"></attr>
+    </declare-styleable>
+
 </resources>

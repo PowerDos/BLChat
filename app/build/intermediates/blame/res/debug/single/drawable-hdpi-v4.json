@@ -68,12 +68,12 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\design_ic_visibility_off.png",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-hdpi-v4\\design_ic_visibility_off.png"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\design_ic_visibility_off.png",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-hdpi-v4\\design_ic_visibility_off.png"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
