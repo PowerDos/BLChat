@@ -52,7 +52,7 @@ public class UserTableDao {
     public void initUserTableDao(){
         //初始化，创建两条数据测试，后期可删掉
         String Sql = "insert into user_infor(user_id, user_name, user_head, user_sex, user_account, user_location, user_sign)"
-                +"values(1, 'Wjh', 'R.drawable.head', '男', 'XR_HUI', '英德市', '水流心赤.')";
+                +"values(1, 'Wjh', 'R.drawable.head', '男', 'XR_HUI', '清远市', '水流心赤.')";
         //创建数据库
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //插入数据

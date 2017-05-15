@@ -15,7 +15,9 @@ import com.zhbit.lw.ui.CustomToolbar;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
 
 public class NewFriendActivity extends ListActivity {
 
@@ -23,6 +25,8 @@ public class NewFriendActivity extends ListActivity {
     private List<Map<String, Object>> newFriendListData;    // 新好友列表适配器
 
     private CustomToolbar customToolbar;
+
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,10 @@ public class NewFriendActivity extends ListActivity {
         // 设置顶部Toolbar的Overflow文字
         customToolbar.setOverflowTitle("添加好友");
 
-        newFriendListData = Model.getInstance().getDbManager(this).getFriendTableDao().getNewFriendList();
+        // 从ContactFragment中获取userId
+        userId = getIntent().getIntExtra(USER_ID, -1);
+
+        newFriendListData = Model.getInstance().getDbManager(this).getFriendTableDao().getNewFriendListById(userId);
 
         // 设置新好友列表适配器
         newFriendListView.setAdapter(new NewFriendListAdapter(this, newFriendListData));
@@ -68,7 +75,8 @@ public class NewFriendActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(NewFriendActivity.this, FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME, newFriendListData.get(position).get(FRIEND_NAME).toString());
+                intent.putExtra(USER_ID, Integer.parseInt(newFriendListData.get(position).get(USER_ID).toString()));
+                intent.putExtra(FRIEND_ID, Integer.parseInt(newFriendListData.get(position).get(FRIEND_ID).toString()));
                 startActivity(intent);
             }
         });

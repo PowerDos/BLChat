@@ -13,8 +13,11 @@ import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.entity.ChatEntity;
 import com.zhbit.lw.entity.FriendEntity;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.ui.CustomToolbar;
 
+import static com.zhbit.lw.model.dao.ChatTable.USER_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 import static com.zhbit.lw.model.dao.UserTable.USER_NAME;
 
@@ -27,7 +30,7 @@ public class FriendInforActivity extends AppCompatActivity {
 
     private CustomToolbar customToolbar;    // 顶部Toolbar
 
-    private String friendName;        // 用户名称
+    private int userId, friendId;
 
     private FriendEntity friendEntity;
 
@@ -60,11 +63,12 @@ public class FriendInforActivity extends AppCompatActivity {
         customToolbar.setTitle("详细资料");
         customToolbar.setOverflowImg(R.drawable.overflow);
 
-        // 获取当前好友姓名
-        friendName = getIntent().getStringExtra(FRIEND_NAME);
+        // 获取用户Id和当前好友Id
+        userId = getIntent().getIntExtra(USER_ID, -1);
+        friendId = getIntent().getIntExtra(FRIEND_ID, -1);
 
         // 从数据库中获取用户信息
-        friendEntity = Model.getInstance().getDbManager(this).getFriendTableDao().getFriendInforByUserName(friendName);
+        friendEntity = Model.getInstance().getDbManager(this).getFriendTableDao().getFriendInforByFriendId(friendId);
 
         if (friendEntity != null) {
             // 设置好友的界面数据
@@ -90,8 +94,8 @@ public class FriendInforActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
-                intent.putExtra(ChatEntity.TARGET_NAME, friendName);
-                intent.putExtra(ChatEntity.USER_NAME, "wjh");
+                intent.putExtra(ChatTable.USER_ID, userId);
+                intent.putExtra(ChatTable.FRIEND_ID, friendId);
                 finish();
                 startActivity(intent);
             }

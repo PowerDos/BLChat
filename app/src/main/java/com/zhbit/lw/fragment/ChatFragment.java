@@ -17,17 +17,19 @@ import com.zhbit.lw.activity.ChatMsgActivity;
 import com.zhbit.lw.adapter.ChatListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.entity.ChatEntity;
+import com.zhbit.lw.model.Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_CONTENT;
-import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_TIME;
-import static com.zhbit.lw.entity.ChatEntity.TARGET_HEAD;
-import static com.zhbit.lw.entity.ChatEntity.TARGET_NAME;
-import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_CONTENT;
+import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_TIME;
+import static com.zhbit.lw.model.dao.ChatTable.FRIEND_ID;
+import static com.zhbit.lw.model.dao.ChatTable.USER_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_HEAD;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 /**
  * ChatFragment: 聊天列表界面
@@ -43,6 +45,8 @@ public class ChatFragment extends Fragment{
     private ChatListAdapter chatListAdapter;        // 聊天列表适配器
 
     private ChatEntity chatEntity;      // 聊天对象
+
+    private int userId;     // 先写死　后期改成从互联网中获取
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,8 +76,13 @@ public class ChatFragment extends Fragment{
 
         // 实例化聊天对象
         chatEntity = new ChatEntity();
+
+        // 暂时写死为１
+        userId = 1;
+
         // 设置聊天列表数据
-        chatEntity.setRecentChatData(getData());
+        chatListData = Model.getInstance().getDbManager(getActivity()).getChatTableDao().getChatList(userId);
+        chatEntity.setRecentChatData(chatListData);
 
         chatListAdapter = new ChatListAdapter(getActivity(), chatEntity);
         chatListView.setAdapter(chatListAdapter);
@@ -86,10 +95,8 @@ public class ChatFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), ChatMsgActivity.class);
-                // intent.putExtra(ChatMsgActivity.USER_ID, );
-                intent.putExtra(USER_NAME, "Wjh");
-                // intent.putExtra(ChatMsgActivity.TARGET_ID, );
-                intent.putExtra(TARGET_NAME, chatListData.get(position).get(TARGET_NAME).toString());
+                 intent.putExtra(USER_ID, userId);
+                 intent.putExtra(FRIEND_ID, Integer.parseInt(chatListData.get(position).get(FRIEND_ID).toString()));
                 startActivity(intent);
             }
         });
@@ -140,27 +147,4 @@ public class ChatFragment extends Fragment{
             }
         });
     }
-
-    // 获取chatListView需要的数据数据
-    private List<Map<String, Object>> getData() {
-        chatListData = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put(TARGET_HEAD, R.drawable.app_icon);
-        map.put(TARGET_NAME, "一本正经、");
-        map.put(LAST_CHAT_TIME, "4月21日");
-        map.put(LAST_CHAT_CONTENT, "I miss you. ");
-        chatListData.add(map);
-
-        for (int i = 0;i < 100;i++) {
-            map = new HashMap<String, Object>();
-            map.put(TARGET_HEAD, R.drawable.head);
-            map.put(TARGET_NAME, "胡说八道、" + i);
-            map.put(LAST_CHAT_TIME, "12:30");
-            map.put(LAST_CHAT_CONTENT, "I miss you. And how about you.asd");
-            chatListData.add(map);
-        }
-
-        return chatListData;
-    }
-
 }

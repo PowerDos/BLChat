@@ -35,6 +35,7 @@ public class welcomePage extends Activity {
         Model.getInstance().getDbManager(this).getMomentTableDao().initMomentTableDao();
         Model.getInstance().getDbManager(this).getUserTableDao().initUserTableDao();
         Model.getInstance().getDbManager(this).getFriendTableDao().initFriendTableDao();
+        Model.getInstance().getDbManager(this).getChatTableDao().initChatTableDao();
         //使用handler的postDelayed实现延时跳转
         handler.postDelayed(new Runnable() {
             public void run() {

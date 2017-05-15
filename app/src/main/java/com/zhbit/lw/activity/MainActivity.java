@@ -25,6 +25,8 @@ import com.zhbit.lw.fragment.MeFragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
+
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener{
 
     // 定义组件
@@ -45,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
 
     // overflow按钮
-    ActionMenuItemView overflowBtn;
+    private ActionMenuItemView overflowBtn;
+
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +98,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     // 初始化数据
     private void initDatas() {
+        userId = 1;
+
         // 实例化fragmentList
         fragmentList = new ArrayList<Fragment>();
 
@@ -146,6 +152,8 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
                             public boolean onMenuItemClick(MenuItem item) {
                                 switch (item.getItemId()){
                                     case R.id.menu_add_friend:
+                                        Intent intent = new Intent(MainActivity.this, AddFriendActivity.class);
+                                        intent.putExtra(USER_ID, userId);
                                         startActivity(new Intent(MainActivity.this, AddFriendActivity.class));
                                         break;
                                     case R.id.menu_group_chat:

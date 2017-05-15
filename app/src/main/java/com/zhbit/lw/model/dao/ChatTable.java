@@ -34,5 +34,4 @@ public class ChatTable {
             + CHAT_MSG_TIME + " datetime,"
             + CHAT_MSG_TYPE + " varchar(10))";
 
-
 }

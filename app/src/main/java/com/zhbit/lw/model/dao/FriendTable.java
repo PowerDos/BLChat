@@ -8,6 +8,7 @@ public class FriendTable {
 
     public static final String TABLE_NAME = "friend_infor";
 
+    public static final String USER_ID = "user_id";
     public static final String FRIEND_ID = "friend_id";
     public static final String GROUP_NAME = "group_name";
     public static final String FRIEND_NAME = "friend_name";
@@ -23,6 +24,7 @@ public class FriendTable {
     public static final String CREATE_TABLE = "create table "
             + TABLE_NAME + " ("
             + "[_id] integer autoinc primary key,"
+            + USER_ID + " integer,"
             + FRIEND_ID + " integer,"
             + GROUP_NAME + " varchar(32),"
             + FRIEND_NAME + " varchar(32),"

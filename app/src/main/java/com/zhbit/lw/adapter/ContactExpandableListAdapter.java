@@ -12,6 +12,8 @@ import com.zhbit.lw.blchat.R;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+
 /**
  * Created by wjh on 17-5-14.
  */
@@ -20,9 +22,9 @@ public class ContactExpandableListAdapter extends BaseExpandableListAdapter{
 
     private Context context;
     private List<String> parentList;
-    private List<List<String>> childList;
+    private List<List<Map<String, Object>>> childList;
 
-    public ContactExpandableListAdapter(Context context, List<String> parentList, List<List<String>> childList) {
+    public ContactExpandableListAdapter(Context context, List<String> parentList, List<List<Map<String, Object>>> childList) {
         this.context = context;
         this.parentList = parentList;
         this.childList = childList;
@@ -85,7 +87,7 @@ public class ContactExpandableListAdapter extends BaseExpandableListAdapter{
             convertView = LayoutInflater.from(context).inflate(R.layout.expandlistview_row_contact, null);
         }
         TextView contactName = (TextView) convertView.findViewById(R.id.expandLvRow_contact_name);
-        contactName.setText(childList.get(groupPosition).get(childPosition));
+        contactName.setText(childList.get(groupPosition).get(childPosition).get(FRIEND_NAME).toString());
 
         convertView.setTag(R.id.expandLvRow_group_name, groupPosition);
         convertView.setTag(R.id.expandLvRow_contact_name, childPosition);

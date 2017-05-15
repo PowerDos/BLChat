@@ -2037,14 +2037,14 @@ containing a value of this type.
         public static final int list_item=0x7f0b002b;
         public static final int logo=0x7f0b0081;
         public static final int lvRow_expand=0x7f0b00a2;
+        public static final int lvRow_friendHead=0x7f0b009c;
+        public static final int lvRow_friendName=0x7f0b009e;
         public static final int lvRow_lastChatContent=0x7f0b00a1;
         public static final int lvRow_lastChatContent_expand=0x7f0b00a0;
         public static final int lvRow_lastChatTime=0x7f0b009f;
         public static final int lvRow_newfriend_requestMsg=0x7f0b00ab;
         public static final int lvRow_newfriend_userHead=0x7f0b00a9;
         public static final int lvRow_newfriend_userName=0x7f0b00aa;
-        public static final int lvRow_targetHead=0x7f0b009c;
-        public static final int lvRow_targetName=0x7f0b009e;
         public static final int lvRow_userName_lastChatTime=0x7f0b009d;
         public static final int lv_moment_info=0x7f0b007d;
         public static final int media_actions=0x7f0b00b2;

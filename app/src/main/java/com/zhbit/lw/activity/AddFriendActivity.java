@@ -6,9 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.ui.CustomToolbar;
 
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
+
 public class AddFriendActivity extends AppCompatActivity {
 
     private CustomToolbar customToolbar;
+
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class AddFriendActivity extends AppCompatActivity {
 
     // 初始化数据
     private void initData() {
+        userId = getIntent().getIntExtra(USER_ID, -1);
     }
 
     // 初始化点击事件

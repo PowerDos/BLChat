@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.MomentTable;
 import com.zhbit.lw.model.dao.UserTable;
@@ -26,6 +27,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(UserTable.CREATE_TABLE);
         //创建好友表
         db.execSQL(FriendTable.CREATE_TABLE);
+        //创建聊天表
+        db.execSQL(ChatTable.CREATE_TABLE);
     }
 
     @Override
