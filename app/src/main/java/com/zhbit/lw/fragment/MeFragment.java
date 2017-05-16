@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.UserEntity;
+import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.Model;
 
 /**
@@ -49,14 +49,14 @@ public class MeFragment extends Fragment{
 
     private void initData() {
         // 从数据库获取数据
-        UserEntity userEntity = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount();
+        UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount();
 
         // 判断是否获取成功
-        if (userEntity == null) {
+        if (userInfo == null) {
             Toast.makeText(getActivity(), "Null", Toast.LENGTH_SHORT).show();
         }else{
-            tvUserName.setText(userEntity.getUserName());
-            tvUserAccount.setText("帐号：" + userEntity.getUserAccount());
+            tvUserName.setText(userInfo.getUserName());
+            tvUserAccount.setText("帐号：" + userInfo.getUserAccount());
         }
     }
 

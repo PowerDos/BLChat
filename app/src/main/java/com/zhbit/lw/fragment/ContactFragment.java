@@ -11,20 +11,17 @@ import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.zhbit.lw.activity.FriendInforActivity;
 import com.zhbit.lw.activity.NewFriendActivity;
 import com.zhbit.lw.adapter.ContactExpandableListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
-import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
+
 
 
 /**
@@ -43,7 +40,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     private ImageView imgRelation;      // exoandableListView表头当中的关系
 
     private List<String> parentList;
-    private List<List<String>> childList;
+    private List<List<Map<String, Object>>> childList;
 
     @Nullable
     @Override
@@ -87,14 +84,13 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
         // 设置父列表和子列表的数据
         parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
-        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList();
+        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
         if (parentList == null) {
             Toast.makeText(getActivity(), "Parent Null", Toast.LENGTH_SHORT).show();
         }
         if (childList == null) {
             Toast.makeText(getActivity(), "Child Null", Toast.LENGTH_SHORT).show();
         }
-
         // 设置通讯录扩展列表的适配器
         contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));
 
@@ -134,7 +130,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 // 跳转到用户信息的界面
                 Intent intent = new Intent(getActivity(), FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME, childList.get(groupPosition).get(childPosition));
+                intent.putExtra(FRIEND_NAME,  Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
                 startActivity(intent);
                 return true;
             }

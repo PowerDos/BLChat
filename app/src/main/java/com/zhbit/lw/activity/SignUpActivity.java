@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.UserEntity;
+import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.Model;
 
 
@@ -47,13 +47,13 @@ public class SignUpActivity extends Activity implements View.OnClickListener{
             Toast.makeText(this,"请填入完整信息",Toast.LENGTH_LONG).show();
             return;
         }
-        final UserEntity userEntity = new UserEntity();
-        userEntity.setUserAccount(account);
-        userEntity.setUserName(name);
-        userEntity.setUserSex(sex);
-        userEntity.setUserLocation(location);
-        userEntity.setUserHead("R.drawable.head");
-        userEntity.setUserSign("富强、民主、文明、和谐、自由、平等、公正、法制、爱国、敬业、诚信、友善");
+        final UserInfo userInfo = new UserInfo();
+        userInfo.setUserAccount(account);
+        userInfo.setUserName(name);
+        userInfo.setUserSex(sex);
+        userInfo.setUserLocation(location);
+        userInfo.setUserHead("R.drawable.head");
+        userInfo.setUserSign("富强、民主、文明、和谐、自由、平等、公正、法制、爱国、敬业、诚信、友善");
         //注册信息
         Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
             @Override
@@ -61,7 +61,7 @@ public class SignUpActivity extends Activity implements View.OnClickListener{
                 try {
                     //注册用户
                     EMClient.getInstance().createAccount(account, password);
-                    Model.getInstance().getDbManager().getUserTableDao().addUserAccount(userEntity);
+                    Model.getInstance().getDbManager().getUserTableDao().addUserAccount(userInfo);
                     getIntent().putExtra("account", account);
                     getIntent().putExtra("password", password);
                     setResult(66, getIntent());

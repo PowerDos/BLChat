@@ -22,7 +22,7 @@ public class ContactExpandableListAdapter extends BaseExpandableListAdapter{
     private List<String> parentList;
     private List<List<String>> childList;
 
-    public ContactExpandableListAdapter(Context context, List<String> parentList, List<List<String>> childList) {
+    public ContactExpandableListAdapter(Context context, List<String> parentList, List<List<Map<String, Object>>> childList) {
         this.context = context;
         this.parentList = parentList;
         this.childList = childList;

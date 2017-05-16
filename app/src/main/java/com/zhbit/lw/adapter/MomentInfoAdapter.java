@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.MomentEntity;
+import com.zhbit.lw.model.bean.MomentInfo;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ import java.util.List;
 
 public class MomentInfoAdapter extends BaseAdapter{
     protected Context context;
-    protected List<MomentEntity> momentEntities;
+    protected List<MomentInfo> momentEntities;
 
-    public MomentInfoAdapter(Context c, List<MomentEntity> m){
+    public MomentInfoAdapter(Context c, List<MomentInfo> m){
         context = c;
         momentEntities = m;
     }
@@ -50,7 +50,7 @@ public class MomentInfoAdapter extends BaseAdapter{
         }
         Logs.d("Adapter",parent.getChildCount()+" ");
         //设置显示数据
-        MomentEntity info = momentEntities.get(position);
+        MomentInfo info = momentEntities.get(position);
         Logs.d("Adapter", info.getFriendId()+" "+info.getFriendName());
         //获得View对象
         ImageView headImg = (ImageView) convertView.findViewById(R.id.friend_moment_head);

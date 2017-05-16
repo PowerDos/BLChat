@@ -1,10 +1,10 @@
-package com.zhbit.lw.entity;
+package com.zhbit.lw.model.bean;
 
 /**
  * Created by fl5900 on 2017/5/11.
  */
 
-public class MomentEntity {
+public class MomentInfo {
     private String FriendName; //朋友的名字
     private String FriendId; //朋友的账号
     private String HeadPhoto; //头像

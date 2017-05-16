@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onError(int i, String s) {
                         //提示登录失败
-                        Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_LONG).show();
                     }
                     //登录过程中的处理
                     @Override

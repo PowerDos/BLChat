@@ -1,10 +1,10 @@
-package com.zhbit.lw.entity;
+package com.zhbit.lw.model.bean;
 
 /**
  * Created by wjh on 17-5-13.
  */
 
-public class UserEntity {
+public class UserInfo {
 
     private String userName, userHead, userSex, userAccount, userLocation, userSign;
 
@@ -56,7 +56,7 @@ public class UserEntity {
         this.userLocation = userLocation;
     }
 
-    public UserEntity(String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
+    public UserInfo(String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
         this.userName = userName;
         this.userHead = userHead;
         this.userSex = userSex;
@@ -64,6 +64,6 @@ public class UserEntity {
         this.userLocation = userLocation;
         this.userSign = userSign;
     }
-    public UserEntity(){}
+    public UserInfo(){}
 
 }
