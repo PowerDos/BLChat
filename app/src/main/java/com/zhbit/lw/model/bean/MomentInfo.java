@@ -1,4 +1,4 @@
-package com.zhbit.lw.entity;
+package com.zhbit.lw.model.bean;
 
 /**
  * Created by fl5900 on 2017/5/11.

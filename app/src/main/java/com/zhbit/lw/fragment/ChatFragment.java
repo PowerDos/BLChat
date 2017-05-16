@@ -16,18 +16,18 @@ import android.widget.Toast;
 import com.zhbit.lw.activity.ChatMsgActivity;
 import com.zhbit.lw.adapter.ChatListAdapter;
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.ChatEntity;
+import com.zhbit.lw.model.bean.ChatInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_CONTENT;
-import static com.zhbit.lw.entity.ChatEntity.LAST_CHAT_TIME;
-import static com.zhbit.lw.entity.ChatEntity.TARGET_HEAD;
-import static com.zhbit.lw.entity.ChatEntity.TARGET_NAME;
-import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.bean.ChatInfo.LAST_CHAT_CONTENT;
+import static com.zhbit.lw.model.bean.ChatInfo.LAST_CHAT_TIME;
+import static com.zhbit.lw.model.bean.ChatInfo.TARGET_HEAD;
+import static com.zhbit.lw.model.bean.ChatInfo.TARGET_NAME;
+import static com.zhbit.lw.model.bean.ChatInfo.USER_NAME;
 
 /**
  * ChatFragment: 聊天列表界面
@@ -42,7 +42,7 @@ public class ChatFragment extends Fragment{
     private List<Map<String, Object>> chatListData;     // 聊天列表数据
     private ChatListAdapter chatListAdapter;        // 聊天列表适配器
 
-    private ChatEntity chatEntity;      // 聊天对象
+    private ChatInfo chatInfo;      // 聊天对象
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,11 +71,11 @@ public class ChatFragment extends Fragment{
     private void initData() {
 
         // 实例化聊天对象
-        chatEntity = new ChatEntity();
+        chatInfo = new ChatInfo();
         // 设置聊天列表数据
-        chatEntity.setRecentChatData(getData());
+        chatInfo.setRecentChatData(getData());
 
-        chatListAdapter = new ChatListAdapter(getActivity(), chatEntity);
+        chatListAdapter = new ChatListAdapter(getActivity(), chatInfo);
         chatListView.setAdapter(chatListAdapter);
     }
 

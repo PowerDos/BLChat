@@ -10,13 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.ChatEntity;
-import com.zhbit.lw.entity.FriendEntity;
+import com.zhbit.lw.model.bean.ChatInfo;
+import com.zhbit.lw.model.bean.FriendInfo;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.ui.CustomToolbar;
 
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
-import static com.zhbit.lw.model.dao.UserTable.USER_NAME;
 
 
 public class FriendInforActivity extends AppCompatActivity {
@@ -62,14 +61,14 @@ public class FriendInforActivity extends AppCompatActivity {
         friendName = getIntent().getStringExtra(FRIEND_NAME);
 
         // 从数据库中获取用户信息
-        FriendEntity friendEntity = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByUserName(friendName);
+        FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByUserName(friendName);
 
-        if (friendEntity != null) {
+        if (friendInfo != null) {
             // 设置好友的界面数据
-            tvFriendName.setText(friendEntity.getFriendName());
+            tvFriendName.setText(friendInfo.getFriendName());
 
-            tvFriendAccount.setText(friendEntity.getFriendAccount());
-            if (friendEntity.getFriendSex().equals("男")) {
+            tvFriendAccount.setText(friendInfo.getFriendAccount());
+            if (friendInfo.getFriendSex().equals("男")) {
                 ivFriendSex.setImageResource(R.drawable.user_sex_male);
             }else {
                 ivFriendSex.setImageResource(R.drawable.user_sex_female);
@@ -86,8 +85,8 @@ public class FriendInforActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
-                intent.putExtra(ChatEntity.TARGET_NAME, friendName);
-                intent.putExtra(ChatEntity.USER_NAME, "wjh");
+                intent.putExtra(ChatInfo.TARGET_NAME, friendName);
+                intent.putExtra(ChatInfo.USER_NAME, "wjh");
                 finish();
                 startActivity(intent);
             }

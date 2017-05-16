@@ -11,12 +11,11 @@ import android.widget.Toast;
 
 import com.zhbit.lw.activity.FriendInforActivity;
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.ChatEntity;
+import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.dao.UserTable;
 
-import static com.zhbit.lw.entity.ChatEntity.CONTENT;
-import static com.zhbit.lw.entity.ChatEntity.TYPE;
-import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.bean.ChatInfo.CONTENT;
+import static com.zhbit.lw.model.bean.ChatInfo.TYPE;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 /**
@@ -26,21 +25,21 @@ import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener{
 
     private Context context;        // 上下文，用于绘制图象
-    private ChatEntity chatEntity;      // 当前聊天对象
+    private ChatInfo chatInfo;      // 当前聊天对象
 
     // 适配器的构造方法
-    public ChatMsgListAdapter(Context context, ChatEntity chatEntity) {
+    public ChatMsgListAdapter(Context context, ChatInfo chatInfo) {
         this.context = context;
-        this.chatEntity = chatEntity;
+        this.chatInfo = chatInfo;
     }
 
     public int getCount() {
-        return chatEntity.getChatContent().size();
+        return chatInfo.getChatContent().size();
     }
 
     @Override
     public Object getItem(int position) {
-        return chatEntity.getChatContent().get(position);
+        return chatInfo.getChatContent().get(position);
     }
 
     @Override
@@ -52,14 +51,14 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // 判断消息是发送还是接受
-        String flag = chatEntity.getChatContent().get(position).get(TYPE).toString();
+        String flag = chatInfo.getChatContent().get(position).get(TYPE).toString();
         if (flag.equals("send")) {
             // 发送的则实例化右侧气泡布局
             convertView = View.inflate(context, R.layout.listview_row_chat_msg_right, null);
 
             // 获取消息并设置气泡内容
             TextView tvContent = (TextView) convertView.findViewById(R.id.rightMsg_content);
-            tvContent.setText(chatEntity.getChatContent().get(position).get(CONTENT).toString());
+            tvContent.setText(chatInfo.getChatContent().get(position).get(CONTENT).toString());
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
@@ -77,7 +76,7 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
 
             // 获取消息并设置气泡内容
             TextView tvContent = (TextView) convertView.findViewById(R.id.leftMsg_content);
-            tvContent.setText(chatEntity.getChatContent().get(position).get(CONTENT).toString());
+            tvContent.setText(chatInfo.getChatContent().get(position).get(CONTENT).toString());
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
@@ -99,7 +98,7 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
         switch (v.getId()) {
             case R.id.leftMsg_userHead:
                 intent = new Intent(context, FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME, chatEntity.getTargetName());
+                intent.putExtra(FRIEND_NAME, chatInfo.getTargetName());
                 context.startActivity(intent);
                 break;
             case R.id.rightMsg_userHead:

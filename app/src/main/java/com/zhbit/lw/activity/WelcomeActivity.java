@@ -45,7 +45,7 @@ public class WelcomeActivity extends Activity {
         Model.getInstance().getDbManager().getUserTableDao().initUserTableDao();
         Model.getInstance().getDbManager().getFriendTableDao().initFriendTableDao();
         // 发送2.6秒延时信息
-        handler.sendMessageDelayed(Message.obtain(), 2000);
+        handler.sendMessageDelayed(Message.obtain(), 2600);
     }
 
     private void showAnimation(){

@@ -7,8 +7,7 @@ import android.widget.ListView;
 
 import com.zhbit.lw.adapter.ChatMsgListAdapter;
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.entity.ChatEntity;
-import com.zhbit.lw.model.dao.UserTable;
+import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.ui.CustomToolbar;
 
 import java.util.ArrayList;
@@ -16,11 +15,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.entity.ChatEntity.CONTENT;
-import static com.zhbit.lw.entity.ChatEntity.TARGET_NAME;
-import static com.zhbit.lw.entity.ChatEntity.TIME;
-import static com.zhbit.lw.entity.ChatEntity.TYPE;
-import static com.zhbit.lw.entity.ChatEntity.USER_NAME;
+import static com.zhbit.lw.model.bean.ChatInfo.CONTENT;
+import static com.zhbit.lw.model.bean.ChatInfo.TARGET_NAME;
+import static com.zhbit.lw.model.bean.ChatInfo.TIME;
+import static com.zhbit.lw.model.bean.ChatInfo.TYPE;
+import static com.zhbit.lw.model.bean.ChatInfo.USER_NAME;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 public class ChatMsgActivity extends ListActivity {
@@ -28,7 +27,7 @@ public class ChatMsgActivity extends ListActivity {
     private ListView chatMsgListView;       // 聊天界面聊天记录列表试图
     private List<Map<String, Object>> chatMsgDataList;      // 聊天界面聊天记录列表适配器
 
-    private ChatEntity chatEntity;      // 聊天对象
+    private ChatInfo chatInfo;      // 聊天对象
 
     private CustomToolbar chatMsgToolbar;       // 顶部Toolbar
 
@@ -87,21 +86,21 @@ public class ChatMsgActivity extends ListActivity {
         }
 
         // 实例化当前聊天对象
-        chatEntity = new ChatEntity();
+        chatInfo = new ChatInfo();
         // 设置当前聊天对象的信息
-        chatEntity.setUserName(getIntent().getStringExtra(USER_NAME));
-        chatEntity.setTargetName(getIntent().getStringExtra(TARGET_NAME));
-        chatEntity.setChatContent(chatMsgDataList);
+        chatInfo.setUserName(getIntent().getStringExtra(USER_NAME));
+        chatInfo.setTargetName(getIntent().getStringExtra(TARGET_NAME));
+        chatInfo.setChatContent(chatMsgDataList);
 
         // 实例化当前聊天对象
         // 以后采用这种方式　传ID获取聊天对象　数据库处理交给ChatEntity
-//        chatEntity = new ChatEntity(getIntent().getIntExtra(USER_ID, -1), getIntent().getIntExtra(TARGET_ID, -1));
+//        chatInfo = new ChatInfo(getIntent().getIntExtra(USER_ID, -1), getIntent().getIntExtra(TARGET_ID, -1));
 
         // 设置当前界面Toolbar的标题为聊天对象的姓名
-        chatMsgToolbar.setTitle(chatEntity.getTargetName());
+        chatMsgToolbar.setTitle(chatInfo.getTargetName());
 
         // 设置聊天信息列表的适配器
-        chatMsgListView.setAdapter(new ChatMsgListAdapter(this, chatEntity));
+        chatMsgListView.setAdapter(new ChatMsgListAdapter(this, chatInfo));
 
     }
 
@@ -112,7 +111,7 @@ public class ChatMsgActivity extends ListActivity {
             @Override
             public void onOverflowClick() {
                 Intent intent = new Intent(ChatMsgActivity.this, FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME, chatEntity.getTargetName());
+                intent.putExtra(FRIEND_NAME, chatInfo.getTargetName());
                 startActivity(intent);
             }
         });

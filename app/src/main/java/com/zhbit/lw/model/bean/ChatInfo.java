@@ -1,14 +1,14 @@
-package com.zhbit.lw.entity;
+package com.zhbit.lw.model.bean;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * ChatEntity: 聊天对象
+ * ChatInfo: 聊天对象
  * Created by wjh on 17-5-13.
  */
 
-public class ChatEntity {
+public class ChatInfo {
 
     private int userId, targetId;
     private String userName, targetName;
@@ -36,22 +36,22 @@ public class ChatEntity {
     public static final String EXPAND_RELATION = "expandRelation";
 
     // 测试使用
-    public ChatEntity() {
+    public ChatInfo() {
     }
 
     // 根据目标ID获得最后一次聊天信息　用于ChatFragment
-    public ChatEntity(int targetId) {
+    public ChatInfo(int targetId) {
         this.targetId = targetId;
     }
 
     // 根据两个ID获得所有聊天信息　用于ChatMsgActivity
-    public ChatEntity(int userId, int targetId) {
+    public ChatInfo(int userId, int targetId) {
         this.userId = userId;
         this.targetId = targetId;
     }
 
     // 测试使用
-    public ChatEntity(int userId, String userName, int targetId, String targetName, List<Map<String, Object>> chatMsgData, List<Map<String, Object>>recentChatData) {
+    public ChatInfo(int userId, String userName, int targetId, String targetName, List<Map<String, Object>> chatMsgData, List<Map<String, Object>>recentChatData) {
         this.userId = userId;
         this.userName = userName;
         this.targetId = targetId;
