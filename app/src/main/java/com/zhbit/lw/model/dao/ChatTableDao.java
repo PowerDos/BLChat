@@ -2,6 +2,7 @@ package com.zhbit.lw.model.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.db.DBHelper;
@@ -32,7 +33,7 @@ public class ChatTableDao {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         // 查询出最后一条聊天记录的时间
-        String lastChatTimeSql = "SELECT friend_id, max(chat_msg_time) as chat_msg_time FROM chat_msg WHERE user_id=? GROUP BY friend_id;";
+        String lastChatTimeSql = "SELECT DISTINCT friend_id, max(chat_msg_time) as chat_msg_time FROM chat_msg WHERE user_id=? GROUP BY friend_id ORDER BY chat_msg_time DESC;";
         Cursor lastChatTiemCursor = db.rawQuery(lastChatTimeSql, new String[]{""+userId});
 
         while (lastChatTiemCursor.moveToNext()) {
@@ -40,7 +41,7 @@ public class ChatTableDao {
             int friendId = lastChatTiemCursor.getInt(lastChatTiemCursor.getColumnIndex(ChatTable.FRIEND_ID));
             String lastChatTime = lastChatTiemCursor.getString(lastChatTiemCursor.getColumnIndex(ChatTable.CHAT_MSG_TIME));
             // 根据好友查询和最后一次聊天时间获取好友姓名，头像，聊天内容和最后聊天时间
-            String chatListSql = "SELECT chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
+            String chatListSql = "SELECT chat.user_id, chat.friend_id, friend_name, friend_head, " +
                     "friend_expand_relation, chat_msg_content, chat_msg_time " +
                     "FROM user_infor user, friend_infor friend, chat_msg chat " +
                     "WHERE user.user_id = chat.user_id AND friend.friend_id = chat.friend_id " +
@@ -94,7 +95,16 @@ public class ChatTableDao {
             map.put(ChatTable.SHOW_TIME_FLAG, cursor.getString(cursor.getColumnIndex(ChatTable.SHOW_TIME_FLAG)));
             chatMsgList.add(map);
         }else{
-            return null;
+            // 如果获取聊天记录为空　则只获取好友信息即可
+            String friendSql = "SELECT friend_name, friend_head FROM friend_infor WHERE friend_id = ?";
+            Cursor friendInforCursor = db.rawQuery(friendSql, new String[]{""+friendId});
+
+            if (friendInforCursor.moveToNext()) {
+                chatInfo.setFriendName(friendInforCursor.getString(friendInforCursor.getColumnIndex(FriendTable.FRIEND_NAME)));
+                chatInfo.setFriendHead(friendInforCursor.getString(friendInforCursor.getColumnIndex(FriendTable.FRIEND_HEAD)));
+                chatInfo.setChatMsgData(chatMsgList);
+            }
+            return chatInfo;
         }
         // 不再需要重复设置聊天的基本属性
         while(cursor.moveToNext()) {

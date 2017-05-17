@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.adapter.ChatMsgListAdapter;
@@ -23,6 +23,7 @@ import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
 import com.zhbit.lw.util.DensityUtil;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,6 +64,7 @@ public class ChatMsgActivity extends ListActivity {
         // 设置聊天信息列表
         chatMsgListView = getListView();
         chatMsgListView.setDivider(null);
+        chatMsgListView.smoothScrollToPosition(chatMsgListView.getMeasuredHeightAndState());
 
         // 设置顶部Toolbar
         chatMsgToolbar = (CustomToolbar) findViewById(R.id.chatMsgToolbar);
@@ -114,7 +116,15 @@ public class ChatMsgActivity extends ListActivity {
             }
         });
 
-        // 设置输入框的监听事件, 当用户输入内容后对按钮作变化
+        // 设置输入框的点击监听事件, 点击后滚动聊天记录到底部
+        etSendContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chatMsgListView.smoothScrollToPosition(chatMsgListView.getMaxScrollAmount());
+            }
+        });
+
+        // 设置输入框的文本变化监听事件, 当用户输入内容后对按钮作变化
         etSendContent.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -159,26 +169,43 @@ public class ChatMsgActivity extends ListActivity {
                 }else{
                     List<Map<String, Object>> chatListData = chatInfo.getChatMsgData();
 
-                    // 获取上一跳消息的时间
-                    String lastMsgTime = chatListData.get(chatListData.size()-1).get(ChatTable.CHAT_MSG_TIME).toString();
-
                     try {
                         // 设置的内容
                         String msgContent = etSendContent.getText().toString();
                         String currentTime;
                         int showTimeFlag;
 
-                        // 获取当前时间
-                        Date currentDate = new Date();     // 创建一个时间对象，获取到当前的时间
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");// 设置时间显示格式
-                        currentTime = sdf.format(currentDate);
+                        // 上一跳聊天记录的时间
+                        String lastMsgTime;
 
-                        Date lastMsgDate = sdf.parse(lastMsgTime);
-                        // 判断消息的时间是否超过两分钟
-                        if ((currentDate.getTime() - lastMsgDate.getTime())/(60*1000) > 3) {
-                            showTimeFlag = ChatTable.HIDE_TIME;
+                        // 判断是否存在历史聊天记录
+                        if (chatListData.size() == 0) {
+                            // 如果不存在则默认需要显示时间, 设置成五分钟前的时间
+                            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            long fiveMinsAgo = new Date().getTime() - 5*1000*60;
+                            lastMsgTime = df.format(new Date(fiveMinsAgo));
                         }else{
+                            // 获取上一条消息的时间
+                            lastMsgTime = chatListData.get(chatListData.size()-1).get(ChatTable.CHAT_MSG_TIME).toString();
+                        }
+
+                        // 获取当前时间
+                        Date currentDate = new Date();     // 获取到当前的时间
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置时间显示格式
+                        // 将当前时间转化成字符串格式, 以便于存入数据库
+                        currentTime = sdf.format(new Date());
+
+                        // 将上一条聊天记录的时间从字符串格式转化成Date格式
+                        Date lastMsgDate = sdf.parse(lastMsgTime);
+                        // 如果间隔时间大于一天, 则显示日期
+                        if ((currentDate.getTime() - lastMsgDate.getTime())/(24*60*60*1000) > 1) {
+                            showTimeFlag = ChatTable.SHOW_DATE;
+                        }else if ((currentDate.getTime() - lastMsgDate.getTime())/(60*1000) > 3){
+                            // 如果间隔时间为大于三分钟, 则显示时间
                             showTimeFlag = ChatTable.SHOW_TIME;
+                        }else{
+                            // 如果间隔时间小于三分钟, 则隐藏时间
+                            showTimeFlag = ChatTable.HIDE_TIME;
                         }
 
                         // 更新当前聊天界面的列表数据
@@ -195,13 +222,13 @@ public class ChatMsgActivity extends ListActivity {
                         // 将聊天记录插入数据库当中
                         Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(userId, friendId, msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_SEND, showTimeFlag);
 
-
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
 
                     // 置空输入框
                     etSendContent.setText("");
+                    chatMsgListView.smoothScrollToPosition(chatMsgListView.getMaxScrollAmount());
                 }
             }
         });

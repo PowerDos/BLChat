@@ -64,14 +64,30 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
-            // 判断是否显示时间
-            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.HIDE_TIME) {
+            // 判断显示时间的属性
+            int showTimeFlag = Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString());
+            if (showTimeFlag == ChatTable.SHOW_DATE) {
+                // 获取显示时间的组件
                 TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
-                tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String date = msgTime.substring(0, msgTime.indexOf(" "));
+                // 设置组件的属性
+                tvLastMsgTime.setText(date);
                 tvLastMsgTime.setVisibility(View.VISIBLE);
-            }else{
+            }else if (showTimeFlag == ChatTable.SHOW_TIME){
+                // 获取显示时间的组件
                 TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
-                tvLastMsgTime.setVisibility(View.GONE);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String time = msgTime.substring(msgTime.indexOf(" ")+1, msgTime.lastIndexOf(":"));
+                // 将截取出来的字符数组转化为字符串
+                String timeResult = String.valueOf(time);
+                // 设置组件的属性
+                tvLastMsgTime.setText(timeResult);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
             }
 
             // 获取头像的View设置监听事件
@@ -89,13 +105,31 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setOnLongClickListener(this);
 
             // 判断是否显示时间
-            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.SHOW_TIME) {
+            int showTimeFlag = Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString());
+            if (showTimeFlag == ChatTable.SHOW_DATE) {
+                // 获取显示时间的组件
                 TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
-                tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String date = msgTime.substring(0, msgTime.indexOf(" "));
+                // 将截取出来的字符数组转化为字符串
+                String dateResult = String.valueOf(date);
+                // 设置组件的属性
+                tvLastMsgTime.setText(dateResult);
                 tvLastMsgTime.setVisibility(View.VISIBLE);
-            }else{
+            }else if (showTimeFlag == ChatTable.SHOW_TIME){
+                // 获取显示时间的组件
                 TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
-                tvLastMsgTime.setVisibility(View.GONE);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String time = msgTime.substring(msgTime.indexOf(" "+1), msgTime.lastIndexOf(":"));
+                // 将截取出来的字符数组转化为字符串
+                String timeResult = String.valueOf(time);
+                // 设置组件的属性
+                tvLastMsgTime.setText(timeResult);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
             }
 
             // 获取头像的View设置监听事件

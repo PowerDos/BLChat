@@ -39,16 +39,16 @@ public class DBHelper extends SQLiteOpenHelper{
         //创建聊天表
         db.execSQL(ChatTable.CREATE_TABLE);
 
-        // 插入聊天的测试数据
-        String chatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
-                " values(1, 2, '您好，好久不见，近来可好。', '2017-2-16 12:30', 'receive', 1)";
-        String secondChatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
-                " values(1, 2, '还不错啦。', '2017-2-16 12:32', 'send', 1)";
-        String thirdChatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
-                " values(1, 3, '在吗？。', '2017-2-16 11:30', 'send', 1)";
-        db.execSQL(chatSql);
-        db.execSQL(secondChatSql);
-        db.execSQL(thirdChatSql);
+//        // 插入聊天的测试数据
+//        String chatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
+//                " values(1, 2, '您好，好久不见，近来可好。', '2017-2-16 12:30', 'receive', 1)";
+//        String secondChatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
+//                " values(1, 2, '还不错啦。', '2017-2-16 12:32', 'send', 1)";
+//        String thirdChatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
+//                " values(1, 3, '在吗？。', '2017-2-16 11:30', 'send', 1)";
+//        db.execSQL(chatSql);
+//        db.execSQL(secondChatSql);
+//        db.execSQL(thirdChatSql);
 
         // 插入用户的测试数据
         String userSql = "insert into user_infor(user_id, user_name, user_head, user_sex, user_account, user_location, user_sign)"

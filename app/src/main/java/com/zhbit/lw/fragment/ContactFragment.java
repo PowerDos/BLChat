@@ -76,6 +76,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         // 设置通讯录列表的表头
         headerView = View.inflate(getActivity(), R.layout.expandlistview_header, null);
         contactExpandableListView.addHeaderView(headerView, null, true);
+        contactExpandableListView.smoothScrollToPosition(contactExpandableListView.getMaxScrollAmount());
 
         // 通讯录列表表头当中的三个图片
         imgNewFriend = (ImageView) headerView.findViewById(R.id.expandLvHeader_new_frined);

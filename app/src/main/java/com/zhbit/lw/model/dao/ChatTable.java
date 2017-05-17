@@ -22,8 +22,9 @@ public class ChatTable {
     public static final String TARGET_EXPAND_RELATION_FAMILY = "family";
 
     public static final String SHOW_TIME_FLAG = "show_time_flag";
-    public static final int SHOW_TIME = 1;
     public static final int HIDE_TIME = 0;
+    public static final int SHOW_TIME = 1;
+    public static final int SHOW_DATE = 2;
 
     // ChatFragment需要的信息
 
