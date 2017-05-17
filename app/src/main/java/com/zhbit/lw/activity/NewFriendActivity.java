@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.zhbit.lw.adapter.NewFriendListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
 
 import java.util.List;
@@ -63,6 +64,7 @@ public class NewFriendActivity extends ListActivity {
 
     // 初始化点击事件
     private void initEvent() {
+        // 设置顶部Toolbar中Overflow的点击事件
         customToolbar.setOnOverflowClickListener(new CustomToolbar.OnOverflowClickListener() {
             @Override
             public void onOverflowClick() {
@@ -75,12 +77,11 @@ public class NewFriendActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(NewFriendActivity.this, FriendInforActivity.class);
-                intent.putExtra(USER_ID, Integer.parseInt(newFriendListData.get(position).get(USER_ID).toString()));
+                intent.putExtra(USER_ID, userId);
                 intent.putExtra(FRIEND_ID, Integer.parseInt(newFriendListData.get(position).get(FRIEND_ID).toString()));
                 startActivity(intent);
             }
         });
 
     }
-
 }

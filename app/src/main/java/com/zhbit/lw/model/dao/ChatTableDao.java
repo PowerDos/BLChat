@@ -2,24 +2,15 @@ package com.zhbit.lw.model.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.db.DBHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_CONTENT;
-import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_TIME;
-import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_TYPE;
-import static com.zhbit.lw.model.dao.ChatTable.FRIEND_EXPAND_RELATION;
-import static com.zhbit.lw.model.dao.ChatTable.FRIEND_ID;
-import static com.zhbit.lw.model.dao.ChatTable.USER_ID;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_HEAD;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
-import static com.zhbit.lw.model.dao.UserTable.USER_HEAD;
-import static com.zhbit.lw.model.dao.UserTable.USER_NAME;
 
 /**
  * Created by wjh on 17-5-14.
@@ -47,8 +38,8 @@ public class ChatTableDao {
 
         while (lastChatTiemCursor.moveToNext()) {
             // 获取好友Id以及最后一次聊天的时间
-            int friendId = lastChatTiemCursor.getInt(lastChatTiemCursor.getColumnIndex(FRIEND_ID));
-            String lastChatTime = lastChatTiemCursor.getString(lastChatTiemCursor.getColumnIndex(CHAT_MSG_TIME));
+            int friendId = lastChatTiemCursor.getInt(lastChatTiemCursor.getColumnIndex(ChatTable.FRIEND_ID));
+            String lastChatTime = lastChatTiemCursor.getString(lastChatTiemCursor.getColumnIndex(ChatTable.CHAT_MSG_TIME));
             // 根据好友查询和最后一次聊天时间获取好友姓名，头像，聊天内容和最后聊天时间
             String chatListSql = "SELECT chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
                     "friend_expand_relation, chat_msg_content, chat_msg_time " +
@@ -58,71 +49,72 @@ public class ChatTableDao {
             Cursor chatListCursor = db.rawQuery(chatListSql, new String[]{""+friendId, lastChatTime});
             while(chatListCursor.moveToNext()) {
                 map = new HashMap<String, Object>();
-                map.put(FRIEND_ID, chatListCursor.getString(chatListCursor.getColumnIndex(FRIEND_ID)));
-                map.put(FRIEND_HEAD, chatListCursor.getString(chatListCursor.getColumnIndex(FRIEND_HEAD)));
-                map.put(FRIEND_NAME, chatListCursor.getString(chatListCursor.getColumnIndex(FRIEND_NAME)));
-                map.put(FRIEND_EXPAND_RELATION, chatListCursor.getString(chatListCursor.getColumnIndex(FRIEND_EXPAND_RELATION)));
-                map.put(CHAT_MSG_CONTENT, chatListCursor.getString(chatListCursor.getColumnIndex(CHAT_MSG_CONTENT)));
-                map.put(CHAT_MSG_TIME, chatListCursor.getString(chatListCursor.getColumnIndex(CHAT_MSG_TIME)));
+                map.put(FriendTable.FRIEND_ID, chatListCursor.getString(chatListCursor.getColumnIndex(FriendTable.FRIEND_ID)));
+                map.put(FriendTable.FRIEND_HEAD, chatListCursor.getString(chatListCursor.getColumnIndex(FriendTable.FRIEND_HEAD)));
+                map.put(FriendTable.FRIEND_NAME, chatListCursor.getString(chatListCursor.getColumnIndex(FriendTable.FRIEND_NAME)));
+                map.put(FriendTable.FRIEND_EXPAND_RELATION, chatListCursor.getString(chatListCursor.getColumnIndex(FriendTable.FRIEND_EXPAND_RELATION)));
+                map.put(ChatTable.CHAT_MSG_CONTENT, chatListCursor.getString(chatListCursor.getColumnIndex(ChatTable.CHAT_MSG_CONTENT)));
+                map.put(ChatTable.CHAT_MSG_TIME, chatListCursor.getString(chatListCursor.getColumnIndex(ChatTable.CHAT_MSG_TIME)));
                 chatList.add(map);
             }
         }
-
         db.close();
         return chatList;
     }
 
-    public List<Map<String, Object>> getChatMsgList(int userId, int friendId) {
+    public ChatInfo getChatMsgInfo(int userId, int friendId) {
+        ChatInfo chatInfo = new ChatInfo();
         List<Map<String, Object>> chatMsgList = new ArrayList<>();
         Map<String, Object> map;
+
+        chatInfo.setUserId(userId);
+        chatInfo.setFriendId(friendId);
 
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String sql = "SELECT chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
+        String sql = "select distinct chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
                 "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type " +
-                "FROM chat_msg chat, user_infor user, friend_infor friend " +
-                "WHERE chat.user_id=? AND chat.friend_id=? ORDER BY chat_msg_time;";
-        Cursor cursor = db.rawQuery(sql, new String[] {""+userId, ""+friendId});
+                "from chat_msg chat, user_infor user, friend_infor friend " +
+                "where chat.user_id=? and chat.friend_id=? order by chat_msg_time;";
+
+        sql = "select distinct chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
+                "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type " +
+                "from chat_msg chat, user_infor user, friend_infor friend " +
+                "where chat.user_id='" + userId + "' and chat.friend_id='" + friendId + "' order by chat_msg_time;";
+//        Cursor cursor = db.rawQuery(sql, new String[] {""+userId, ""+friendId});
+        Cursor cursor = db.rawQuery(sql, null);
+        // 如果能获取 第一条数据先设置聊天的基本属性
+        if (cursor.moveToNext()) {
+            chatInfo.setUserName(cursor.getString(cursor.getColumnIndex(UserTable.USER_NAME)));
+            chatInfo.setUserHead(cursor.getString(cursor.getColumnIndex(UserTable.USER_HEAD)));
+            chatInfo.setFriendName(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_NAME)));
+            chatInfo.setFriendHead(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_HEAD)));
+            chatInfo.setFriendExpandRelation(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_EXPAND_RELATION)));
+
+            map = new HashMap<String, Object>();
+            map.put(ChatTable.CHAT_MSG_CONTENT, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_CONTENT)));
+            map.put(ChatTable.CHAT_MSG_TIME, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TIME)));
+            map.put(ChatTable.CHAT_MSG_TYPE, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TYPE)));
+            chatMsgList.add(map);
+        }else{
+            return null;
+        }
+        // 不再需要重复设置聊天的基本属性
         while(cursor.moveToNext()) {
             map = new HashMap<String, Object>();
-            map.put(USER_ID, userId);
-            map.put(USER_NAME, cursor.getString(cursor.getColumnIndex(USER_NAME)));
-            map.put(USER_HEAD, cursor.getString(cursor.getColumnIndex(USER_HEAD)));
-            map.put(FRIEND_ID, friendId);
-            map.put(FRIEND_NAME, cursor.getString(cursor.getColumnIndex(FRIEND_NAME)));
-            map.put(FRIEND_HEAD, cursor.getString(cursor.getColumnIndex(FRIEND_HEAD)));
-            map.put(FRIEND_EXPAND_RELATION, cursor.getString(cursor.getColumnIndex(FRIEND_EXPAND_RELATION)));
-            map.put(CHAT_MSG_CONTENT, cursor.getString(cursor.getColumnIndex(CHAT_MSG_CONTENT)));
-            map.put(CHAT_MSG_TIME, cursor.getString(cursor.getColumnIndex(CHAT_MSG_TIME)));
-            map.put(CHAT_MSG_TYPE, cursor.getString(cursor.getColumnIndex(CHAT_MSG_TYPE)));
+            map.put(ChatTable.CHAT_MSG_CONTENT, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_CONTENT)));
+            map.put(ChatTable.CHAT_MSG_TIME, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TIME)));
+            map.put(ChatTable.CHAT_MSG_TYPE, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TYPE)));
             chatMsgList.add(map);
         }
+        chatInfo.setChatMsgData(chatMsgList);
 
         db.close();
-        return chatMsgList;
+        for (int i=0;i < chatMsgList.size();i++) {
+            Log.i("WJH", chatMsgList.get(i).get(ChatTable.CHAT_MSG_CONTENT).toString());
+        }
+        return chatInfo;
     }
 
-    public void initChatTableDao(){
-
-        String Sql = "insert into chat_msg(user_id, friend_id, friend_expand_relation, " +
-                "chat_msg_content, chat_msg_time, chat_msg_type)" +
-                " values(1, 2, null, '您好，好久不见，近来可好。', '2017-2-18 12:30', 'receive')";
-
-        String secondSql = "insert into chat_msg(user_id, friend_id, friend_expand_relation, " +
-                "chat_msg_content, chat_msg_time, chat_msg_type)" +
-                " values(1, 2, null, '还不错啦。', '2017-2-18 12:35', 'send')";
-
-        String thirdSql = "insert into chat_msg(user_id, friend_id, friend_expand_relation, " +
-                "chat_msg_content, chat_msg_time, chat_msg_type)" +
-                " values(1, 3, null, '在吗？。', '2017-2-18 11:30', 'send')";
-
-        //创建数据库
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //插入数据
-        db.execSQL(Sql);
-        db.execSQL(secondSql);
-        db.execSQL(thirdSql);
-        db.close();
-    }
 }

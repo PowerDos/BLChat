@@ -13,6 +13,7 @@ public class FriendTable {
     public static final String GROUP_NAME = "group_name";
     public static final String FRIEND_NAME = "friend_name";
     public static final String NICK_NAME = "nick_name";
+    public static final String FRIEND_EXPAND_RELATION = "friend_expand_relation";
     public static final String FRIEND_SEX = "friend_sex";
     public static final String FRIEND_ACCOUNT = "friend_account";
     public static final String FRIEND_HEAD = "friend_head";
@@ -29,6 +30,7 @@ public class FriendTable {
             + GROUP_NAME + " varchar(32),"
             + FRIEND_NAME + " varchar(32),"
             + NICK_NAME + " varchar(32),"
+            + FRIEND_EXPAND_RELATION + " varchar(16),"
             + FRIEND_SEX + " varchar(4),"
             + FRIEND_ACCOUNT + " varchar(32),"
             + FRIEND_HEAD + " varchar(108),"

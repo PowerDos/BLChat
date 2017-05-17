@@ -121,19 +121,4 @@ public class FriendTableDao {
         }
         return newFriendList;
     }
-
-    public void initFriendTableDao(){
-        //初始化，创建两条数据测试，后期可删掉
-        String Sql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 2, 'friend', '2: 一本正经、', 'nick_name', '男', 'BLCHAT_01', 'R.drawable.head', '英德市', null, 1, '您好，我是您的老同学。')";
-
-        String senondSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 3, 'family', '3: 胡说八道、', 'second_name', '女', 'BLCHAT_02', 'R.drawable.head', '珠海市', null, 1, '您好，还记得我吗？')";
-        //创建数据库
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //插入数据
-        db.execSQL(Sql);
-        db.execSQL(senondSql);
-        db.close();
-    }
 }

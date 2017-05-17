@@ -43,16 +43,5 @@ public class MomentTableDao {
         db.close();
         return momentInfoList;
     }
-    public void initMomentTableDao(){
-        //初始化，创建两条数据测试，后期可删掉
-        String Sql = "insert into moment(friendname,friendid,headphoto,publishtime,publishtext,publishImg)"
-                        +"values('Gavin Lin','liz0607','@drawable/head','2017/5/12','富强、民主、文明、和谐，倡导自由"
-                        + "、平等、公正、法治，倡导爱国、敬业、诚信、友善','@drawable/app_icon')";
-        //创建数据库
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //插入两条数据
-        db.execSQL(Sql);
-        db.execSQL(Sql);
-        db.close();
-    }
+
 }
