@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import java.util.Map;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
+import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
 
 
 /**
@@ -41,6 +44,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
     private List<String> parentList;
     private List<List<Map<String, Object>>> childList;
+
+    private int userId;
 
     @Nullable
     @Override
@@ -91,6 +96,12 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         if (childList == null) {
             Toast.makeText(getActivity(), "Child Null", Toast.LENGTH_SHORT).show();
         }
+        parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
+        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
+
+        // 暂时写死为１
+        userId = 1;
+
         // 设置通讯录扩展列表的适配器
         contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));
 
@@ -131,6 +142,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
                 // 跳转到用户信息的界面
                 Intent intent = new Intent(getActivity(), FriendInforActivity.class);
                 intent.putExtra(FRIEND_NAME,  Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
+                intent.putExtra(USER_ID, userId);
+                intent.putExtra(FRIEND_ID, Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
                 startActivity(intent);
                 return true;
             }
@@ -150,7 +163,9 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.expandLvHeader_new_frined:
-                startActivity(new Intent(getActivity(), NewFriendActivity.class));
+                Intent intent = new Intent(getActivity(), NewFriendActivity.class);
+                intent.putExtra(USER_ID, userId);
+                startActivity(intent);
                 break;
             case R.id.expandLvHeader_group_chat:
                 Toast.makeText(getActivity(), "Group Chat", Toast.LENGTH_SHORT).show();
@@ -159,7 +174,6 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "Relation", Toast.LENGTH_SHORT).show();
                 break;
         }
-
     }
 
 }

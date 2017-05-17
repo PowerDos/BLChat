@@ -24,7 +24,6 @@
         android:paddingRight="10dp"
         android:textColor="@color/textGray"
         android:id="@+id/expandLvRow_group_count"
-        android:text="Test"
         />
 
 </LinearLayout>

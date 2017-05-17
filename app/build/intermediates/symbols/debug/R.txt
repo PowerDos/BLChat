@@ -894,14 +894,14 @@ int id listMode 0x7f0d000f
 int id list_item 0x7f0d0048
 int id logo 0x7f0d00aa
 int id lvRow_expand 0x7f0d00d7
+int id lvRow_friendHead 0x7f0d00d1
+int id lvRow_friendName 0x7f0d00d3
 int id lvRow_lastChatContent 0x7f0d00d6
 int id lvRow_lastChatContent_expand 0x7f0d00d5
 int id lvRow_lastChatTime 0x7f0d00d4
 int id lvRow_newfriend_requestMsg 0x7f0d00e0
 int id lvRow_newfriend_userHead 0x7f0d00de
 int id lvRow_newfriend_userName 0x7f0d00df
-int id lvRow_targetHead 0x7f0d00d1
-int id lvRow_targetName 0x7f0d00d3
 int id lvRow_userName_lastChatTime 0x7f0d00d2
 int id lv_moment_info 0x7f0d009f
 int id masked 0x7f0d00f9

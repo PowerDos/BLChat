@@ -10,12 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.blchat.R;
-import com.zhbit.lw.model.bean.ChatInfo;
-import com.zhbit.lw.model.bean.FriendInfo;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.bean.FriendInfo;
+import com.zhbit.lw.model.dao.ChatTable;
+import com.zhbit.lw.model.dao.FriendTable;
+import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
-
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 
 public class FriendInforActivity extends AppCompatActivity {
@@ -26,7 +26,9 @@ public class FriendInforActivity extends AppCompatActivity {
 
     private CustomToolbar customToolbar;    // 顶部Toolbar
 
-    private String friendName;        // 用户名称
+    private int userId, friendId;
+
+    private FriendInfo friendInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +43,16 @@ public class FriendInforActivity extends AppCompatActivity {
 
     // 初始化试图
     private void initView() {
+        // 初始化界面的基本视图
         tvFriendName = (TextView) findViewById(R.id.friendInfor_userName);
         tvFriendAccount = (TextView) findViewById(R.id.friendInfor_userAccount);
         ivFriendHead = (ImageView) findViewById(R.id.friendInfor_userHead);
         ivFriendSex = (ImageView) findViewById(R.id.friendInfor_userSex);
 
+        // 发送消息按钮
         btnSendMsg = (Button) findViewById(R.id.friendInfor_btnSendMsg);
 
+        // 顶部Toolbar
         customToolbar = (CustomToolbar) findViewById(R.id.friendInfor_toolbar);
     }
 
@@ -57,36 +62,40 @@ public class FriendInforActivity extends AppCompatActivity {
         customToolbar.setTitle("详细资料");
         customToolbar.setOverflowImg(R.drawable.overflow);
 
-        // 获取当前好友姓名
-        friendName = getIntent().getStringExtra(FRIEND_NAME);
+        // 获取用户Id和当前好友Id
+        userId = getIntent().getIntExtra(UserTable.USER_ID, -1);
+        friendId = getIntent().getIntExtra(FriendTable.FRIEND_ID, -1);
 
         // 从数据库中获取用户信息
-        FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByUserName(friendName);
+        friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByFriendId(friendId);
 
+        // 判断是否成功获取好友信息
         if (friendInfo != null) {
             // 设置好友的界面数据
             tvFriendName.setText(friendInfo.getFriendName());
-
             tvFriendAccount.setText(friendInfo.getFriendAccount());
+            // 判断性别设置性别图标
             if (friendInfo.getFriendSex().equals("男")) {
                 ivFriendSex.setImageResource(R.drawable.user_sex_male);
-            }else {
+            } else {
                 ivFriendSex.setImageResource(R.drawable.user_sex_female);
             }
         }else{
-            Toast.makeText(this, "请检查你的网络.", Toast.LENGTH_SHORT).show();
+            // 从数据库获取失败，提醒用户网络连接失败
+            Toast.makeText(this, "网络连接失败, 请检查你的网络.", Toast.LENGTH_SHORT).show();
             finish();
         }
     }
 
     // 初始化点击事件
     private void initEvent() {
+        // 发送信息按钮的点击事件
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
-                intent.putExtra(ChatInfo.TARGET_NAME, friendName);
-                intent.putExtra(ChatInfo.USER_NAME, "wjh");
+                intent.putExtra(ChatTable.USER_ID, userId);
+                intent.putExtra(ChatTable.FRIEND_ID, friendId);
                 finish();
                 startActivity(intent);
             }

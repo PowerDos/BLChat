@@ -9,14 +9,16 @@ import android.widget.ListView;
 
 import com.zhbit.lw.adapter.NewFriendListAdapter;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.model.dao.UserTable.USER_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
 
 public class NewFriendActivity extends ListActivity {
 
@@ -24,6 +26,8 @@ public class NewFriendActivity extends ListActivity {
     private List<Map<String, Object>> newFriendListData;    // 新好友列表适配器
 
     private CustomToolbar customToolbar;
+
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +53,10 @@ public class NewFriendActivity extends ListActivity {
         // 设置顶部Toolbar的Overflow文字
         customToolbar.setOverflowTitle("添加好友");
 
-        newFriendListData = new ArrayList<Map<String, Object>>();
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("userName", "一本正经、");
-        map.put("requestMsg", "你好，asdklasdj我是一本正经、asdsaaskdjasld");
-        newFriendListData.add(map);
+        // 从ContactFragment中获取userId
+        userId = getIntent().getIntExtra(USER_ID, -1);
 
-        for(int i = 1;i < 10;i++) {
-            map = new HashMap<String, Object>();
-            map.put("userName", "一本正经、" + i);
-            map.put("requestMsg", "你好，我是一本正经、" + i);
-            newFriendListData.add(map);
-        }
+        newFriendListData = Model.getInstance().getDbManager().getFriendTableDao().getNewFriendListById(userId);
 
         // 设置新好友列表适配器
         newFriendListView.setAdapter(new NewFriendListAdapter(this, newFriendListData));
@@ -68,6 +64,7 @@ public class NewFriendActivity extends ListActivity {
 
     // 初始化点击事件
     private void initEvent() {
+        // 设置顶部Toolbar中Overflow的点击事件
         customToolbar.setOnOverflowClickListener(new CustomToolbar.OnOverflowClickListener() {
             @Override
             public void onOverflowClick() {
@@ -80,11 +77,11 @@ public class NewFriendActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(NewFriendActivity.this, FriendInforActivity.class);
-                intent.putExtra(USER_NAME, newFriendListData.get(position).get("userName").toString());
+                intent.putExtra(USER_ID, userId);
+                intent.putExtra(FRIEND_ID, Integer.parseInt(newFriendListData.get(position).get(FRIEND_ID).toString()));
                 startActivity(intent);
             }
         });
 
     }
-
 }

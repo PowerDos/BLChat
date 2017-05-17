@@ -11,6 +11,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ACCOUNT;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_HEAD;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_LOCATION;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_RECENT_PHOTO;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_SEX;
+import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.NEW_FRIEND_REQUEST_MSG;
+import static com.zhbit.lw.model.dao.FriendTable.NICK_NAME;
+
 /**
  * Created by wjh on 17-5-14.
  */
@@ -46,11 +57,12 @@ public class FriendTableDao {
         return null;
     }
 
+    // 获取分组列表
     public List<String> getGroupList() {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String sql = "select distinct group_name from friend_infor";
+        String sql = "SELECT DISTINCT group_name FROM friend_infor ORDER BY group_name";
         Cursor cursor = db.rawQuery(sql, null);
         List<String> groupList = new ArrayList<String>();
         while(cursor.moveToNext()) {
@@ -60,6 +72,7 @@ public class FriendTableDao {
         return groupList;
     }
 
+    // 获取分组子列表
     public List<List<Map<String, Object>>> getGrouopChildList(List<String> parentList) {
         List<List<Map<String, Object>>> childList = new ArrayList<List<Map<String, Object>>>();
 
@@ -107,20 +120,5 @@ public class FriendTableDao {
             newFriendList.add(map);
         }
         return newFriendList;
-    }
-
-    public void initFriendTableDao(){
-        //初始化，创建两条数据测试，后期可删掉
-        String Sql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 2, 'friend', '2: 一本正经、', 'nick_name', '男', 'BLCHAT_01', 'R.drawable.head', '英德市', null, 1, '您好，我是您的老同学。')";
-
-        String senondSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 3, 'family', '3: 胡说八道、', 'second_name', '女', 'BLCHAT_02', 'R.drawable.head', '珠海市', null, 1, '您好，还记得我吗？')";
-        //创建数据库
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //插入数据
-        db.execSQL(Sql);
-        db.execSQL(senondSql);
-        db.close();
     }
 }
