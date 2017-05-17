@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_item_background_holo_dark.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_item_background_holo_dark.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
@@ -52,12 +52,12 @@
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\notification_tile_bg.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ic_search_api_material.xml"
-    },
-    {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
         "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_ic_search_api_material.xml"
     },
     {
         "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
