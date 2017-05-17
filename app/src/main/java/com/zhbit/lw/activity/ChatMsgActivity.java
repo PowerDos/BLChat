@@ -155,8 +155,8 @@ public class ChatMsgActivity extends ListActivity {
             public void onClick(View v) {
                 // 判断发送按钮的的状态
                 if (btnSendMsgFlag == BTN_ADD_STATU) {
-                }else{
 
+                }else{
                     List<Map<String, Object>> chatListData = chatInfo.getChatMsgData();
 
                     // 获取上一跳消息的时间
@@ -170,7 +170,7 @@ public class ChatMsgActivity extends ListActivity {
 
                         // 获取当前时间
                         Date currentDate = new Date();     // 创建一个时间对象，获取到当前的时间
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置时间显示格式
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");// 设置时间显示格式
                         currentTime = sdf.format(currentDate);
 
                         Date lastMsgDate = sdf.parse(lastMsgTime);
@@ -195,13 +195,13 @@ public class ChatMsgActivity extends ListActivity {
                         // 将聊天记录插入数据库当中
                         Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(userId, friendId, msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_SEND, showTimeFlag);
 
-                        // 置空输入框
-                        etSendContent.setText("");
 
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
 
+                    // 置空输入框
+                    etSendContent.setText("");
                 }
             }
         });

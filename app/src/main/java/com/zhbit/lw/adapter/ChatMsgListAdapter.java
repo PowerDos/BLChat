@@ -89,7 +89,7 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setOnLongClickListener(this);
 
             // 判断是否显示时间
-            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.HIDE_TIME) {
+            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.SHOW_TIME) {
                 TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
                 tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
                 tvLastMsgTime.setVisibility(View.VISIBLE);

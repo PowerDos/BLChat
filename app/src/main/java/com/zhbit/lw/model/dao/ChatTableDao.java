@@ -74,7 +74,7 @@ public class ChatTableDao {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         String sql = "SELECT chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
-                "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type " +
+                "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag " +
                 "FROM chat_msg chat, user_infor user, friend_infor friend " +
                 "WHERE chat.user_id = user.user_id AND friend.friend_id = chat.friend_id AND " +
                 "chat.user_id=? AND chat.friend_id=? ORDER BY chat_msg_time;";
@@ -91,6 +91,7 @@ public class ChatTableDao {
             map.put(ChatTable.CHAT_MSG_CONTENT, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_CONTENT)));
             map.put(ChatTable.CHAT_MSG_TIME, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TIME)));
             map.put(ChatTable.CHAT_MSG_TYPE, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TYPE)));
+            map.put(ChatTable.SHOW_TIME_FLAG, cursor.getString(cursor.getColumnIndex(ChatTable.SHOW_TIME_FLAG)));
             chatMsgList.add(map);
         }else{
             return null;
@@ -101,6 +102,7 @@ public class ChatTableDao {
             map.put(ChatTable.CHAT_MSG_CONTENT, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_CONTENT)));
             map.put(ChatTable.CHAT_MSG_TIME, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TIME)));
             map.put(ChatTable.CHAT_MSG_TYPE, cursor.getString(cursor.getColumnIndex(ChatTable.CHAT_MSG_TYPE)));
+            map.put(ChatTable.SHOW_TIME_FLAG, cursor.getString(cursor.getColumnIndex(ChatTable.SHOW_TIME_FLAG)));
             chatMsgList.add(map);
         }
         chatInfo.setChatMsgData(chatMsgList);
