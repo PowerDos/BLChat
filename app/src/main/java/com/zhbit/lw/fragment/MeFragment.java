@@ -51,13 +51,8 @@ public class MeFragment extends Fragment{
         // 从数据库获取数据
         UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount();
 
-        // 判断是否获取成功
-        if (userInfo == null) {
-            Toast.makeText(getActivity(), "Null", Toast.LENGTH_SHORT).show();
-        }else{
-            tvUserName.setText(userInfo.getUserName());
-            tvUserAccount.setText("帐号：" + userInfo.getUserAccount());
-        }
+        tvUserName.setText(userInfo.getUserName());
+
     }
 
     private void initEvent() {

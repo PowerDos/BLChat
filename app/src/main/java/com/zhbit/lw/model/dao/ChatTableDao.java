@@ -62,6 +62,7 @@ public class ChatTableDao {
         return chatList;
     }
 
+    // 获取聊天记录信息
     public ChatInfo getChatMsgInfo(int userId, int friendId) {
         ChatInfo chatInfo = new ChatInfo();
         List<Map<String, Object>> chatMsgList = new ArrayList<>();
@@ -73,17 +74,12 @@ public class ChatTableDao {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String sql = "select distinct chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
+        String sql = "SELECT chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
                 "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type " +
-                "from chat_msg chat, user_infor user, friend_infor friend " +
-                "where chat.user_id=? and chat.friend_id=? order by chat_msg_time;";
-
-        sql = "select distinct chat.user_id, user_name, user_head, chat.friend_id, friend_name, friend_head, " +
-                "friend_expand_relation, chat_msg_content, chat_msg_time, chat_msg_type " +
-                "from chat_msg chat, user_infor user, friend_infor friend " +
-                "where chat.user_id='" + userId + "' and chat.friend_id='" + friendId + "' order by chat_msg_time;";
-//        Cursor cursor = db.rawQuery(sql, new String[] {""+userId, ""+friendId});
-        Cursor cursor = db.rawQuery(sql, null);
+                "FROM chat_msg chat, user_infor user, friend_infor friend " +
+                "WHERE chat.user_id = user.user_id AND friend.friend_id = chat.friend_id AND " +
+                "chat.user_id=? AND chat.friend_id=? ORDER BY chat_msg_time;";
+        Cursor cursor = db.rawQuery(sql, new String[] {""+userId, ""+friendId});
         // 如果能获取 第一条数据先设置聊天的基本属性
         if (cursor.moveToNext()) {
             chatInfo.setUserName(cursor.getString(cursor.getColumnIndex(UserTable.USER_NAME)));
@@ -111,9 +107,6 @@ public class ChatTableDao {
         chatInfo.setChatMsgData(chatMsgList);
 
         db.close();
-        for (int i=0;i < chatMsgList.size();i++) {
-            Log.i("WJH", chatMsgList.get(i).get(ChatTable.CHAT_MSG_CONTENT).toString());
-        }
         return chatInfo;
     }
 
