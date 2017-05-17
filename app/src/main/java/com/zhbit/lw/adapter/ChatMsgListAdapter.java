@@ -16,6 +16,10 @@ import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.UserTable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by wjh on 17-5-13.
  */
@@ -60,10 +64,15 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
-            // 判断消息时间根据间隔设置时间
-            TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
-            tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
-            tvLastMsgTime.setVisibility(View.VISIBLE);
+            // 判断是否显示时间
+            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.HIDE_TIME) {
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
+                tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }else{
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
+                tvLastMsgTime.setVisibility(View.GONE);
+            }
 
             // 获取头像的View设置监听事件
             ImageView ivUserHead = (ImageView) convertView.findViewById(R.id.rightMsg_userHead);
@@ -79,10 +88,15 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
-            // 判断消息时间根据间隔设置时间
-            TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
-            tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
-            tvLastMsgTime.setVisibility(View.VISIBLE);
+            // 判断是否显示时间
+            if (Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString()) == ChatTable.HIDE_TIME) {
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
+                tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }else{
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
+                tvLastMsgTime.setVisibility(View.GONE);
+            }
 
             // 获取头像的View设置监听事件
             ImageView ivUserHead = (ImageView) convertView.findViewById(R.id.leftMsg_userHead);

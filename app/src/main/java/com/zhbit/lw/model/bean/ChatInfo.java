@@ -12,7 +12,7 @@ public class ChatInfo {
 
     // 聊天的基本属性
     private int userId, friendId;
-    private String userName, userHead, friendName, friendHead, friendExpandRelation, chatMsgContent, chatMsgTime, chatMsgType;
+    private String userName, userHead, friendName, friendHead, friendExpandRelation;
 
     private List<Map<String, Object>> chatMsgData;      // ChatMsgActivity的聊天记录数据
     private List<Map<String, Object>> recentChatData;         // ChatFragment的最近聊天对象数据
@@ -54,30 +54,6 @@ public class ChatInfo {
 
     public void setFriendHead(String friendHead) {
         this.friendHead = friendHead;
-    }
-
-    public String getChatMsgContent() {
-        return chatMsgContent;
-    }
-
-    public void setChatMsgContent(String chatMsgContent) {
-        this.chatMsgContent = chatMsgContent;
-    }
-
-    public String getChatMsgTime() {
-        return chatMsgTime;
-    }
-
-    public void setChatMsgTime(String chatMsgTime) {
-        this.chatMsgTime = chatMsgTime;
-    }
-
-    public String getChatMsgType() {
-        return chatMsgType;
-    }
-
-    public void setChatMsgType(String chatMsgType) {
-        this.chatMsgType = chatMsgType;
     }
 
     public void setFriendId(int friendId) {

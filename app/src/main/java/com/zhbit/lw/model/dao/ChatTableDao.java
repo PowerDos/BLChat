@@ -2,7 +2,6 @@ package com.zhbit.lw.model.dao;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.db.DBHelper;
@@ -108,6 +107,17 @@ public class ChatTableDao {
 
         db.close();
         return chatInfo;
+    }
+
+    public void insertNewChatMsg(int userId, int friendId, String msgContent, String time, String type, int showTimeFlag) {
+
+        // 获取可写数据库
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        String chatSql = "INSERT INTO chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
+                " values(" + userId + ", " + friendId + ", '" + msgContent + "', '" + time + "', '" + type + "', " + showTimeFlag + ")";
+        db.execSQL(chatSql);
+        db.close();
     }
 
 }
