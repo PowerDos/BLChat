@@ -9,10 +9,12 @@ import android.widget.TextView;
 
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.bean.ChatInfo;
+import com.zhbit.lw.model.dao.ChatTable;
+import com.zhbit.lw.model.dao.FriendTable;
 
-import static com.zhbit.lw.model.bean.ChatInfo.LAST_CHAT_CONTENT;
-import static com.zhbit.lw.model.bean.ChatInfo.LAST_CHAT_TIME;
-import static com.zhbit.lw.model.bean.ChatInfo.TARGET_NAME;
+import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_CONTENT;
+import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_TIME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 /**
  *
@@ -49,18 +51,22 @@ public class ChatListAdapter extends BaseAdapter{
         convertView =View.inflate(context, R.layout.listview_row_chat, null);
 
         // 获取所有视图
-        ImageView ivTargetHead = (ImageView) convertView.findViewById(R.id.lvRow_targetHead);
-        TextView tvTargetName = (TextView) convertView.findViewById(R.id.lvRow_targetName);
+        ImageView ivFriendHead = (ImageView) convertView.findViewById(R.id.lvRow_friendHead);
+        TextView tvFriendName = (TextView) convertView.findViewById(R.id.lvRow_friendName);
         TextView tvLastChatRecord = (TextView) convertView.findViewById(R.id.lvRow_lastChatContent);
         TextView tvLastChatTime = (TextView) convertView.findViewById(R.id.lvRow_lastChatTime);
         ImageView ivExpandRelation = (ImageView) convertView.findViewById(R.id.lvRow_expand);
 
         // 设置视图数据
-        ivTargetHead.setImageResource(R.drawable.head);
-        tvTargetName.setText(chatInfo.getRecentChatData().get(position).get(TARGET_NAME).toString());
-        tvLastChatRecord.setText(chatInfo.getRecentChatData().get(position).get(LAST_CHAT_CONTENT).toString());
-        tvLastChatTime.setText(chatInfo.getRecentChatData().get(position).get(LAST_CHAT_TIME).toString());
+        ivFriendHead.setImageResource(R.drawable.head);
+        tvFriendName.setText(chatInfo.getRecentChatData().get(position).get(FriendTable.FRIEND_NAME).toString());
+        tvLastChatRecord.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_CONTENT).toString());
+        tvLastChatTime.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
         ivExpandRelation.setImageResource(R.drawable.ic_menu_emoticons);
+        tvFriendName.setText(chatInfo.getRecentChatData().get(position).get(FriendTable.FRIEND_NAME).toString());
+        tvLastChatRecord.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_CONTENT).toString());
+        tvLastChatTime.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
+//        ivExpandRelation.setImageResource(R.drawable.ic_menu_emoticons);
 
         return convertView;
     }

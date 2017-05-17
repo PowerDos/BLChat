@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.db.DBHelper;
 
+import static com.zhbit.lw.model.dao.UserTable.USER_ID;
+
 /**
  * Created by wjh on 17-5-14.
  */
@@ -28,6 +30,7 @@ public class UserTableDao {
         Cursor cursor = db.rawQuery(Sql, null);
         //获取数据
         while (cursor.moveToNext()) {
+            int userId = cursor.getInt(cursor.getColumnIndex(USER_ID));
             String userName = cursor.getString(cursor.getColumnIndex(UserTable.USER_NAME));
             String userHead = cursor.getString(cursor.getColumnIndex(UserTable.USER_HEAD));
             String userSex = cursor.getString(cursor.getColumnIndex(UserTable.USER_SEX));
@@ -43,8 +46,8 @@ public class UserTableDao {
 
     public void initUserTableDao(){
         //初始化，创建两条数据测试，后期可删掉
-        String Sql = "insert into user_infor(user_name, user_head, user_sex, user_account, user_location)"
-                +"values('Wjh', 'R.drawable.head', '男', 'XR_HUI', '英德市')";
+        String Sql = "insert into user_infor(user_id, user_name, user_head, user_sex, user_account, user_location, user_sign)"
+                +"values(1, 'Wjh', 'R.drawable.head', '男', 'XR_HUI', '清远市', '水流心赤.')";
         //创建数据库
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //插入数据

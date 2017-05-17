@@ -36,4 +36,5 @@ public class FriendTable {
             + FRIEND_LOCATION + " varchar(64),"
             + NEW_FRIEND_FLAG + " integer,"
             + NEW_FRIEND_REQUEST_MSG + " varchar(50));";
+
 }

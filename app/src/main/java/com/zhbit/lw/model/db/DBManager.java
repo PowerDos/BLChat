@@ -2,6 +2,7 @@ package com.zhbit.lw.model.db;
 
 import android.content.Context;
 
+import com.zhbit.lw.model.dao.ChatTableDao;
 import com.zhbit.lw.model.dao.FriendTableDao;
 import com.zhbit.lw.model.dao.MomentTable;
 import com.zhbit.lw.model.dao.MomentTableDao;
@@ -29,6 +30,10 @@ public class DBManager {
 
     public FriendTableDao getFriendTableDao() {
         return  new FriendTableDao(dbHelper);
+    }
+
+    public ChatTableDao getChatTableDao() {
+        return  new ChatTableDao(dbHelper);
     }
 
     //关闭数据库

@@ -13,8 +13,11 @@ import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.bean.FriendInfo;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.ui.CustomToolbar;
 
+import static com.zhbit.lw.model.dao.ChatTable.USER_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
 import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
 
 
@@ -26,7 +29,9 @@ public class FriendInforActivity extends AppCompatActivity {
 
     private CustomToolbar customToolbar;    // 顶部Toolbar
 
-    private String friendName;        // 用户名称
+    private int userId, friendId;
+
+    private FriendInfo friendInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,11 +62,12 @@ public class FriendInforActivity extends AppCompatActivity {
         customToolbar.setTitle("详细资料");
         customToolbar.setOverflowImg(R.drawable.overflow);
 
-        // 获取当前好友姓名
-        friendName = getIntent().getStringExtra(FRIEND_NAME);
+        // 获取用户Id和当前好友Id
+        userId = getIntent().getIntExtra(USER_ID, -1);
+        friendId = getIntent().getIntExtra(FRIEND_ID, -1);
 
         // 从数据库中获取用户信息
-        FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByUserName(friendName);
+        friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByFriendId(friendId);
 
         if (friendInfo != null) {
             // 设置好友的界面数据
@@ -69,24 +75,31 @@ public class FriendInforActivity extends AppCompatActivity {
 
             tvFriendAccount.setText(friendInfo.getFriendAccount());
             if (friendInfo.getFriendSex().equals("男")) {
-                ivFriendSex.setImageResource(R.drawable.user_sex_male);
-            }else {
-                ivFriendSex.setImageResource(R.drawable.user_sex_female);
+                tvFriendName.setText(friendInfo.getFriendName());
+                tvFriendAccount.setText(friendInfo.getFriendAccount());
+                if (friendInfo.getFriendSex().equals("男")) {
+                    ivFriendSex.setImageResource(R.drawable.user_sex_male);
+                } else {
+                    ivFriendSex.setImageResource(R.drawable.user_sex_female);
+                }
+                // 设置地区
+            } else {
+                // 从数据库获取失败
+                Toast.makeText(this, "请检查你的网络.", Toast.LENGTH_SHORT).show();
+                finish();
             }
-        }else{
-            Toast.makeText(this, "请检查你的网络.", Toast.LENGTH_SHORT).show();
-            finish();
         }
     }
 
     // 初始化点击事件
     private void initEvent() {
+        // 发送信息按钮的点击事件
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
-                intent.putExtra(ChatInfo.TARGET_NAME, friendName);
-                intent.putExtra(ChatInfo.USER_NAME, "wjh");
+                intent.putExtra(ChatTable.USER_ID, userId);
+                intent.putExtra(ChatTable.FRIEND_ID, friendId);
                 finish();
                 startActivity(intent);
             }

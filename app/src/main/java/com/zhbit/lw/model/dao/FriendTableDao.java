@@ -11,6 +11,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ACCOUNT;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_HEAD;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_LOCATION;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_RECENT_PHOTO;
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_SEX;
+import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.NEW_FRIEND_REQUEST_MSG;
+import static com.zhbit.lw.model.dao.FriendTable.NICK_NAME;
+
 /**
  * Created by wjh on 17-5-14.
  */
@@ -46,11 +57,12 @@ public class FriendTableDao {
         return null;
     }
 
+    // 获取分组列表
     public List<String> getGroupList() {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        String sql = "select distinct group_name from friend_infor";
+        String sql = "SELECT DISTINCT group_name FROM friend_infor ORDER BY group_name";
         Cursor cursor = db.rawQuery(sql, null);
         List<String> groupList = new ArrayList<String>();
         while(cursor.moveToNext()) {
@@ -60,6 +72,7 @@ public class FriendTableDao {
         return groupList;
     }
 
+    // 获取分组子列表
     public List<List<Map<String, Object>>> getGrouopChildList(List<String> parentList) {
         List<List<Map<String, Object>>> childList = new ArrayList<List<Map<String, Object>>>();
 

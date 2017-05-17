@@ -7,6 +7,8 @@ package com.zhbit.lw.model.dao;
 public class UserTable {
 
     public static final String TABLE_NAME = "user_infor";
+
+    public static final String USER_ID = "user_id";
     public static final String USER_NAME = "user_name";
     public static final String USER_HEAD = "user_head";
     public static final String USER_SEX = "user_sex";
@@ -17,6 +19,7 @@ public class UserTable {
     public static final String CREATE_TABLE = "create table "
             + TABLE_NAME + " ("
             + "_id integer autoinc primary key,"
+            + USER_ID + " integer,"
             + USER_NAME + " varchar(32),"
             + USER_HEAD + " varchar(32),"
             + USER_SEX + " varchar(4),"

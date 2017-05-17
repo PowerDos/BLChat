@@ -9,14 +9,14 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        android:id="@+id/lvRow_targetHead"
+        android:id="@+id/lvRow_friendHead"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_toRightOf="@+id/lvRow_targetHead"
+        android:layout_toRightOf="@+id/lvRow_friendHead"
         android:layout_marginLeft="5dp"
         android:paddingTop="4dp"
         android:id="@+id/lvRow_userName_lastChatTime"
@@ -26,7 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:id="@+id/lvRow_targetName"
+            android:id="@+id/lvRow_friendName"
             android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:textColor="@color/textBlack"
@@ -37,7 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
+            android:layout_marginRight="5dp"
             android:layout_marginBottom="4dp"
+            android:maxLines="1"
             android:id="@+id/lvRow_lastChatTime"
             android:textColor="@color/textGray"
             />
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/lvRow_userName_lastChatTime"
-        android:layout_toRightOf="@+id/lvRow_targetHead"
+        android:layout_toRightOf="@+id/lvRow_friendHead"
         android:layout_marginLeft="5dp"
         android:id="@+id/lvRow_lastChatContent_expand"
         >

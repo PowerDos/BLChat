@@ -11,6 +11,9 @@ import com.zhbit.lw.blchat.R;
 import java.util.List;
 import java.util.Map;
 
+import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import static com.zhbit.lw.model.dao.FriendTable.NEW_FRIEND_REQUEST_MSG;
+
 /**
  * Created by wjh on 17-5-13.
  */
@@ -45,8 +48,8 @@ public class NewFriendListAdapter extends BaseAdapter{
         convertView = View.inflate(context, R.layout.listview_row_newfriend, null);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.lvRow_newfriend_userName);
         TextView tvRequestMsg = (TextView) convertView.findViewById(R.id.lvRow_newfriend_requestMsg);
-        tvUserName.setText(newFriendListData.get(position).get("userName").toString());
-        tvRequestMsg.setText(newFriendListData.get(position).get("requestMsg").toString());
+        tvUserName.setText(newFriendListData.get(position).get(FRIEND_NAME).toString());
+        tvRequestMsg.setText(newFriendListData.get(position).get(NEW_FRIEND_REQUEST_MSG).toString());
 
         return convertView;
     }

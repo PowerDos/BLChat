@@ -6,7 +6,27 @@ package com.zhbit.lw.model.bean;
 
 public class UserInfo {
 
+    private int userId;
     private String userName, userHead, userSex, userAccount, userLocation, userSign;
+
+    public UserInfo(String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
+        this.userName = userName;
+        this.userHead = userHead;
+        this.userSex = userSex;
+        this.userAccount = userAccount;
+        this.userLocation = userLocation;
+        this.userSign = userSign;
+    }
+
+    public UserInfo(){}
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getUserName() {
         return userName;
@@ -55,15 +75,5 @@ public class UserInfo {
     public void setUserLocation(String userLocation) {
         this.userLocation = userLocation;
     }
-
-    public UserInfo(String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
-        this.userName = userName;
-        this.userHead = userHead;
-        this.userSex = userSex;
-        this.userAccount = userAccount;
-        this.userLocation = userLocation;
-        this.userSign = userSign;
-    }
-    public UserInfo(){}
 
 }

@@ -3,8 +3,8 @@ package com.zhbit.lw.model.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
+import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.MomentTable;
 import com.zhbit.lw.model.dao.UserTable;
@@ -27,6 +27,25 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(UserTable.CREATE_TABLE);
         //创建朋友表
         db.execSQL(FriendTable.CREATE_TABLE);
+        //创建好友表
+        db.execSQL(FriendTable.CREATE_TABLE);
+        //创建聊天表
+        db.execSQL(ChatTable.CREATE_TABLE);
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+
+//        db.execSQL("DROP TABLE IF EXISTS moment;");
+//        db.execSQL(MomentTable.CreateTable);
+//
+//        db.execSQL("DROP TABLE IF EXISTS user_infor;");
+//        db.execSQL(UserTable.CREATE_TABLE);
+//
+//        db.execSQL("DROP TABLE IF EXISTS friend_infor;");
+//        db.execSQL(FriendTable.CREATE_TABLE);
+
     }
 
 

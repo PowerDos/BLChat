@@ -2908,14 +2908,14 @@ containing a value of this type.
         public static final int list_item=0x7f0d0048;
         public static final int logo=0x7f0d00aa;
         public static final int lvRow_expand=0x7f0d00d7;
+        public static final int lvRow_friendHead=0x7f0d00d1;
+        public static final int lvRow_friendName=0x7f0d00d3;
         public static final int lvRow_lastChatContent=0x7f0d00d6;
         public static final int lvRow_lastChatContent_expand=0x7f0d00d5;
         public static final int lvRow_lastChatTime=0x7f0d00d4;
         public static final int lvRow_newfriend_requestMsg=0x7f0d00e0;
         public static final int lvRow_newfriend_userHead=0x7f0d00de;
         public static final int lvRow_newfriend_userName=0x7f0d00df;
-        public static final int lvRow_targetHead=0x7f0d00d1;
-        public static final int lvRow_targetName=0x7f0d00d3;
         public static final int lvRow_userName_lastChatTime=0x7f0d00d2;
         public static final int lv_moment_info=0x7f0d009f;
         public static final int masked=0x7f0d00f9;
