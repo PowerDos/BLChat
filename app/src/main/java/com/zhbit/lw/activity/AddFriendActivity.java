@@ -103,7 +103,7 @@ public class AddFriendActivity extends AppCompatActivity implements View.OnClick
                         }else {
                             //显示用户不存在  这里子线程获取不了view，今晚回来再解决
 //                            String showInfo = jsonObject.getString("error")+jsonObject.getString("msg");
-//                            txtNotifyInfo.setText(showInfo);
+//                            txtNotifyInfo.setText(showInfo); 
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
