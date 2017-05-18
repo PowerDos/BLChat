@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.model.dao.FriendTable;
 
 import java.util.List;
 import java.util.Map;
@@ -87,7 +88,7 @@ public class ContactExpandableListAdapter extends BaseExpandableListAdapter{
             convertView = LayoutInflater.from(context).inflate(R.layout.expandlistview_row_contact, null);
         }
         TextView contactName = (TextView) convertView.findViewById(R.id.expandLvRow_contact_name);
-        contactName.setText(childList.get(groupPosition).get(childPosition).get(FRIEND_NAME).toString());
+        contactName.setText(childList.get(groupPosition).get(childPosition).get(FriendTable.FRIEND_NAME).toString());
 
         convertView.setTag(R.id.expandLvRow_group_name, groupPosition);
         convertView.setTag(R.id.expandLvRow_contact_name, childPosition);

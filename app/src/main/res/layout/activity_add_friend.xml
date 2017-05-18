@@ -28,7 +28,35 @@
         android:textSize="15sp"
         />
 
+    <!--测试用开始-->
+    <TextView
+        android:id="@+id/txt_notify_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text=" "
+        android:textColor="@color/textBlack"
+        android:padding="15dp"/>
+    <Button
+        android:id="@+id/btn_search_friend"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:text="查找"
+        android:textColor="#fff"
+        android:background="@drawable/btn_primary_selector"/>
+    <Button
+        android:id="@+id/btn_add_this_friend"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:text="添加上面那个为好友"
+        android:textColor="#fff"
+        android:background="@drawable/btn_warning_selector"/>
+    <!--测试用结束-->
+
     <RelativeLayout
+        android:id="@+id/btn_add_friend"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"

@@ -11,8 +11,19 @@ import android.widget.Toast;
 
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
+import com.zhbit.lw.Logs.Logs;
+import com.zhbit.lw.ServerRequest.SRequest;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.bean.UserInfo;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText edtUserAccount;
@@ -76,6 +87,33 @@ public class LoginActivity extends AppCompatActivity {
                     //登录成功后的处理
                     @Override
                     public void onSuccess() {
+                        // new一个子线程去服务器获取用户信息
+                        Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                Map<String,String> data = new HashMap<String, String>();
+                                data.put("username",account);
+                                data.put("type","1"); //请求1，为获取个人信息
+                                String reDate = SRequest.PostRequest(data);
+                                Logs.d("POST", reDate);
+                                try {
+                                    // 解析JSON文件
+                                    JSONTokener jsonParser = new JSONTokener(reDate);
+                                    JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
+                                    //获取数据
+                                    UserInfo userInfo = new UserInfo();
+                                    userInfo.setUserAccount(jsonObject.getString("username"));
+                                    userInfo.setUserName(jsonObject.getString("nickname"));
+                                    userInfo.setUserSign(jsonObject.getString("sign"));
+//                                  userInfo.setUserHead(jsonObject.getString("head"));
+                                    userInfo.setUserSex(jsonObject.getString("sex"));
+                                    userInfo.setUserLocation(jsonObject.getString("location"));
+                                    Model.getInstance().getDbManager().getUserTableDao().addUserAccount(userInfo);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
                         //跳转主页面
                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(intent);

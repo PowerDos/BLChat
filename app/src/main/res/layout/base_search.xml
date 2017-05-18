@@ -16,6 +16,7 @@
         android:cursorVisible="false"
         android:background="@color/itemBackground"
         android:id="@+id/base_search"
+        android:paddingLeft="15dp"
         />
 
 </LinearLayout>

@@ -51,9 +51,9 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(thirdChatSql);
 
         // 插入用户的测试数据
-        String userSql = "insert into user_infor(user_id, user_name, user_head, user_sex, user_account, user_location, user_sign)"
-                +"values(1, 'Wjh', 'R.drawable.head', '男', 'XR_HUI', '清远市', '水流心赤.')";
-        db.execSQL(userSql);
+//        String userSql = "insert into user_infor(user_id, user_name, user_head, user_sex, user_account, user_location, user_sign)"
+//                +"values(1, 'Wjh', 'R.drawable.head', '男', 'XR_HUI', '清远市', '水流心赤.')";
+//        db.execSQL(userSql);
 
         // 插入好友的测试数据
         String friendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"

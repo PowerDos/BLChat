@@ -10,9 +10,17 @@ import android.widget.Toast;
 
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
+import com.zhbit.lw.ServerRequest.SRequest;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.Model;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUpActivity extends Activity implements View.OnClickListener{
@@ -47,30 +55,35 @@ public class SignUpActivity extends Activity implements View.OnClickListener{
             Toast.makeText(this,"请填入完整信息",Toast.LENGTH_LONG).show();
             return;
         }
-        final UserInfo userInfo = new UserInfo();
-        userInfo.setUserAccount(account);
-        userInfo.setUserName(name);
-        userInfo.setUserSex(sex);
-        userInfo.setUserLocation(location);
-        userInfo.setUserHead("R.drawable.head");
-        userInfo.setUserSign("富强、民主、文明、和谐、自由、平等、公正、法制、爱国、敬业、诚信、友善");
-        //注册信息
+
+        //注册用户
+        final Map<String,String> data = new HashMap<String, String>();
+        data.put("username", account);
+        data.put("password", password);
+        data.put("location", location);
+        data.put("sex", sex);
+        data.put("nickname", name);
+        data.put("type","2"); //请求2，为注册请求
         Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
             @Override
             public void run() {
+                //注册请求
+                String reDate = SRequest.PostRequest(data);
+                //接收返回的数据，看看是否注册成功
                 try {
-                    //注册用户
-                    EMClient.getInstance().createAccount(account, password);
-                    Model.getInstance().getDbManager().getUserTableDao().addUserAccount(userInfo);
-                    getIntent().putExtra("account", account);
-                    getIntent().putExtra("password", password);
-                    setResult(66, getIntent());
-                    finish();
-                } catch (HyphenateException e) {
+                    JSONTokener jsonParser = new JSONTokener(reDate);
+                    JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
+                    if (Integer.parseInt(jsonObject.getString("error")) == 0){
+                        getIntent().putExtra("account", account);
+                        getIntent().putExtra("password", password);
+                        setResult(66, getIntent());
+                        finish();
+                    }else {
+                        Toast.makeText(SignUpActivity.this,"注册失败", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(SignUpActivity.this,"注册失败"+e.toString(),Toast.LENGTH_LONG).show();
                 }
-
             }
         });
     }

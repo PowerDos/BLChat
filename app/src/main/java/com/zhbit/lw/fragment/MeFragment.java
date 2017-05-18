@@ -50,9 +50,8 @@ public class MeFragment extends Fragment{
     private void initData() {
         // 从数据库获取数据
         UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount();
-
+        tvUserAccount.setText("账号:" + userInfo.getUserAccount());
         tvUserName.setText(userInfo.getUserName());
-
     }
 
     private void initEvent() {
