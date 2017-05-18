@@ -36,6 +36,7 @@
         android:layout_marginBottom="10dp"
         android:padding="10dp"
         android:text="This is a message. And how do you think of this Message look like."
+        android:textColor="@color/textWhite"
         android:background="@color/colorAccent"
         android:id="@+id/rightMsg_content"
         />

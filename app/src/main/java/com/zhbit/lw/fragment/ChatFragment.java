@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.activity.ChatMsgActivity;
@@ -60,6 +62,15 @@ public class ChatFragment extends Fragment{
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        // resume时更新列表的数据
+        chatListData = Model.getInstance().getDbManager().getChatTableDao().getChatList(userId);
+        chatInfo.setRecentChatData(chatListData);
+        chatListAdapter.notifyDataSetChanged();
+    }
+
     // 初始化试图
     private void initView() {
         chatListView = (ListView) view.findViewById(R.id.chatListView);
@@ -68,18 +79,17 @@ public class ChatFragment extends Fragment{
     // 初始化试图
     private void initData() {
 
-        // 实例化聊天对象
-        chatInfo = new ChatInfo();
-        // 设置聊天列表数据
-        chatInfo.setRecentChatData(Model.getInstance().getDbManager().getChatTableDao().getChatList(userId));
-
         // 暂时写死为１
         userId = 1;
+
+        // 实例化聊天对象
+        chatInfo = new ChatInfo();
 
         // 设置聊天列表数据
         chatListData = Model.getInstance().getDbManager().getChatTableDao().getChatList(userId);
         chatInfo.setRecentChatData(chatListData);
 
+        // 设置列表监听器
         chatListAdapter = new ChatListAdapter(getActivity(), chatInfo);
         chatListView.setAdapter(chatListAdapter);
     }

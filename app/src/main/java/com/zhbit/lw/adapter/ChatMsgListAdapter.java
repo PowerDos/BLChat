@@ -16,6 +16,10 @@ import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.UserTable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by wjh on 17-5-13.
  */
@@ -60,10 +64,31 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
-            // 判断消息时间根据间隔设置时间
-            TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
-            tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
-            tvLastMsgTime.setVisibility(View.VISIBLE);
+            // 判断显示时间的属性
+            int showTimeFlag = Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString());
+            if (showTimeFlag == ChatTable.SHOW_DATE) {
+                // 获取显示时间的组件
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String date = msgTime.substring(0, msgTime.indexOf(" "));
+                // 设置组件的属性
+                tvLastMsgTime.setText(date);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }else if (showTimeFlag == ChatTable.SHOW_TIME){
+                // 获取显示时间的组件
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.rightMsg_lastTime);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String time = msgTime.substring(msgTime.indexOf(" ")+1, msgTime.lastIndexOf(":"));
+                // 将截取出来的字符数组转化为字符串
+                String timeResult = String.valueOf(time);
+                // 设置组件的属性
+                tvLastMsgTime.setText(timeResult);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }
 
             // 获取头像的View设置监听事件
             ImageView ivUserHead = (ImageView) convertView.findViewById(R.id.rightMsg_userHead);
@@ -79,10 +104,33 @@ public class ChatMsgListAdapter extends BaseAdapter implements View.OnClickListe
             tvContent.setFocusable(true);
             tvContent.setOnLongClickListener(this);
 
-            // 判断消息时间根据间隔设置时间
-            TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
-            tvLastMsgTime.setText(chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
-            tvLastMsgTime.setVisibility(View.VISIBLE);
+            // 判断是否显示时间
+            int showTimeFlag = Integer.parseInt(chatInfo.getChatMsgData().get(position).get(ChatTable.SHOW_TIME_FLAG).toString());
+            if (showTimeFlag == ChatTable.SHOW_DATE) {
+                // 获取显示时间的组件
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String date = msgTime.substring(0, msgTime.indexOf(" "));
+                // 将截取出来的字符数组转化为字符串
+                String dateResult = String.valueOf(date);
+                // 设置组件的属性
+                tvLastMsgTime.setText(dateResult);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }else if (showTimeFlag == ChatTable.SHOW_TIME){
+                // 获取显示时间的组件
+                TextView tvLastMsgTime = (TextView) convertView.findViewById(R.id.leftMsg_lastTime);
+                // 获取消息的时间
+                String msgTime = chatInfo.getChatMsgData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+                // 截取日期的部分
+                String time = msgTime.substring(msgTime.indexOf(" "+1), msgTime.lastIndexOf(":"));
+                // 将截取出来的字符数组转化为字符串
+                String timeResult = String.valueOf(time);
+                // 设置组件的属性
+                tvLastMsgTime.setText(timeResult);
+                tvLastMsgTime.setVisibility(View.VISIBLE);
+            }
 
             // 获取头像的View设置监听事件
             ImageView ivUserHead = (ImageView) convertView.findViewById(R.id.leftMsg_userHead);
