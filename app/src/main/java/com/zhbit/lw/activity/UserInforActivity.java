@@ -38,7 +38,7 @@ public class UserInforActivity extends AppCompatActivity {
     public void initData() {
 
         userId = getIntent().getIntExtra(UserTable.USER_ID, -1);
-        userInfor = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount(userId);
+        userInfor = Model.getInstance().getDbManager().getUserTableDao().getUserInfor();
 
         userName.setText(userInfor.getUserName());
         userAccount.setText(userInfor.getUserAccount());

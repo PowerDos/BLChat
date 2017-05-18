@@ -11,17 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ACCOUNT;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_HEAD;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_ID;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_LOCATION;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_RECENT_PHOTO;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_SEX;
-import static com.zhbit.lw.model.dao.FriendTable.GROUP_NAME;
-import static com.zhbit.lw.model.dao.FriendTable.NEW_FRIEND_REQUEST_MSG;
-import static com.zhbit.lw.model.dao.FriendTable.NICK_NAME;
-
 /**
  * Created by wjh on 17-5-14.
  */
@@ -100,13 +89,13 @@ public class FriendTableDao {
     }
 
     // 获取新好友列表数据
-    public List<Map<String, Object>> getNewFriendListById(int userId) {
+    public List<Map<String, Object>> getNewFriendListById() {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         // 查询新好友列表
-        String sql = "SELECT friend_id, friend_head, friend_name, new_friend_request_msg FROM friend_infor WHERE new_friend_flag=1 AND user_id=?";
-        Cursor cursor = db.rawQuery(sql, new String[]{""+userId});
+        String sql = "SELECT friend_id, friend_head, friend_name, new_friend_request_msg FROM friend_infor WHERE new_friend_flag=1";
+        Cursor cursor = db.rawQuery(sql, null);
 
         // 将新好友列表数据遍历出来
         List<Map<String, Object>> newFriendList = new ArrayList<Map<String, Object>>();

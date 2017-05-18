@@ -79,8 +79,8 @@ public class ChatFragment extends Fragment{
     // 初始化试图
     private void initData() {
 
-        // 暂时写死为１
-        userId = 1;
+        // 获取用户ID
+        userId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
 
         // 实例化聊天对象
         chatInfo = new ChatInfo();

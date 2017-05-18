@@ -7,9 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.db.DBHelper;
 
-import static com.zhbit.lw.model.dao.UserTable.USER_ID;
-
 /**
+ * UserTableDao: 用户表的数据库操作
  * Created by wjh on 17-5-14.
  */
 
@@ -21,22 +20,40 @@ public class UserTableDao {
         dbHelper = helper;
     }
 
-    // 获取用户信息
-    public UserInfo getUserInforByAccount(int userId){
+    // 获取用户的Id
+    public int getUserId() {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
-        String Sql = "select * from user_infor WHERE user_id=?";
-        Cursor cursor = db.rawQuery(Sql, new String[]{""+userId});
-        //获取数据
+        String Sql = "SELECT user_id FROM user_infor";
+        Cursor cursor = db.rawQuery(Sql, null);
+        //获取数据设置到UseInfo实例当中
         if (cursor.moveToNext()) {
+            int userId = cursor.getInt(cursor.getColumnIndex(UserTable.USER_ID));
+            db.close();
+            return userId;
+        }
+        // 如果没有获取到就返回-1
+        return -1;
+    }
+
+    // 获取用户信息
+    public UserInfo getUserInfor(){
+        //创建数据库
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        //执行查询语句
+        String Sql = "SELECT * FROM user_infor";
+        Cursor cursor = db.rawQuery(Sql, null);
+        //获取数据设置到UseInfo实例当中
+        if (cursor.moveToNext()) {
+            int userId = cursor.getInt(cursor.getColumnIndex(UserTable.USER_ID));
             String userName = cursor.getString(cursor.getColumnIndex(UserTable.USER_NAME));
             String userHead = cursor.getString(cursor.getColumnIndex(UserTable.USER_HEAD));
             String userSex = cursor.getString(cursor.getColumnIndex(UserTable.USER_SEX));
             String userAccount = cursor.getString(cursor.getColumnIndex(UserTable.USER_ACCOUNT));
             String userLocation = cursor.getString(cursor.getColumnIndex(UserTable.USER_LOCATION));
             String userSign = cursor.getString(cursor.getColumnIndex(UserTable.USER_SIGN));
-            UserInfo userInfo = new UserInfo(userName, userHead, userSex, userAccount, userLocation, userSign);
+            UserInfo userInfo = new UserInfo(userId, userName, userHead, userSex, userAccount, userLocation, userSign);
             db.close();
             return userInfo;
         }

@@ -183,6 +183,7 @@
         android:text="视频聊天"
         android:textColor="@color/textBlack"
         android:background="@color/itemBackground"
+        android:id="@+id/friendInfor_videoChat"
         />
 
 </LinearLayout>

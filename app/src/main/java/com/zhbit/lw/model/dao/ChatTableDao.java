@@ -121,6 +121,7 @@ public class ChatTableDao {
         return chatInfo;
     }
 
+    // 插入聊天记录数据，
     public void insertNewChatMsg(int userId, int friendId, String msgContent, String time, String type, int showTimeFlag) {
 
         // 获取可写数据库

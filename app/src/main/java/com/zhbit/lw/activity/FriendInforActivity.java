@@ -23,6 +23,7 @@ public class FriendInforActivity extends AppCompatActivity {
     private TextView tvFriendName, tvFriendAccount;    // 用户名称视图
     private ImageView ivFriendHead, ivFriendSex;    // 用户性别视图
     private Button btnSendMsg;      // 发送消息按钮
+    private Button btnVideoChat;    // 聊天视频按钮
 
     private CustomToolbar customToolbar;    // 顶部Toolbar
 
@@ -51,6 +52,7 @@ public class FriendInforActivity extends AppCompatActivity {
 
         // 发送消息按钮
         btnSendMsg = (Button) findViewById(R.id.friendInfor_btnSendMsg);
+        btnVideoChat = (Button) findViewById(R.id.friendInfor_videoChat);
 
         // 顶部Toolbar
         customToolbar = (CustomToolbar) findViewById(R.id.friendInfor_toolbar);
@@ -71,7 +73,7 @@ public class FriendInforActivity extends AppCompatActivity {
 
         // 判断是否成功获取好友信息
         if (friendInfo != null) {
-            // 设置好友的界面数据
+            // 获取成功后设置好友的界面数据
             tvFriendName.setText(friendInfo.getFriendName());
             tvFriendAccount.setText(friendInfo.getFriendAccount());
             // 判断性别设置性别图标
@@ -81,9 +83,19 @@ public class FriendInforActivity extends AppCompatActivity {
                 ivFriendSex.setImageResource(R.drawable.user_sex_female);
             }
         }else{
-            // 从数据库获取失败，提醒用户网络连接失败
-            Toast.makeText(this, "网络连接失败, 请检查你的网络.", Toast.LENGTH_SHORT).show();
-            finish();
+            // 从数据库获取失败，代表用户不是不存在好友，将发送消息按钮修改成添加好友按钮
+            // 获取成功后设置好友的界面数据
+            tvFriendName.setText(getIntent().getStringExtra(FriendTable.FRIEND_NAME));
+            tvFriendAccount.setText(getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+            // 判断性别设置性别图标
+            if (getIntent().getStringExtra(FriendTable.FRIEND_SEX).equals("男")) {
+                ivFriendSex.setImageResource(R.drawable.user_sex_male);
+            } else {
+                ivFriendSex.setImageResource(R.drawable.user_sex_female);
+            }
+            // 设置两个按钮的布局属性
+            btnSendMsg.setText("添加好友");
+            btnVideoChat.setVisibility(View.GONE);
         }
     }
 
