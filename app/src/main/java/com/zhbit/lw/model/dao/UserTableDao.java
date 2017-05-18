@@ -22,15 +22,14 @@ public class UserTableDao {
     }
 
     // 获取用户信息
-    public UserInfo getUserInforByAccount(){
+    public UserInfo getUserInforByAccount(int userId){
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
-        String Sql = "select * from user_infor";
-        Cursor cursor = db.rawQuery(Sql, null);
+        String Sql = "select * from user_infor WHERE user_id=?";
+        Cursor cursor = db.rawQuery(Sql, new String[]{""+userId});
         //获取数据
-        while (cursor.moveToNext()) {
-            int userId = cursor.getInt(cursor.getColumnIndex(USER_ID));
+        if (cursor.moveToNext()) {
             String userName = cursor.getString(cursor.getColumnIndex(UserTable.USER_NAME));
             String userHead = cursor.getString(cursor.getColumnIndex(UserTable.USER_HEAD));
             String userSex = cursor.getString(cursor.getColumnIndex(UserTable.USER_SEX));

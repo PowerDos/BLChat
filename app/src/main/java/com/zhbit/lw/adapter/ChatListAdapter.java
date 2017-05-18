@@ -1,6 +1,7 @@
 package com.zhbit.lw.adapter;
 
 import android.content.Context;
+import android.icu.text.SimpleDateFormat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,9 +13,7 @@ import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 
-import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_CONTENT;
-import static com.zhbit.lw.model.dao.ChatTable.CHAT_MSG_TIME;
-import static com.zhbit.lw.model.dao.FriendTable.FRIEND_NAME;
+import java.util.Date;
 
 /**
  *
@@ -61,8 +60,10 @@ public class ChatListAdapter extends BaseAdapter{
         ivFriendHead.setImageResource(R.drawable.head);
         tvFriendName.setText(chatInfo.getRecentChatData().get(position).get(FriendTable.FRIEND_NAME).toString());
         tvLastChatRecord.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_CONTENT).toString());
-        tvLastChatTime.setText(chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_TIME).toString());
 //        ivExpandRelation.setImageResource(R.drawable.ic_menu_emoticons);
+        String chatMsgTime = chatInfo.getRecentChatData().get(position).get(ChatTable.CHAT_MSG_TIME).toString();
+        tvLastChatTime.setText(chatMsgTime.substring(chatMsgTime.indexOf(" ")+1, chatMsgTime.lastIndexOf(":")));
+
 
         return convertView;
     }

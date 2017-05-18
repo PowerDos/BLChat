@@ -35,6 +35,7 @@
         android:layout_alignTop="@+id/leftMsg_userHead"
         android:padding="10dp"
         android:text="This is the message I want to send.And how do you think of this."
+        android:textColor="@color/textWhite"
         android:background="@color/colorAccent"
         android:id="@+id/leftMsg_content"
         />
