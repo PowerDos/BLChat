@@ -37,7 +37,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name="com.zhbit.lw.activity.WelcomeActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
@@ -83,7 +82,8 @@
         </receiver>
         <!-- 设置环信应用结束 -->
 
-        <activity android:name="com.zhbit.lw.activity.SignUpActivity"/>
+        <activity android:name="com.zhbit.lw.activity.SignUpActivity" />
+        <activity android:name="com.zhbit.lw.activity.UserInforActivity"></activity>
     </application>
 
 </manifest>

@@ -39,8 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textItemColor"
-                android:layout_marginTop="8dp"
-                android:textSize="16sp"/>
+                android:layout_marginTop="5dp"
+                android:textSize="15sp"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

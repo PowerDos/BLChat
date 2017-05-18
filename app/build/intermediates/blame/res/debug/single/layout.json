@@ -8,12 +8,12 @@
         "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_mode_bar.xml"
     },
     {
-        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
-        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_simple.xml"
-    },
-    {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_simple.xml"
     },
     {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_add_friend.xml",
@@ -198,6 +198,10 @@
     {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
         "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_user_inofr.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_user_inofr.xml"
     },
     {
         "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
