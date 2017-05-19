@@ -50,13 +50,15 @@ public class NewFriendActivity extends ListActivity {
 
     // 初始化数据
     private void initData() {
+        // 设置顶部Toolbar的文字
+        customToolbar.setTitle("新的朋友");
         // 设置顶部Toolbar的Overflow文字
         customToolbar.setOverflowTitle("添加好友");
 
         // 从ContactFragment中获取userId
         userId = getIntent().getIntExtra(USER_ID, -1);
 
-        newFriendListData = Model.getInstance().getDbManager().getFriendTableDao().getNewFriendListById(userId);
+        newFriendListData = Model.getInstance().getDbManager().getFriendTableDao().getNewFriendListById();
 
         // 设置新好友列表适配器
         newFriendListView.setAdapter(new NewFriendListAdapter(this, newFriendListData));

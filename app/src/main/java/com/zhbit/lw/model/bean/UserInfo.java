@@ -9,7 +9,8 @@ public class UserInfo {
     private int userId;
     private String userName, userHead, userSex, userAccount, userLocation, userSign;
 
-    public UserInfo(String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
+    public UserInfo(int userId,String userName, String userHead, String userSex, String userAccount, String userLocation, String userSign) {
+        this.userId = userId;
         this.userName = userName;
         this.userHead = userHead;
         this.userSex = userSex;

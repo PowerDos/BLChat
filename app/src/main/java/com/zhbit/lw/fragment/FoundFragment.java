@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.zhbit.lw.activity.MomentActivity;
 import com.zhbit.lw.blchat.R;
+import com.zhbit.lw.model.Model;
 
 /**
  * Created by wjh on 17-5-6.
@@ -18,7 +19,9 @@ import com.zhbit.lw.blchat.R;
 
 public class FoundFragment extends Fragment implements View.OnClickListener{
 
-    protected LinearLayout enterMoment;
+    private LinearLayout enterMoment;
+    private View view;
+    private int userId;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,10 +31,32 @@ public class FoundFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_found, container, false);
-        enterMoment = (LinearLayout) view.findViewById(R.id.enterMoment);
-        enterMoment.setOnClickListener(this);
+        view = inflater.inflate(R.layout.fragment_found, container, false);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        initView();
+        initData();
+        initEvent();
+
+
+    }
+
+    private void initView(){
+        enterMoment = (LinearLayout) view.findViewById(R.id.enterMoment);
+    }
+
+    private void initData(){
+        // 获取用户ID
+        userId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
+    }
+
+    private void initEvent(){
+        enterMoment.setOnClickListener(this);
     }
 
     @Override

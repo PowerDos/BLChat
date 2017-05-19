@@ -100,8 +100,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
         childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
 
-        // 暂时写死为１
-        userId = 1;
+        // 获取用户ID
+        userId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
 
         // 设置通讯录扩展列表的适配器
         contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));

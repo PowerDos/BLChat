@@ -26,6 +26,7 @@ import com.zhbit.lw.model.dao.UserTable;
 public class MeFragment extends Fragment{
 
     private View view;
+    // 用户基本信息的界面
     private ImageView ivUserHead;
     private TextView tvUserName, tvUserAccount;
     private LinearLayout layoutUserInfor;
@@ -50,6 +51,7 @@ public class MeFragment extends Fragment{
     }
 
     private void initView() {
+        // 用户的基本信息
         ivUserHead = (ImageView) view.findViewById(R.id.userInfor_userHead);
         tvUserName = (TextView) view.findViewById(R.id.userInfor_userName);
         tvUserAccount = (TextView) view.findViewById(R.id.userInfor_userAccount);
@@ -58,9 +60,9 @@ public class MeFragment extends Fragment{
     }
 
     private void initData() {
-        // 从数据库获取数据
-        userId = 1;
-        UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInforByAccount(userId);
+        // 获取用户ID
+        userId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
+        UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInfor();
         if (userInfo == null) {
             Toast.makeText(getActivity(), "请检查你的网络链接.", Toast.LENGTH_SHORT).show();
         }else{
@@ -72,6 +74,7 @@ public class MeFragment extends Fragment{
     }
 
     private void initEvent() {
+        // 个人详细信息的点击事件
         layoutUserInfor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
