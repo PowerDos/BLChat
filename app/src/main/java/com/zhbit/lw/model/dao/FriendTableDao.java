@@ -24,16 +24,16 @@ public class FriendTableDao {
     }
 
     // 获取用户信息
-    public FriendInfo getFriendInforByFriendId(int friendId){
+    public FriendInfo getFriendInforByAccount(String friendAccount){
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
-        String Sql = "select * from friend_infor where friend_id = ?";
-        Cursor cursor = db.rawQuery(Sql, new String[]{""+friendId});
+        String Sql = "select * from friend_infor where friend_account = ?";
+        Cursor cursor = db.rawQuery(Sql, new String[]{"'"+friendAccount+"'"});
         //获取数据
         if (cursor.moveToNext()) {
             FriendInfo friendInfo = new FriendInfo();
-            friendInfo.setFriendId(friendId);
+            friendInfo.setFriendId(cursor.getInt(cursor.getColumnIndex(FriendTable.FRIEND_ID)));
             friendInfo.setFriendName(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_NAME)));
             friendInfo.setNickName(cursor.getString(cursor.getColumnIndex(FriendTable.NICK_NAME)));
             friendInfo.setFriendAccount(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_ACCOUNT)));
@@ -97,6 +97,7 @@ public class FriendTableDao {
         String sql = "SELECT friend_id, friend_head, friend_name, new_friend_request_msg FROM friend_infor WHERE new_friend_flag=1";
         Cursor cursor = db.rawQuery(sql, null);
 
+
         // 将新好友列表数据遍历出来
         List<Map<String, Object>> newFriendList = new ArrayList<Map<String, Object>>();
         Map<String, Object> map;
@@ -109,5 +110,25 @@ public class FriendTableDao {
             newFriendList.add(map);
         }
         return newFriendList;
+    }
+
+    //添加好友
+    public boolean AddFriend(FriendInfo friendInfo){
+        //创建数据库
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String friendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
+                +"values(1,"
+                +friendInfo.getFriendId()
+                +",'friend', '"
+                +friendInfo.getFriendName()
+                +"', 'xxx', '"
+                +friendInfo.getFriendSex()
+                +"', '"
+                +friendInfo.getFriendAccount()
+                +"', 'R.drawable.head', '"
+                + friendInfo.getFriendLocation()+"', null, 1, '您好，我是您的老同学。')";
+        db.execSQL(friendSql);
+        db.close();
+        return true;
     }
 }

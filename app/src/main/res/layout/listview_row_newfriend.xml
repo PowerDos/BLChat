@@ -35,13 +35,26 @@
         android:id="@+id/lvRow_newfriend_requestMsg"
         />
 
+    <Button
+        android:id="@+id/btn_add_new_friend"
+        android:layout_width="48dp"
+        android:layout_height="38dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_warning_selector"
+        android:text="添加"
+        android:textAlignment="center"
+        android:textColor="#fff"/>
     <TextView
+        android:id="@+id/txtShowAdded"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_marginRight="10dp"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:text="已添加"
+        android:visibility="gone"
         />
 
 </RelativeLayout>

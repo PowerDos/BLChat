@@ -9,9 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.HyphenateException;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.bean.FriendInfo;
+import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.UserTable;
@@ -67,32 +70,16 @@ public class FriendInforActivity extends AppCompatActivity {
         // 获取用户Id和当前好友Id
         userId = getIntent().getIntExtra(UserTable.USER_ID, -1);
         friendId = getIntent().getIntExtra(FriendTable.FRIEND_ID, -1);
-
-        // 从数据库中获取用户信息
-        friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByFriendId(friendId);
-
-        // 判断是否成功获取好友信息
-        if (friendInfo != null) {
-            // 获取成功后设置好友的界面数据
-            tvFriendName.setText(friendInfo.getFriendName());
-            tvFriendAccount.setText(friendInfo.getFriendAccount());
-            // 判断性别设置性别图标
-            if (friendInfo.getFriendSex().equals("男")) {
-                ivFriendSex.setImageResource(R.drawable.user_sex_male);
-            } else {
-                ivFriendSex.setImageResource(R.drawable.user_sex_female);
-            }
-        }else{
-            // 从数据库获取失败，代表用户不是不存在好友，将发送消息按钮修改成添加好友按钮
-            // 获取成功后设置好友的界面数据
-            tvFriendName.setText(getIntent().getStringExtra(FriendTable.FRIEND_NAME));
-            tvFriendAccount.setText(getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
-            // 判断性别设置性别图标
-            if (getIntent().getStringExtra(FriendTable.FRIEND_SEX).equals("男")) {
-                ivFriendSex.setImageResource(R.drawable.user_sex_male);
-            } else {
-                ivFriendSex.setImageResource(R.drawable.user_sex_female);
-            }
+        tvFriendName.setText(getIntent().getStringExtra(FriendTable.FRIEND_NAME));
+        tvFriendAccount.setText(getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+        // 判断性别设置性别图标
+        if (getIntent().getStringExtra(FriendTable.FRIEND_SEX).equals("男")) {
+            ivFriendSex.setImageResource(R.drawable.user_sex_male);
+        } else {
+            ivFriendSex.setImageResource(R.drawable.user_sex_female);
+        }
+        // 如果该用户不是好友
+        if (getIntent().getIntExtra("isLocal",1) == 0) {
             // 设置两个按钮的布局属性
             btnSendMsg.setText("添加好友");
             btnVideoChat.setVisibility(View.GONE);
@@ -105,11 +92,44 @@ public class FriendInforActivity extends AppCompatActivity {
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
-                intent.putExtra(ChatTable.USER_ID, userId);
-                intent.putExtra(ChatTable.FRIEND_ID, friendId);
-                finish();
-                startActivity(intent);
+//                如果不是好友的话
+                if (getIntent().getIntExtra("isLocal",1) == 0){
+                    //添加好友
+                    Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            //获取用户名
+                            UserInfo userInfo = Model.getInstance().getDbManager().getUserTableDao().getUserInfor();
+                            try {
+                                //去环形服务器添加好友
+                                EMClient.getInstance().contactManager().addContact(getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT), "添加好友");
+                                //在UI中提示
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(FriendInforActivity.this, "发送添加好友申请成功",Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            } catch (final HyphenateException e) {
+                                e.printStackTrace();
+                                runOnUiThread(new Runnable() {
+                                    //如果添加好友失败
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(FriendInforActivity.this, "发送添加好友申请失败"+ e.toString(),Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }else {
+                    //是好友就跳转到聊天页面
+                    Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
+                    intent.putExtra(ChatTable.USER_ID, userId);
+                    intent.putExtra(ChatTable.FRIEND_ID, friendId);
+                    finish();
+                    startActivity(intent);
+                }
             }
         });
     }

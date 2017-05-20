@@ -142,7 +142,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 // 跳转到用户信息的界面
                 Intent intent = new Intent(getActivity(), FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME,  Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
+                intent.putExtra(FRIEND_NAME,  Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_NAME).toString()));
                 intent.putExtra(USER_ID, userId);
                 intent.putExtra(FRIEND_ID, Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
                 startActivity(intent);

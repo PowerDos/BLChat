@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhbit.lw.Logs.Logs;
@@ -16,7 +14,6 @@ import com.zhbit.lw.ServerRequest.SRequest;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.bean.FriendInfo;
-import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.UserTable;
 import com.zhbit.lw.ui.CustomToolbar;
@@ -25,7 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.security.Key;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -76,66 +72,85 @@ public class AddFriendActivity extends AppCompatActivity{
                         Toast.makeText(AddFriendActivity.this,"输入的用户名不能为空",Toast.LENGTH_LONG);
                         return false;
                     }
-                    // 去服务器判断用户是否存在
-                    Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            /**
-                             * 我把显示在这个添加好友界面的内容全部去掉了，改成了搜索到之后就跳转到好友信息的界面
-                             * 如果没有好友信息就Toast提示用户没有找到
-                             * 回车键的监听事件是已经成功了的，不过服务器判断的内容我只改了下面我注释的内容
-                             * 其他不懂的都没有改
-                             *　
-                             * 本来设置的是UserInfo, 因为要改成跳转到FriendInfo所以修改了一下
-                             * 不过没有认真看服务器的操作，你要改一改我写的
-                             *
-                             * 如果查到存在用户就跳转到好友信息界面，在好友信息，在添加好友成功之后才会把好友
-                             * 的信息添加到本地数据库当中，所以好友信息界面通过好友ID是否存在本地数据库当中来
-                             * 判别是不是好友也就是判断设置按钮为发消息还是添加好友
-                             *
-                             * 没有设置个性签名　我设计的好友表当中忘记了这个字段了
-                             * 添加了设置好友ID
-                             */
-                            Map<String,String> data = new HashMap<String, String>();
-                            data.put("username",account);
-                            data.put("type","1"); //请求1，为获取个人信息
-                            String reDate = SRequest.PostRequest(data);
-                            Logs.d("POST", reDate);
-                            try {
-                                // 解析JSON文件
-                                JSONTokener jsonParser = new JSONTokener(reDate);
-                                JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
-                                if (jsonObject.isNull("error")) {
-                                    // 获取到信息后跳转到好友信息界面
-                                    //获取数据
-                                    FriendInfo friendInfo = new FriendInfo();
-//                                    friendInfo.setFriendId(jsonObject.getString("friend_id"));
-//                                    friendInfo.setFriendAccount(jsonObject.getString("friend_account"));
-//                                    friendInfo.setFriendName(jsonObject.getString("friend_name"));
-//                                    friendInfo.setFriendSex(jsonObject.getString("friend_sex"));
-//                                    friendInfo.setFriendLocation(jsonObject.getString("friend_location"));
-                                    // 跳转到好友信息界面
-                                    Intent intent = new Intent(AddFriendActivity.this, FriendInforActivity.class);
-                                    intent.putExtra(UserTable.USER_ID, userId);
-                                    intent.putExtra(FriendTable.FRIEND_ID, friendInfo.getFriendId());
-                                    intent.putExtra(FriendTable.FRIEND_NAME, friendInfo.getFriendName());
-                                    intent.putExtra(FriendTable.FRIEND_ACCOUNT, friendInfo.getFriendAccount());
-                                    intent.putExtra(FriendTable.FRIEND_LOCATION, friendInfo.getFriendLocation());
-                                    intent.putExtra(FriendTable.FRIEND_SEX, friendInfo.getFriendSex());
-                                    startActivity(intent);
-
-//                            String showInfo = userInfo.getUserAccount()+userInfo.getUserName();
-//                            txtNotifyInfo.setText(showInfo);
-                                }else {
-                                    //显示用户不存在  这里子线程获取不了view，今晚回来再解决
-//                                  String showInfo = jsonObject.getString("error")+jsonObject.getString("msg");
-//                                    txtNotifyInfo.setText(showInfo);
+                    //先判断本地有无该好友
+                    FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInforByAccount(account);
+                    if (friendInfo != null){
+                        // 跳转到好友信息界面
+                        Intent intent = new Intent(AddFriendActivity.this, FriendInforActivity.class);
+                        intent.putExtra(UserTable.USER_ID, userId);
+                        intent.putExtra(FriendTable.FRIEND_ID, friendInfo.getFriendId());
+                        intent.putExtra(FriendTable.FRIEND_NAME, friendInfo.getFriendName());
+                        intent.putExtra(FriendTable.FRIEND_ACCOUNT, friendInfo.getFriendAccount());
+                        intent.putExtra(FriendTable.FRIEND_LOCATION, friendInfo.getFriendLocation());
+                        intent.putExtra(FriendTable.FRIEND_SEX, friendInfo.getFriendSex());
+                        intent.putExtra("isLocal",1);
+                        startActivity(intent);
+                    }else {
+                        //如果本地不存在该用户
+                        // 去服务器判断用户是否存在
+                        Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                /**
+                                 * 我把显示在这个添加好友界面的内容全部去掉了，改成了搜索到之后就跳转到好友信息的界面
+                                 * 如果没有好友信息就Toast提示用户没有找到
+                                 * 回车键的监听事件是已经成功了的，不过服务器判断的内容我只改了下面我注释的内容
+                                 * 其他不懂的都没有改
+                                 *
+                                 * 本来设置的是UserInfo, 因为要改成跳转到FriendInfo所以修改了一下
+                                 * 不过没有认真看服务器的操作，你要改一改我写的
+                                 *
+                                 * 如果查到存在用户就跳转到好友信息界面，在好友信息，在添加好友成功之后才会把好友
+                                 * 的信息添加到本地数据库当中，所以好友信息界面通过好友ID是否存在本地数据库当中来
+                                 * 判别是不是好友也就是判断设置按钮为发消息还是添加好友
+                                 *
+                                 * 没有设置个性签名　我设计的好友表当中忘记了这个字段了
+                                 * 添加了设置好友ID
+                                 */
+                                Map<String, String> data = new HashMap<String, String>();
+                                data.put("username", account);
+                                data.put("type", "1"); //请求1，为获取个人信息
+                                String reDate = SRequest.PostRequest(data);
+                                Logs.d("POST", reDate);
+                                try {
+                                    // 解析JSON文件
+                                    JSONTokener jsonParser = new JSONTokener(reDate);
+                                    JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
+                                    if (jsonObject.isNull("error")) {
+                                        // 获取到信息后跳转到好友信息界面
+                                        //获取数据
+                                        FriendInfo friendInfo = new FriendInfo();
+                                        friendInfo.setFriendId(999);
+                                        friendInfo.setFriendAccount(jsonObject.getString("username"));
+                                        friendInfo.setFriendName(jsonObject.getString("nickname"));
+                                        friendInfo.setFriendSex(jsonObject.getString("sex"));
+                                        friendInfo.setFriendLocation(jsonObject.getString("location"));
+                                        // 跳转到好友信息界面
+                                        Intent intent = new Intent(AddFriendActivity.this, FriendInforActivity.class);
+                                        intent.putExtra(UserTable.USER_ID, userId);
+                                        intent.putExtra(FriendTable.FRIEND_ID, friendInfo.getFriendId());
+                                        intent.putExtra(FriendTable.FRIEND_NAME, friendInfo.getFriendName());
+                                        intent.putExtra(FriendTable.FRIEND_ACCOUNT, friendInfo.getFriendAccount());
+                                        intent.putExtra(FriendTable.FRIEND_LOCATION, friendInfo.getFriendLocation());
+                                        intent.putExtra(FriendTable.FRIEND_SEX, friendInfo.getFriendSex());
+                                        intent.putExtra("isLocal",0);
+                                        startActivity(intent);
+                                    } else {
+                                        //显示用户不存在
+                                        final String showInfo = jsonObject.getString("msg");
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(AddFriendActivity.this, showInfo, Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
-                            } catch (JSONException e) {
-                                e.printStackTrace();
                             }
-                        }
-                    });
+                        });
+                    }
                 }else if(keyCode == KeyEvent.KEYCODE_BACK) {
                     // 返回键的监听事件
                     finish();

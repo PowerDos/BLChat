@@ -27,6 +27,8 @@ public class Model {
     //初始化
     public void init(Context c){
         context = c;
+        //设置全局监听
+        EventListener eventListener = new EventListener(context);
     }
 
     //获取全局线程池

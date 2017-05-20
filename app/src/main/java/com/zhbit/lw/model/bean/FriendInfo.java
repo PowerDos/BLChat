@@ -8,7 +8,7 @@ public class FriendInfo {
 
     private int friendId, newFriendFlag;
     private String groupName, friendName, nickName, friendSex, friendAccount, friendHead, friendLocation, friendRecentPhoto;
-
+    private String UserAccount;
     public FriendInfo() {}
 
     public FriendInfo(int friendId, String groupName, String friendName, String nickName, String friendSex, String friendAccount, String friendHead, String friendLocation, String friendRecentPhoto, int newFriendFlag) {
@@ -22,6 +22,13 @@ public class FriendInfo {
         this.friendLocation = friendLocation;
         this.friendRecentPhoto = friendRecentPhoto;
         this.newFriendFlag = newFriendFlag;
+    }
+    public String getUserAccount() {
+        return UserAccount;
+    }
+
+    public void setUserAccount(String userAccount) {
+        UserAccount = userAccount;
     }
 
     public int getFriendId() {

@@ -8,6 +8,7 @@ import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.ChatTableDao;
 import com.zhbit.lw.model.dao.FriendTable;
 import com.zhbit.lw.model.dao.FriendTableDao;
+import com.zhbit.lw.model.dao.InvitationTable;
 import com.zhbit.lw.model.dao.MomentTable;
 import com.zhbit.lw.model.dao.MomentTableDao;
 import com.zhbit.lw.model.dao.UserTable;
@@ -30,6 +31,7 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS user_infor;");
         db.execSQL("DROP TABLE IF EXISTS friend_infor;");
         db.execSQL("DROP TABLE IF EXISTS chat_msg;");
+        db.execSQL("DROP TABLE IF EXISTS invitation;");
         //创建朋友圈表
         db.execSQL(MomentTable.CreateTable);
         //创建个人信息表
@@ -38,7 +40,8 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(FriendTable.CREATE_TABLE);
         //创建聊天表
         db.execSQL(ChatTable.CREATE_TABLE);
-
+        //创建邀请表
+        db.execSQL(InvitationTable.CREATE_TABLE);
 //        // 插入聊天的测试数据
 //        String chatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
 //                " values(1, 2, '您好，好久不见，近来可好。', '2017-2-16 12:30', 'receive', 1)";
@@ -70,6 +73,11 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(momentSql);
         db.execSQL(momentSql);
 
+        //插入新好友邀请
+        String newInvitation = "insert into invitation(account,reason,status) values('Gavin','希望能认识你',1);";
+        String newInvitation2 = "insert into invitation(account,reason,status) values('Gavin12','希望能认识你',1);";
+        db.execSQL(newInvitation);
+        db.execSQL(newInvitation2);
     }
 
     @Override

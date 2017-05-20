@@ -13,7 +13,6 @@
         android:textSize="15dp"
         android:maxLines="1"
         android:inputType="text"
-        android:cursorVisible="false"
         android:background="@color/itemBackground"
         android:id="@+id/base_search"
         android:paddingLeft="15dp"

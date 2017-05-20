@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.zhbit.lw.model.dao.ChatTableDao;
 import com.zhbit.lw.model.dao.FriendTableDao;
-import com.zhbit.lw.model.dao.MomentTable;
+import com.zhbit.lw.model.dao.InvitationTableDao;
 import com.zhbit.lw.model.dao.MomentTableDao;
 import com.zhbit.lw.model.dao.UserTableDao;
 
@@ -26,6 +26,10 @@ public class DBManager {
 
     public UserTableDao getUserTableDao() {
         return  new UserTableDao(dbHelper);
+    }
+
+    public InvitationTableDao getInvitationTableDao() {
+        return  new InvitationTableDao(dbHelper);
     }
 
     public FriendTableDao getFriendTableDao() {
