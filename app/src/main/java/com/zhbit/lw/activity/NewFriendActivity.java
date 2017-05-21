@@ -1,8 +1,12 @@
 package com.zhbit.lw.activity;
 
 import android.app.ListActivity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,6 +34,26 @@ public class NewFriendActivity extends ListActivity {
 
     private int userId;
 
+    private final String NEW_FRIEND_INVITATION = "com.zhbit.lw.NEW_FRIEND_INVITATION";  //广播信号
+    private LocalBroadcastManager localBroadcastManager; //广播管理者对象
+    private BroadcastReceiver NEW_FRIEND_INVITATION_RECEIVER = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, final Intent intent) {
+            Logs.d("NEW_FRIEND_INVITATION", " 新的好友申请");
+            String account = intent.getStringExtra("account");
+            if (intent.getIntExtra("type",0) == 1){
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Toast.makeText(AddFriendActivity.this,account+"，请求添加您为好友",Toast.LENGTH_LONG).show();
+//                    }
+//                });
+                Toast.makeText(NewFriendActivity.this,account+"，请求添加您为好友",Toast.LENGTH_LONG).show();
+            }else if (intent.getIntExtra("type",0) == 0){
+                Toast.makeText(NewFriendActivity.this,account+"，已添加您为好友",Toast.LENGTH_LONG).show();
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +63,9 @@ public class NewFriendActivity extends ListActivity {
         initData();     // 初始化数据
         initEvent();    // 初始化点击事件
 
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        //注册广播
+        localBroadcastManager.registerReceiver(NEW_FRIEND_INVITATION_RECEIVER, new IntentFilter(NEW_FRIEND_INVITATION));
     }
 
     // 初始化视图

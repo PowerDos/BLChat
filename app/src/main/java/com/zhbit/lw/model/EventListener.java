@@ -35,40 +35,13 @@ import java.util.Map;
 public class EventListener {
     private Context mContext;
     private int UserId;
+    private final String NEW_FRIEND_INVITATION = "com.zhbit.lw.NEW_FRIEND_INVITATION";
     private final String MESSAGE_CHANGE = "com.zhbit.lw.MESSAGE_CHANGE"; //信号
     private final LocalBroadcastManager localBroadcastManager; //广播管理者对象
     private final EMContactListener emContactListener = new EMContactListener() {
         @Override
         public void onContactAdded(final String s) {
             //联系人添加后执行的方法
-            //更新数据库
-//            Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
-//                     @Override
-//                     public void run() {
-//                         Map<String, String> data = new HashMap<String, String>();
-//                         data.put("username", s);
-//                         data.put("type", "1"); //请求1，为获取个人信息
-//                         String reDate = SRequest.PostRequest(data);
-//                         Logs.d("POST_onContactAdded", reDate);
-//                         try {
-//                             // 解析JSON文件
-//                             JSONTokener jsonParser = new JSONTokener(reDate);
-//                             JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
-//                             if (jsonObject.isNull("error")) {
-//                                 //获取数据
-//                                 FriendInfo friendInfo = new FriendInfo();
-//                                 friendInfo.setFriendAccount(jsonObject.getString("username"));
-//                                 friendInfo.setFriendName(jsonObject.getString("nickname"));
-//                                 friendInfo.setFriendSex(jsonObject.getString("sex"));
-//                                 friendInfo.setFriendLocation(jsonObject.getString("location"));
-//                                 Model.getInstance().getDbManager().getFriendTableDao().AddFriend(friendInfo);
-//                             }
-//                         } catch (JSONException e) {
-//                             e.printStackTrace();
-//                         }
-//                     }
-//                 }
-//            );
         }
 
         @Override
@@ -83,6 +56,11 @@ public class EventListener {
             invitationInfo.setAccount(account);
             invitationInfo.setReason(reason);
             Model.getInstance().getDbManager().getInvitationTableDao().addInvitation(invitationInfo);
+            Intent newFriendInvitedIntent = new Intent(NEW_FRIEND_INVITATION);
+            newFriendInvitedIntent.putExtra("account",account);
+            newFriendInvitedIntent.putExtra("reason",reason);
+            newFriendInvitedIntent.putExtra("type",1);
+            localBroadcastManager.sendBroadcast(newFriendInvitedIntent);
         }
 
         @Override
@@ -117,6 +95,11 @@ public class EventListener {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+                    //发送广播
+                    Intent newFriendInvitedIntent = new Intent(NEW_FRIEND_INVITATION);
+                    newFriendInvitedIntent.putExtra("account",username);
+                    newFriendInvitedIntent.putExtra("type",0);
+                    localBroadcastManager.sendBroadcast(newFriendInvitedIntent);
                 }
             });
         }

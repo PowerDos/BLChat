@@ -71,7 +71,7 @@ public class FriendInforActivity extends AppCompatActivity {
         userId = getIntent().getIntExtra(UserTable.USER_ID, -1);
         friendId = getIntent().getIntExtra(FriendTable.FRIEND_ID, -1);
         tvFriendName.setText(getIntent().getStringExtra(FriendTable.FRIEND_NAME));
-        tvFriendAccount.setText(getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+        tvFriendAccount.setText("账号: "+getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
         // 判断性别设置性别图标
         if (getIntent().getStringExtra(FriendTable.FRIEND_SEX).equals("男")) {
             ivFriendSex.setImageResource(R.drawable.user_sex_male);

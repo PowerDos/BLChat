@@ -1,10 +1,14 @@
 package com.zhbit.lw.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,14 +19,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.activity.ChatMsgActivity;
 import com.zhbit.lw.adapter.ChatListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.bean.ChatInfo;
 import com.zhbit.lw.model.bean.FriendInfo;
+import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.FriendTable;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -44,7 +51,20 @@ public class ChatFragment extends Fragment{
 
     private ChatInfo chatInfo;      // 聊天对象
 
-    private int userId;     // 先写死　后期改成从互联网中获取
+    private int userId;
+
+    private final String MESSAGE_CHANGE = "com.zhbit.lw.MESSAGE_CHANGE"; //信号
+    private LocalBroadcastManager localBroadcastManager; //广播管理者对象
+    private BroadcastReceiver MESSAGE_CHANGE_RECEIVER = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Logs.d("CHAT_FRAGMENT_CHANGE", " 聊天列表改变");
+            // 更新聊天列表数据
+            chatListData = Model.getInstance().getDbManager().getChatTableDao().getChatList(userId);
+            chatInfo.setRecentChatData(chatListData);
+            chatListAdapter.notifyDataSetChanged();
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,6 +82,9 @@ public class ChatFragment extends Fragment{
         initData();         // 初始化数据
         initEvent();        // 初始化事件监听器
 
+        localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        //注册广播
+        localBroadcastManager.registerReceiver(MESSAGE_CHANGE_RECEIVER, new IntentFilter(MESSAGE_CHANGE));
     }
 
     @Override

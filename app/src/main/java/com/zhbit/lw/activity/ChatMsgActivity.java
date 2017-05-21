@@ -40,7 +40,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-//implements EMMessageListener
+
 public class ChatMsgActivity extends ListActivity{
 
     private CustomToolbar chatMsgToolbar;       // 顶部Toolbar
@@ -306,6 +306,11 @@ public class ChatMsgActivity extends ListActivity{
             }
         });
     }
+
+    /**
+     * 当页面加载完毕后，把信息滚动到底部
+     * @param hasFocus
+     */
     public void onWindowFocusChanged(boolean hasFocus)
     {
         if (hasFocus)
