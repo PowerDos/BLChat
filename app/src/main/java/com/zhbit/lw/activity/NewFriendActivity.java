@@ -42,12 +42,6 @@ public class NewFriendActivity extends ListActivity {
             Logs.d("NEW_FRIEND_INVITATION", " 新的好友申请");
             String account = intent.getStringExtra("account");
             if (intent.getIntExtra("type",0) == 1){
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(AddFriendActivity.this,account+"，请求添加您为好友",Toast.LENGTH_LONG).show();
-//                    }
-//                });
                 Toast.makeText(NewFriendActivity.this,account+"，请求添加您为好友",Toast.LENGTH_LONG).show();
             }else if (intent.getIntExtra("type",0) == 0){
                 Toast.makeText(NewFriendActivity.this,account+"，已添加您为好友",Toast.LENGTH_LONG).show();

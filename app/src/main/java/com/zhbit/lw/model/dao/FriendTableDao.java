@@ -76,8 +76,8 @@ public class FriendTableDao {
             Cursor cursor = db.rawQuery(sql, new String[]{parentList.get(i)});
 
             child = new ArrayList<Map<String, Object>>();
-            map = new HashMap<String, Object>();
             while (cursor.moveToNext()) {
+                map = new HashMap<String, Object>();
                 map.put(FriendTable.FRIEND_ID, cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_ID)));
                 map.put(FriendTable.FRIEND_NAME, cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_NAME)));
                 map.put(FriendTable.FRIEND_HEAD, cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_HEAD)));

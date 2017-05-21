@@ -1,9 +1,13 @@
 package com.zhbit.lw.fragment;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.activity.FriendInforActivity;
 import com.zhbit.lw.activity.NewFriendActivity;
 import com.zhbit.lw.adapter.ContactExpandableListAdapter;
@@ -40,6 +46,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     private View view;      // 当前fragment的视图
     private View headerView;    // expandableListView的表头
     private ExpandableListView contactExpandableListView;     // 通讯录扩展列表
+    private ContactExpandableListAdapter contactExpandableListAdapter;
 
     private ImageView imgNewFriend;     // exoandableListView表头当中的新朋友
     private ImageView imgGroupChat;     // exoandableListView表头当中的群聊
@@ -50,6 +57,22 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
     private int userId;
 
+
+    private final String NEW_FRIEND_INVITATION = "com.zhbit.lw.NEW_FRIEND_INVITATION";  //广播信号
+    private LocalBroadcastManager localBroadcastManager; //广播管理者对象
+    private BroadcastReceiver NEW_FRIEND_INVITATION_RECEIVER = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, final Intent intent) {
+
+            if (intent.getIntExtra("type",0) == 0){
+                Logs.d("NEW_FRIEND_INVITATION", " 更新好友列表");
+                //更新好友列表
+                parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
+                childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
+                contactExpandableListAdapter.notifyDataSetChanged();
+            }
+        }
+    };
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,10 +86,13 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-         initView();        // 初始化视图
-         initData();        // 初始化数据
-         initEvent();       // 初始化点击事件
+        initView();        // 初始化视图
+        initData();        // 初始化数据
+        initEvent();       // 初始化点击事件
 
+        localBroadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        //注册广播
+        localBroadcastManager.registerReceiver(NEW_FRIEND_INVITATION_RECEIVER, new IntentFilter(NEW_FRIEND_INVITATION));
     }
 
     // 初始化视图
@@ -100,14 +126,14 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         if (childList == null) {
             Toast.makeText(getActivity(), "Child Null", Toast.LENGTH_SHORT).show();
         }
-        parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
-        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
+//        parentList = Model.getInstance().getDbManager().getFriendTableDao().getGroupList();
+//        childList = Model.getInstance().getDbManager().getFriendTableDao().getGrouopChildList(parentList);
 
         // 获取用户ID
         userId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
-
+        contactExpandableListAdapter= new ContactExpandableListAdapter(getActivity(), parentList, childList);
         // 设置通讯录扩展列表的适配器
-        contactExpandableListView.setAdapter(new ContactExpandableListAdapter(getActivity(), parentList, childList));
+        contactExpandableListView.setAdapter(contactExpandableListAdapter);
 
     }
 
