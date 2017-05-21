@@ -17,6 +17,9 @@ import com.zhbit.lw.activity.NewFriendActivity;
 import com.zhbit.lw.adapter.ContactExpandableListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
+import com.zhbit.lw.model.bean.FriendInfo;
+import com.zhbit.lw.model.dao.FriendTable;
+
 import java.util.List;
 import java.util.Map;
 
@@ -142,9 +145,13 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
                 // 跳转到用户信息的界面
                 Intent intent = new Intent(getActivity(), FriendInforActivity.class);
-                intent.putExtra(FRIEND_NAME,  Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_NAME).toString()));
+                FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInfoById(Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
+                intent.putExtra(FriendTable.FRIEND_NAME,friendInfo.getFriendName());
+                intent.putExtra(FriendTable.FRIEND_ACCOUNT,friendInfo.getFriendAccount());
+                intent.putExtra(FriendTable.FRIEND_SEX,friendInfo.getFriendSex());
+                intent.putExtra(FriendTable.FRIEND_HEAD,friendInfo.getFriendHead());
+                intent.putExtra(FriendTable.FRIEND_ID,friendInfo.getFriendId());
                 intent.putExtra(USER_ID, userId);
-                intent.putExtra(FRIEND_ID, Integer.parseInt(childList.get(groupPosition).get(childPosition).get(FRIEND_ID).toString()));
                 startActivity(intent);
                 return true;
             }

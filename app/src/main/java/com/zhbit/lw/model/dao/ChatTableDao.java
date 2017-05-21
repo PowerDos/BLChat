@@ -102,8 +102,8 @@ public class ChatTableDao {
             if (friendInforCursor.moveToNext()) {
                 chatInfo.setFriendName(friendInforCursor.getString(friendInforCursor.getColumnIndex(FriendTable.FRIEND_NAME)));
                 chatInfo.setFriendHead(friendInforCursor.getString(friendInforCursor.getColumnIndex(FriendTable.FRIEND_HEAD)));
-                chatInfo.setChatMsgData(chatMsgList);
             }
+            chatInfo.setChatMsgData(chatMsgList);
             return chatInfo;
         }
         // 不再需要重复设置聊天的基本属性

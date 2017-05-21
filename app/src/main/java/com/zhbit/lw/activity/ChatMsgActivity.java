@@ -1,8 +1,12 @@
 package com.zhbit.lw.activity;
 
 import android.app.ListActivity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -13,6 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.hyphenate.EMCallBack;
+import com.hyphenate.EMMessageListener;
+import com.hyphenate.chat.EMClient;
+import com.hyphenate.chat.EMMessage;
+import com.hyphenate.chat.EMTextMessageBody;
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.adapter.ChatMsgListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
@@ -30,8 +40,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-public class ChatMsgActivity extends ListActivity {
+//implements EMMessageListener
+public class ChatMsgActivity extends ListActivity{
 
     private CustomToolbar chatMsgToolbar;       // 顶部Toolbar
 
@@ -48,6 +58,28 @@ public class ChatMsgActivity extends ListActivity {
     public static int BTN_SEND_STATU = 1;   // 发送按钮处于发送状态
     public static int BTN_ADD_STATU = 0;    // 发送按钮处于更多功能状态
 
+    private final String MESSAGE_CHANGE = "com.zhbit.lw.MESSAGE_CHANGE"; //信号
+    private LocalBroadcastManager localBroadcastManager; //广播管理者对象
+    private BroadcastReceiver MESSAGE_CHANGE_RECEIVER = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Logs.d("MESSAGE_RECEIVER", " 接收到信息:" + intent.getIntExtra(FriendTable.FRIEND_ID,0)
+                    +" Message: "+intent.getStringExtra(ChatTable.CHAT_MSG_CONTENT)
+                    +" Time: "+intent.getStringExtra(ChatTable.CHAT_MSG_TIME));
+            if (friendId == intent.getIntExtra(FriendTable.FRIEND_ID,0)) {
+                List<Map<String, Object>> chatListData = chatInfo.getChatMsgData();
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put(ChatTable.CHAT_MSG_CONTENT, intent.getStringExtra(ChatTable.CHAT_MSG_CONTENT));
+                map.put(ChatTable.CHAT_MSG_TIME, intent.getStringExtra(ChatTable.CHAT_MSG_TIME));
+                map.put(ChatTable.CHAT_MSG_TYPE, ChatTable.CHAT_MSG_TYPE_RECEIVER);
+                map.put(ChatTable.SHOW_TIME_FLAG, ChatTable.HIDE_TIME);
+                chatListData.add(map);
+                chatInfo.setChatMsgData(chatListData);
+                chatMsgListAdapter.notifyDataSetChanged();
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +88,10 @@ public class ChatMsgActivity extends ListActivity {
         initView();      // 初始化视图
         initData();      // 初始化数据
         initEvent();     // 初始化点击事件
+
+        localBroadcastManager = LocalBroadcastManager.getInstance(this);
+        //注册广播
+        localBroadcastManager.registerReceiver(MESSAGE_CHANGE_RECEIVER, new IntentFilter(MESSAGE_CHANGE));
 
     }
 
@@ -80,7 +116,7 @@ public class ChatMsgActivity extends ListActivity {
     // 初始化数据
     private void initData() {
 
-        // 暂时写死用户Id
+        // 设置ID
         userId = getIntent().getIntExtra(UserTable.USER_ID, -1);
         friendId = getIntent().getIntExtra(FriendTable.FRIEND_ID, -1);
         if (userId == -1 || friendId == -1) {
@@ -95,7 +131,7 @@ public class ChatMsgActivity extends ListActivity {
         chatInfo = Model.getInstance().getDbManager().getChatTableDao().getChatMsgInfo(userId, friendId);
 
         // 设置当前界面Toolbar的标题为聊天对象的姓名
-        chatMsgToolbar.setTitle(chatInfo.getFriendName());
+        chatMsgToolbar.setTitle(getIntent().getStringExtra(FriendTable.FRIEND_NAME));
 
         // 设置聊天信息列表的适配器
         chatMsgListAdapter = new ChatMsgListAdapter(this, chatInfo);
@@ -111,7 +147,11 @@ public class ChatMsgActivity extends ListActivity {
             public void onOverflowClick() {
                 Intent intent = new Intent(ChatMsgActivity.this, FriendInforActivity.class);
                 intent.putExtra(UserTable.USER_ID, userId);
-                intent.putExtra(FriendTable.FRIEND_ID, friendId);
+                intent.putExtra(FriendTable.FRIEND_NAME,getIntent().getStringExtra(FriendTable.FRIEND_NAME));
+                intent.putExtra(FriendTable.FRIEND_ACCOUNT,getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+                intent.putExtra(FriendTable.FRIEND_SEX,getIntent().getStringExtra(FriendTable.FRIEND_SEX));
+                intent.putExtra(FriendTable.FRIEND_HEAD,getIntent().getStringExtra(FriendTable.FRIEND_HEAD));
+                intent.putExtra(ChatTable.FRIEND_ID, getIntent().getIntExtra(FriendTable.FRIEND_ID,-1));
                 startActivity(intent);
             }
         });
@@ -208,6 +248,36 @@ public class ChatMsgActivity extends ListActivity {
                             showTimeFlag = ChatTable.HIDE_TIME;
                         }
 
+
+
+                        //发送给对方信息
+                        //创建一条文本消息，msgContent为消息文字内容
+                        EMMessage message = EMMessage.createTxtSendMessage(msgContent, getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+                        //设置聊天模式
+                        message.setChatType(EMMessage.ChatType.Chat);
+                        //发送消息
+                        EMClient.getInstance().chatManager().sendMessage(message);
+                        //设置发送消息的回调
+                        message.setMessageStatusCallback(new EMCallBack() {
+                            @Override
+                            public void onSuccess() {
+                                Logs.d("SendMessage","发送信息成功");
+                            }
+
+                            @Override
+                            public void onError(int i, String s) {
+                                Logs.d("SendMessage","发送信息失败");
+                            }
+
+                            @Override
+                            public void onProgress(int i, String s) {
+
+                            }
+                        });
+
+
+
+
                         // 更新当前聊天界面的列表数据
                         Map<String, Object> map = new HashMap<String, Object>();
                         map.put(ChatTable.CHAT_MSG_CONTENT, msgContent);
@@ -233,5 +303,58 @@ public class ChatMsgActivity extends ListActivity {
             }
         });
     }
+    public void onResume(){
+        //注册消息监听
+        super.onResume();
+//        EMClient.getInstance().chatManager().addMessageListener(this);
+    }
 
+//    @Override
+//    public void onMessageReceived(List<EMMessage> list) {
+//        List<Map<String, Object>> chatListData = chatInfo.getChatMsgData();
+//        for (EMMessage message : list){
+//            // 获取当前时间
+//            Logs.d("MESSAGE", " "+message.getFrom());
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置时间显示格式
+//            // 将当前时间转化成字符串格式, 以便于存入数据库
+//            String currentTime = sdf.format(new Date());
+//            String msgContent = ((EMTextMessageBody) message.getBody()).getMessage();
+//            int showTimeFlag = ChatTable.HIDE_TIME;
+//            //添加数据
+//            Map<String, Object> map = new HashMap<String, Object>();
+//            map.put(ChatTable.CHAT_MSG_CONTENT, msgContent);
+//            map.put(ChatTable.CHAT_MSG_TIME, currentTime);
+//            map.put(ChatTable.CHAT_MSG_TYPE, ChatTable.CHAT_MSG_TYPE_RECEIVER);
+//            map.put(ChatTable.SHOW_TIME_FLAG, showTimeFlag);
+//            chatListData.add(map);
+//            // 将聊天记录插入数据库当中
+//            Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(userId, friendId, msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_RECEIVER, showTimeFlag);
+//        }
+//        //消息存储在环信数据库中
+//        EMClient.getInstance().chatManager().importMessages(list);
+//        //更新
+//        chatInfo.setChatMsgData(chatListData);
+//        chatMsgListAdapter.notifyDataSetChanged();
+//        onResume();
+//    }
+//
+//    @Override
+//    public void onCmdMessageReceived(List<EMMessage> list) {
+//
+//    }
+//
+//    @Override
+//    public void onMessageRead(List<EMMessage> list) {
+//
+//    }
+//
+//    @Override
+//    public void onMessageDelivered(List<EMMessage> list) {
+//
+//    }
+//
+//    @Override
+//    public void onMessageChanged(EMMessage emMessage, Object o) {
+//
+//    }
 }

@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:text="20:23"
         android:id="@+id/rightMsg_lastTime"
-        android:padding="5dp"
-        android:background="@color/textGray"
+        android:padding="3dp"
+        android:background="@color/chat_room_time"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:visibility="gone"
@@ -37,7 +37,7 @@
         android:padding="10dp"
         android:text="This is a message. And how do you think of this Message look like."
         android:textColor="@color/textWhite"
-        android:background="@color/colorAccent"
+        android:background="@drawable/txt_send_style"
         android:id="@+id/rightMsg_content"
         />
 

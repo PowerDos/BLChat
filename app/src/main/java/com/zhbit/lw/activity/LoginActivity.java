@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                                     JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
                                     //获取数据
                                     UserInfo userInfo = new UserInfo();
+                                    userInfo.setUserId(jsonObject.getInt("id"));
                                     userInfo.setUserAccount(jsonObject.getString("username"));
                                     userInfo.setUserName(jsonObject.getString("nickname"));
                                     userInfo.setUserSign(jsonObject.getString("sign"));

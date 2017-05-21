@@ -126,7 +126,11 @@ public class FriendInforActivity extends AppCompatActivity {
                     //是好友就跳转到聊天页面
                     Intent intent = new Intent(FriendInforActivity.this, ChatMsgActivity.class);
                     intent.putExtra(ChatTable.USER_ID, userId);
-                    intent.putExtra(ChatTable.FRIEND_ID, friendId);
+                    intent.putExtra(FriendTable.FRIEND_NAME,getIntent().getStringExtra(FriendTable.FRIEND_NAME));
+                    intent.putExtra(FriendTable.FRIEND_ACCOUNT,getIntent().getStringExtra(FriendTable.FRIEND_ACCOUNT));
+                    intent.putExtra(FriendTable.FRIEND_SEX,getIntent().getStringExtra(FriendTable.FRIEND_SEX));
+                    intent.putExtra(FriendTable.FRIEND_HEAD,getIntent().getStringExtra(FriendTable.FRIEND_HEAD));
+                    intent.putExtra(ChatTable.FRIEND_ID, getIntent().getIntExtra(FriendTable.FRIEND_ID,-1));
                     finish();
                     startActivity(intent);
                 }

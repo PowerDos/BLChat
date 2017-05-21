@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.model.dao.ChatTable;
 import com.zhbit.lw.model.dao.ChatTableDao;
 import com.zhbit.lw.model.dao.FriendTable;
@@ -34,14 +35,19 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS invitation;");
         //创建朋友圈表
         db.execSQL(MomentTable.CreateTable);
+        Logs.d("TABLE",MomentTable.CreateTable);
         //创建个人信息表
         db.execSQL(UserTable.CREATE_TABLE);
+        Logs.d("TABLE",UserTable.CREATE_TABLE);
         //创建好友表
         db.execSQL(FriendTable.CREATE_TABLE);
+        Logs.d("TABLE",FriendTable.CREATE_TABLE);
         //创建聊天表
         db.execSQL(ChatTable.CREATE_TABLE);
+        Logs.d("TABLE",ChatTable.CREATE_TABLE);
         //创建邀请表
         db.execSQL(InvitationTable.CREATE_TABLE);
+        Logs.d("TABLE",InvitationTable.CREATE_TABLE);
 //        // 插入聊天的测试数据
 //        String chatSql = "insert into chat_msg(user_id, friend_id, chat_msg_content, chat_msg_time, chat_msg_type, show_time_flag)" +
 //                " values(1, 2, '您好，好久不见，近来可好。', '2017-2-16 12:30', 'receive', 1)";
@@ -59,12 +65,12 @@ public class DBHelper extends SQLiteOpenHelper{
 //        db.execSQL(userSql);
 
         // 插入好友的测试数据
-        String friendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 2, 'friend', '2: 一本正经、', 'nick_name', '男', 'BLCHAT_01', 'R.drawable.head', '英德市', null, 1, '您好，我是您的老同学。')";
-        String senondFriendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1, 3, 'family', '3: 胡说八道、', 'second_name', '女', 'BLCHAT_02', 'R.drawable.head', '珠海市', null, 1, '您好，还记得我吗？')";
-        db.execSQL(friendSql);
-        db.execSQL(senondFriendSql);
+//        String friendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
+//                +"values(1, 2, 'friend', '2: 一本正经、', 'nick_name', '男', 'BLCHAT_01', 'R.drawable.head', '英德市', null, 1, '您好，我是您的老同学。')";
+//        String senondFriendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
+//                +"values(1, 3, 'family', '3: 胡说八道、', 'second_name', '女', 'BLCHAT_02', 'R.drawable.head', '珠海市', null, 1, '您好，还记得我吗？')";
+//        db.execSQL(friendSql);
+//        db.execSQL(senondFriendSql);
 
         // 插入朋友圈的测试数据
         String momentSql = "insert into moment(friendname,friendid,headphoto,publishtime,publishtext,publishImg)"
@@ -74,10 +80,10 @@ public class DBHelper extends SQLiteOpenHelper{
         db.execSQL(momentSql);
 
         //插入新好友邀请
-        String newInvitation = "insert into invitation(account,reason,status) values('Gavin','希望能认识你',1);";
-        String newInvitation2 = "insert into invitation(account,reason,status) values('Gavin12','希望能认识你',1);";
-        db.execSQL(newInvitation);
-        db.execSQL(newInvitation2);
+//        String newInvitation = "insert into invitation(account,reason,status) values('Gavin','希望能认识你',1);";
+//        String newInvitation2 = "insert into invitation(account,reason,status) values('Gavin12','希望能认识你',1);";
+//        db.execSQL(newInvitation);
+//        db.execSQL(newInvitation2);
     }
 
     @Override

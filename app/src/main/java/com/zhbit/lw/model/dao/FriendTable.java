@@ -24,7 +24,7 @@ public class FriendTable {
 
     public static final String CREATE_TABLE = "create table "
             + TABLE_NAME + " ("
-            + "[_id] integer autoinc primary key,"
+            + "_id integer autoinc primary key,"
             + USER_ID + " integer,"
             + FRIEND_ID + " integer,"
             + GROUP_NAME + " varchar(32),"

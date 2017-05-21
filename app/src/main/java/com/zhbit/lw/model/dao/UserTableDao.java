@@ -66,6 +66,7 @@ public class UserTableDao {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         //执行添加操作，使用replace的好处是有的时候添加，没有的时候覆盖
         ContentValues values = new ContentValues();
+        values.put(UserTable.USER_ID,userInfo.getUserId());
         values.put(UserTable.USER_NAME, userInfo.getUserName());
         values.put(UserTable.USER_ACCOUNT, userInfo.getUserAccount());
         values.put(UserTable.USER_HEAD, userInfo.getUserHead());

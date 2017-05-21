@@ -3,6 +3,7 @@ package com.zhbit.lw.model.dao;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.zhbit.lw.Logs.Logs;
 import com.zhbit.lw.model.bean.FriendInfo;
 import com.zhbit.lw.model.db.DBHelper;
 
@@ -28,8 +29,8 @@ public class FriendTableDao {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         //执行查询语句
-        String Sql = "select * from friend_infor where friend_account = ?";
-        Cursor cursor = db.rawQuery(Sql, new String[]{"'"+friendAccount+"'"});
+        String Sql = "select * from friend_infor where friend_account=?";
+        Cursor cursor = db.rawQuery(Sql, new String[]{friendAccount});
         //获取数据
         if (cursor.moveToNext()) {
             FriendInfo friendInfo = new FriendInfo();
@@ -117,7 +118,7 @@ public class FriendTableDao {
         //创建数据库
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String friendSql = "insert into friend_infor(user_id, friend_id, group_name, friend_name, nick_name, friend_sex, friend_account, friend_head, friend_location, friend_recent_photo, new_friend_flag, new_friend_request_msg)"
-                +"values(1,"
+                +" values(1,"
                 +friendInfo.getFriendId()
                 +",'friend', '"
                 +friendInfo.getFriendName()
@@ -128,7 +129,30 @@ public class FriendTableDao {
                 +"', 'R.drawable.head', '"
                 + friendInfo.getFriendLocation()+"', null, 1, '您好，我是您的老同学。')";
         db.execSQL(friendSql);
+        Logs.d("ADD_FRIEND_SQL",friendSql);
         db.close();
         return true;
+    }
+
+    public FriendInfo getFriendInfoById(int friendId){
+        //创建数据库
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        //执行查询语句
+        String Sql = "select * from friend_infor where friend_id = ?";
+        Cursor cursor = db.rawQuery(Sql, new String[]{""+friendId});
+        //获取数据
+        if (cursor.moveToNext()) {
+            FriendInfo friendInfo = new FriendInfo();
+            friendInfo.setFriendId(cursor.getInt(cursor.getColumnIndex(FriendTable.FRIEND_ID)));
+            friendInfo.setFriendName(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_NAME)));
+            friendInfo.setNickName(cursor.getString(cursor.getColumnIndex(FriendTable.NICK_NAME)));
+            friendInfo.setFriendAccount(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_ACCOUNT)));
+            friendInfo.setFriendSex(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_SEX)));
+            friendInfo.setFriendLocation(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_LOCATION)));
+            friendInfo.setFriendRecentPhoto(cursor.getString(cursor.getColumnIndex(FriendTable.FRIEND_RECENT_PHOTO)));
+            db.close();
+            return friendInfo;
+        }
+        return null;
     }
 }

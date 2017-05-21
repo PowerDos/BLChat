@@ -28,4 +28,9 @@
     <color name="btn_warning_normal">#F0AD4E</color>
     <color name="btn_warning_pressed">#D58512</color>
     <!--按钮颜色结束-->
+
+    <!--聊天页面开始-->
+    <color name="chat_room_time">#DADADA</color>
+    <!--聊天页面结束-->
 </resources>
+
