@@ -32,6 +32,7 @@ public class SystemSetting extends AppCompatActivity {
                                 //删除用户数据库记录
                                 Model.getInstance().getDbManager().getUserTableDao().LoginOut();
                                 Intent intent = new Intent(SystemSetting.this,LoginActivity.class);
+                                finish();
                                 startActivity(intent);
                             }
                         });
