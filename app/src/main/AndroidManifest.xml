@@ -83,7 +83,8 @@
         <!-- 设置环信应用结束 -->
 
         <activity android:name="com.zhbit.lw.activity.SignUpActivity" />
-        <activity android:name="com.zhbit.lw.activity.UserInforActivity"></activity>
+        <activity android:name="com.zhbit.lw.activity.UserInforActivity" />
+        <activity android:name="com.zhbit.lw.activity.SystemSetting"></activity>
     </application>
 
 </manifest>

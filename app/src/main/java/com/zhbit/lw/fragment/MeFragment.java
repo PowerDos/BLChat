@@ -13,11 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zhbit.lw.activity.SystemSetting;
 import com.zhbit.lw.activity.UserInforActivity;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.dao.UserTable;
+
+import java.util.List;
 
 /**
  * Created by wjh on 17-5-6.
@@ -30,6 +33,7 @@ public class MeFragment extends Fragment{
     private ImageView ivUserHead;
     private TextView tvUserName, tvUserAccount;
     private LinearLayout layoutUserInfor;
+    private LinearLayout laySetting;
 
     private int userId;
 
@@ -55,7 +59,7 @@ public class MeFragment extends Fragment{
         ivUserHead = (ImageView) view.findViewById(R.id.userInfor_userHead);
         tvUserName = (TextView) view.findViewById(R.id.userInfor_userName);
         tvUserAccount = (TextView) view.findViewById(R.id.userInfor_userAccount);
-
+        laySetting = (LinearLayout) view.findViewById(R.id.lay_setting);
         layoutUserInfor = (LinearLayout) view.findViewById(R.id.lineLayoutEditMyInfo);
     }
 
@@ -80,6 +84,13 @@ public class MeFragment extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), UserInforActivity.class);
                 intent.putExtra(UserTable.USER_ID, 1);
+                startActivity(intent);
+            }
+        });
+        laySetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SystemSetting.class);
                 startActivity(intent);
             }
         });

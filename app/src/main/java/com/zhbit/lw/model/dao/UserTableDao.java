@@ -77,4 +77,13 @@ public class UserTableDao {
         db.close();
     }
 
+    public void LoginOut(){
+        //实例化数据库
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        //SQL语句
+        String Sql = "delete from user_infor";
+        //执行
+        db.execSQL(Sql);
+        db.close();
+    }
 }

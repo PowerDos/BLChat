@@ -59,7 +59,9 @@
     <string name="sign_up_password">密  码:</string>
     <!--注册界面结束-->
 
-
+    <!--设置页面开始-->
+    <string name="setting_login_out">退出登陆</string>
+    <!--设置页面结束-->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="expandlistview_header_new_friend">新朋友</string>
