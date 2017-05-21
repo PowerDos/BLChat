@@ -74,8 +74,11 @@ public class ChatMsgActivity extends ListActivity{
                 map.put(ChatTable.CHAT_MSG_TYPE, ChatTable.CHAT_MSG_TYPE_RECEIVER);
                 map.put(ChatTable.SHOW_TIME_FLAG, ChatTable.HIDE_TIME);
                 chatListData.add(map);
+                //更新信息
                 chatInfo.setChatMsgData(chatListData);
                 chatMsgListAdapter.notifyDataSetChanged();
+                //滚动信息
+                chatMsgListView.smoothScrollToPosition(chatMsgListView.getMaxScrollAmount());
             }
         }
     };
@@ -92,7 +95,6 @@ public class ChatMsgActivity extends ListActivity{
         localBroadcastManager = LocalBroadcastManager.getInstance(this);
         //注册广播
         localBroadcastManager.registerReceiver(MESSAGE_CHANGE_RECEIVER, new IntentFilter(MESSAGE_CHANGE));
-
     }
 
     // 初始化视图
@@ -136,7 +138,8 @@ public class ChatMsgActivity extends ListActivity{
         // 设置聊天信息列表的适配器
         chatMsgListAdapter = new ChatMsgListAdapter(this, chatInfo);
         chatMsgListView.setAdapter(chatMsgListAdapter);
-
+        //滚动信息到底层
+        chatMsgListView.smoothScrollToPosition(chatMsgListView.getMaxScrollAmount());
     }
 
     // 初始化点击事件
@@ -303,58 +306,12 @@ public class ChatMsgActivity extends ListActivity{
             }
         });
     }
-    public void onResume(){
-        //注册消息监听
-        super.onResume();
-//        EMClient.getInstance().chatManager().addMessageListener(this);
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        if (hasFocus)
+        {
+            //滚动信息
+            chatMsgListView.smoothScrollToPosition(chatMsgListView.getMaxScrollAmount());
+        }
     }
-
-//    @Override
-//    public void onMessageReceived(List<EMMessage> list) {
-//        List<Map<String, Object>> chatListData = chatInfo.getChatMsgData();
-//        for (EMMessage message : list){
-//            // 获取当前时间
-//            Logs.d("MESSAGE", " "+message.getFrom());
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置时间显示格式
-//            // 将当前时间转化成字符串格式, 以便于存入数据库
-//            String currentTime = sdf.format(new Date());
-//            String msgContent = ((EMTextMessageBody) message.getBody()).getMessage();
-//            int showTimeFlag = ChatTable.HIDE_TIME;
-//            //添加数据
-//            Map<String, Object> map = new HashMap<String, Object>();
-//            map.put(ChatTable.CHAT_MSG_CONTENT, msgContent);
-//            map.put(ChatTable.CHAT_MSG_TIME, currentTime);
-//            map.put(ChatTable.CHAT_MSG_TYPE, ChatTable.CHAT_MSG_TYPE_RECEIVER);
-//            map.put(ChatTable.SHOW_TIME_FLAG, showTimeFlag);
-//            chatListData.add(map);
-//            // 将聊天记录插入数据库当中
-//            Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(userId, friendId, msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_RECEIVER, showTimeFlag);
-//        }
-//        //消息存储在环信数据库中
-//        EMClient.getInstance().chatManager().importMessages(list);
-//        //更新
-//        chatInfo.setChatMsgData(chatListData);
-//        chatMsgListAdapter.notifyDataSetChanged();
-//        onResume();
-//    }
-//
-//    @Override
-//    public void onCmdMessageReceived(List<EMMessage> list) {
-//
-//    }
-//
-//    @Override
-//    public void onMessageRead(List<EMMessage> list) {
-//
-//    }
-//
-//    @Override
-//    public void onMessageDelivered(List<EMMessage> list) {
-//
-//    }
-//
-//    @Override
-//    public void onMessageChanged(EMMessage emMessage, Object o) {
-//
-//    }
 }

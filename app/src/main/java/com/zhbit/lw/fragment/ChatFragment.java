@@ -20,6 +20,8 @@ import com.zhbit.lw.adapter.ChatListAdapter;
 import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.bean.ChatInfo;
+import com.zhbit.lw.model.bean.FriendInfo;
+import com.zhbit.lw.model.dao.FriendTable;
 
 import java.util.List;
 import java.util.Map;
@@ -101,8 +103,13 @@ public class ChatFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), ChatMsgActivity.class);
-                 intent.putExtra(USER_ID, userId);
-                 intent.putExtra(FRIEND_ID, Integer.parseInt(chatListData.get(position).get(FRIEND_ID).toString()));
+                FriendInfo friendInfo = Model.getInstance().getDbManager().getFriendTableDao().getFriendInfoById(Integer.parseInt(chatListData.get(position).get(FRIEND_ID).toString()));
+                intent.putExtra(FriendTable.FRIEND_NAME,friendInfo.getFriendName());
+                intent.putExtra(FriendTable.FRIEND_ACCOUNT,friendInfo.getFriendAccount());
+                intent.putExtra(FriendTable.FRIEND_SEX,friendInfo.getFriendSex());
+                intent.putExtra(FriendTable.FRIEND_HEAD,friendInfo.getFriendHead());
+                intent.putExtra(FriendTable.FRIEND_ID,friendInfo.getFriendId());
+                intent.putExtra(USER_ID, userId);
                 startActivity(intent);
             }
         });

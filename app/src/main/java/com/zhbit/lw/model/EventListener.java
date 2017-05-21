@@ -34,6 +34,7 @@ import java.util.Map;
 
 public class EventListener {
     private Context mContext;
+    private int UserId;
     private final String MESSAGE_CHANGE = "com.zhbit.lw.MESSAGE_CHANGE"; //信号
     private final LocalBroadcastManager localBroadcastManager; //广播管理者对象
     private final EMContactListener emContactListener = new EMContactListener() {
@@ -147,7 +148,7 @@ public class EventListener {
                     addContactIntent.putExtra(FriendTable.FRIEND_ID,friendInfo.getFriendId());
                     localBroadcastManager.sendBroadcast(addContactIntent);
                     // 将聊天记录插入数据库当中
-                    Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(1, friendInfo.getFriendId(), msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_RECEIVER, showTimeFlag);
+                    Model.getInstance().getDbManager().getChatTableDao().insertNewChatMsg(UserId, friendInfo.getFriendId(), msgContent, currentTime, ChatTable.CHAT_MSG_TYPE_RECEIVER, showTimeFlag);
                 }
 
             }
@@ -179,6 +180,7 @@ public class EventListener {
 
     public EventListener(Context context){
         mContext = context;
+        UserId = Model.getInstance().getDbManager().getUserTableDao().getUserId();
         //注册好友申请监听
         EMClient.getInstance().contactManager().setContactListener(emContactListener);
         //注册消息监听
