@@ -17,8 +17,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginTop="15dp">
+        android:layout_height="46dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp">
         <Button
             android:id="@+id/setting_login_out"
             android:layout_width="match_parent"
