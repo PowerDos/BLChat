@@ -30,6 +30,7 @@ public class UserInforActivity extends AppCompatActivity {
     }
 
     public void initView() {
+
         toolbar = (CustomToolbar) findViewById(R.id.userInfor_toolbar);
         toolbar.setTitle("详细信息");
 

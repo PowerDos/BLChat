@@ -7,13 +7,14 @@
     android:background="@color/backgroundPrimary"
     >
 
-    <android.support.v7.widget.Toolbar
+    <com.zhbit.lw.ui.CustomToolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:id="@+id/userInfor_toolbar"
         >
-    </android.support.v7.widget.Toolbar>
+
+    </com.zhbit.lw.ui.CustomToolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
