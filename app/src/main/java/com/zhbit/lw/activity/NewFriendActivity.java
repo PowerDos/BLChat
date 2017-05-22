@@ -10,6 +10,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class NewFriendActivity extends ListActivity {
 
     private CustomToolbar customToolbar;
     private Button btnAddNewFriend;
+    private EditText etSearchFriend;
 
     private int userId;
 
@@ -69,6 +71,9 @@ public class NewFriendActivity extends ListActivity {
         // 新好友列表
         newFriendListView = getListView();
         btnAddNewFriend = (Button) findViewById(R.id.btn_add_new_friend);
+
+        etSearchFriend = (EditText) findViewById(R.id.base_search);
+        etSearchFriend.setCursorVisible(false);
     }
 
     // 初始化数据
@@ -98,6 +103,13 @@ public class NewFriendActivity extends ListActivity {
             }
         });
 
+        etSearchFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etSearchFriend.setCursorVisible(true);
+            }
+        });
+
         // 添加新好友列表项的点击事件
         newFriendListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -111,4 +123,5 @@ public class NewFriendActivity extends ListActivity {
             }
         });
     }
+
 }

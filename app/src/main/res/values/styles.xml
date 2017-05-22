@@ -8,12 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:actionBarSize">48dip</item>
-        <item name="toolbarStyle">@style/myToolbarStyle</item>
         <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
-    </style>
-
-    <style name="myToolbarStyle" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="android:actionMenuTextColor">@color/textWhite</item>
+        <item name="actionMenuTextColor">@color/itemBackground</item>
     </style>
 
     <style name="myToolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">

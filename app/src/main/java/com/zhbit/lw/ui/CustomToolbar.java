@@ -3,6 +3,7 @@ package com.zhbit.lw.ui;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
@@ -27,6 +28,7 @@ public class CustomToolbar extends Toolbar{
 
         // 设置标题
         this.setTitle(ta.getString(R.styleable.CustomToolbar_titleText));
+        this.setTitleTextColor(Color.WHITE);
         // 设置返回键的图标
         this.setNavigationIcon(R.drawable.back);
         // 设置overflow图标
