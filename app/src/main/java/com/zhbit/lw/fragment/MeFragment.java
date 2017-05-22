@@ -87,6 +87,7 @@ public class MeFragment extends Fragment{
                 startActivity(intent);
             }
         });
+        // 设置按钮的监听事件
         laySetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

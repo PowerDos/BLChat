@@ -8,6 +8,7 @@ import com.zhbit.lw.blchat.R;
 import com.zhbit.lw.model.Model;
 import com.zhbit.lw.model.bean.UserInfo;
 import com.zhbit.lw.model.dao.UserTable;
+import com.zhbit.lw.ui.CustomToolbar;
 
 public class UserInforActivity extends AppCompatActivity {
 
@@ -15,6 +16,7 @@ public class UserInforActivity extends AppCompatActivity {
     private UserInfo userInfor;
 
     private TextView userName, userAccount, userLocation, userSex, userSign;
+    private CustomToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class UserInforActivity extends AppCompatActivity {
     }
 
     public void initView() {
+        toolbar = (CustomToolbar) findViewById(R.id.userInfor_toolbar);
+        toolbar.setTitle("详细信息");
+
         userName = (TextView) findViewById(R.id.userInfor_userName);
         userAccount = (TextView) findViewById(R.id.userInfor_userAccount);
         userLocation = (TextView) findViewById(R.id.userInfor_userLocation);

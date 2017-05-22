@@ -1,318 +1,318 @@
 [
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_layout_tab_icon.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_text_input_password_icon.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_mode_bar.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_part_time.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_simple.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_simple.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\expandlistview_header.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\expandlistview_header.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_add_friend.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_add_friend.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_bottom_sheet_dialog.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_moment.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_moment.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_moment_heading.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\layout_moment_heading.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/expandlistview_row_group.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/expandlistview_row_group.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_bar_title_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_custom_big.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_custom_big.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_layout_snackbar.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_chat_msg.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_chat_msg.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_system_setting.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_system_setting.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_expanded_menu_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_media.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_bar_up_container.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_bar_up_container.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_activity_chooser_view.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_friend_infor.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_friend_infor.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_alert_dialog_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_bottom_navigation_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_bottom_sheet_dialog.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_bottom_sheet_dialog.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_icon_group.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_layout_snackbar.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_alert_dialog_title_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_layout_tab_icon.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_layout_tab_icon.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\expandlistview_row_contact.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\expandlistview_row_contact.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_activity_chooser_view.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_row_newfriend.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\listview_row_newfriend.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_list_menu_item_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_search_view.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_friend.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_add_friend.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/base_search.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/base_search.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_layout_snackbar_include.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/fragment_me.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/fragment_me.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_row_chat.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\listview_row_chat.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/expandlistview_header.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/expandlistview_header.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_bar_up_container.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_me.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\fragment_me.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_found.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\fragment_found.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/listview_row_newfriend.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/listview_row_newfriend.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_menu_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_menu_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_menu_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/fragment_contact.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/fragment_contact.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_inofr.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_user_inofr.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_item_subheader.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_expanded_menu_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_bottom_navigation_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_bottom_navigation_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_popup_menu_item_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/expandlistview_row_contact.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/expandlistview_row_contact.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_select_dialog_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_alert_dialog_button_bar_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_sign_up.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_friend_infor.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_friend_infor.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_menu.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_menu.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/listview_row_chat.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/listview_row_chat.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_menu_item_action_area.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_toolbar.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_moment_content.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\layout_moment_content.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_item_separator.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_item_separator.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\expandlistview_row_group.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\expandlistview_row_group.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_media_custom.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_media_custom.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_dialog_title_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\base_search.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\base_search.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/select_dialog_multichoice_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_menu.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_action_tombstone.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_new_friend.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_new_friend.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/fragment_found.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/fragment_found.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_list_menu_item_radio.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/listview_row_chat_msg_left.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/listview_row_chat_msg_left.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_media_custom.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_popup_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_select_dialog_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_select_dialog_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_menu_item_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_layout_snackbar_include.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_layout_snackbar_include.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item_header.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_user_inofr.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_user_inofr.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_menu_item_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_icon.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_list_menu_item_icon.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item_subheader.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/layout_moment_heading.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/layout_moment_heading.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_welcome_page.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_welcome_page.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_screen_content_include.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_screen_content_include.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_layout_tab_text.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_system_setting.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_system_setting.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_menu_item_action_area.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_menu_item_action_area.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_item_header.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_item_header.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_item_separator.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_menu_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_menu_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chat_msg.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_chat_msg.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/layout_moment_content.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/layout_moment_content.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\select_dialog_multichoice_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_alert_dialog_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_screen_content_include.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_icon_group.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_screen_simple.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_row_chat_msg_left.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\listview_row_chat_msg_left.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_template_lines_media.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_moment.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\activity_moment.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/notification_action.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_part_chronometer.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_welcome_page.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_welcome_page.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_lines_media.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_navigation_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_navigation_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_title_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_alert_dialog_title_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_screen_toolbar.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/fragment_chat.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/fragment_chat.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_layout_tab_text.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_layout_tab_text.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_mode_bar.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/listview_row_chat_msg_right.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/listview_row_chat_msg_right.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contact.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\fragment_contact.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_action.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_sign_up.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_sign_up.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_chat.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\fragment_chat.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/activity_new_friend.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/src/main/res/layout/activity_new_friend.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_search_view.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_template_custom_big.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/select_dialog_item_material.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_row_chat_msg_right.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\src\\main\\res\\layout\\listview_row_chat_msg_right.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
-        "source": "D:\\Android\\workspace\\FunChat\\BLChat\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\select_dialog_item_material.xml"
+        "merged": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/res/merged/debug/layout/design_text_input_password_icon.xml",
+        "source": "/home/wjh/AndroidStudioProjects/BLChat/app/build/intermediates/exploded-aar/com.android.support/design/25.3.1/res/layout/design_text_input_password_icon.xml"
     }
 ]

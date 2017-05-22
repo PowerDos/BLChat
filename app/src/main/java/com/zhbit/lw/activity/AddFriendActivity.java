@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -57,6 +58,7 @@ public class AddFriendActivity extends AppCompatActivity{
         customToolbar.setTitle("添加朋友");
 
         etSearchFriend = (EditText) findViewById(R.id.base_search);
+        etSearchFriend.setCursorVisible(false);
     }
 
     // 初始化数据
@@ -67,11 +69,18 @@ public class AddFriendActivity extends AppCompatActivity{
 
     // 初始化点击事件
     private void initEvent() {
+        etSearchFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etSearchFriend.setCursorVisible(true);
+            }
+        });
         // 设置输入框的按键监听事件，　监听用户按下回车键
         etSearchFriend.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    etSearchFriend.setCursorVisible(false);
                     final String account = etSearchFriend.getText().toString();
                     //校验
                     if (TextUtils.isEmpty(account)){
@@ -97,22 +106,6 @@ public class AddFriendActivity extends AppCompatActivity{
                         Model.getInstance().getGlobalTheadPool().execute(new Runnable() {
                             @Override
                             public void run() {
-                                /**
-                                 * 我把显示在这个添加好友界面的内容全部去掉了，改成了搜索到之后就跳转到好友信息的界面
-                                 * 如果没有好友信息就Toast提示用户没有找到
-                                 * 回车键的监听事件是已经成功了的，不过服务器判断的内容我只改了下面我注释的内容
-                                 * 其他不懂的都没有改
-                                 *
-                                 * 本来设置的是UserInfo, 因为要改成跳转到FriendInfo所以修改了一下
-                                 * 不过没有认真看服务器的操作，你要改一改我写的
-                                 *
-                                 * 如果查到存在用户就跳转到好友信息界面，在好友信息，在添加好友成功之后才会把好友
-                                 * 的信息添加到本地数据库当中，所以好友信息界面通过好友ID是否存在本地数据库当中来
-                                 * 判别是不是好友也就是判断设置按钮为发消息还是添加好友
-                                 *
-                                 * 没有设置个性签名　我设计的好友表当中忘记了这个字段了
-                                 * 添加了设置好友ID
-                                 */
                                 Map<String, String> data = new HashMap<String, String>();
                                 data.put("username", account);
                                 data.put("type", "1"); //请求1，为获取个人信息
@@ -157,9 +150,18 @@ public class AddFriendActivity extends AppCompatActivity{
                             }
                         });
                     }
-                }else if(keyCode == KeyEvent.KEYCODE_BACK) {
+                }else if (keyCode == KeyEvent.KEYCODE_BACK) {
                     // 返回键的监听事件
                     finish();
+                }else if (keyCode == KeyEvent.KEYCODE_DEL) {
+                    String etContent = etSearchFriend.getText().toString();
+                    if (etContent.equals("")) {
+                        return true;
+                    }else{
+                        String result = etContent.substring(0, etContent.length()-1);
+                        etSearchFriend.setText(result);
+                        etSearchFriend.setSelection(result.length());
+                    }
                 }
                 return true;
             }
